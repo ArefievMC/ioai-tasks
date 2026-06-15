@@ -107,10 +107,30 @@
   }
   .full {
     display: none;
-    border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px;
-    color: var(--text); font-size: 13px; line-height: 1.65; white-space: pre-wrap;
+    border-top: 1px solid var(--border); padding-top: 14px; margin-top: 6px;
+    color: var(--text); font-size: 13.5px; line-height: 1.6;
   }
   .card.expanded .full { display: block; }
+  .full h1, .full h2, .full h3 { color: var(--accent); margin: 14px 0 6px; font-weight: 700; }
+  .full h1 { font-size: 18px; }
+  .full h2 { font-size: 16px; }
+  .full h3 { font-size: 14px; }
+  .full p { margin: 0 0 10px; }
+  .full ul, .full ol { padding-left: 22px; margin: 0 0 10px; }
+  .full li { margin: 3px 0; }
+  .full code { background: #0f1023; padding: 1px 5px; border-radius: 3px;
+    font-family: "SFMono-Regular",Menlo,Consolas,monospace; font-size: 12px; color: #b9b4ff; }
+  .full pre { background: #0f1023; border: 1px solid var(--border); border-radius: 6px;
+    padding: 10px; overflow-x: auto; margin: 0 0 10px; }
+  .full pre code { background: none; padding: 0; }
+  .full table { border-collapse: collapse; margin: 0 0 10px; font-size: 12px; }
+  .full th, .full td { border: 1px solid var(--border); padding: 6px 10px; }
+  .full th { background: rgba(107,92,255,0.1); }
+  .full hr { border: 0; border-top: 1px solid var(--border); margin: 14px 0; }
+  .full strong { color: var(--text); }
+  .full em { color: #b9b4ff; }
+  .full blockquote { border-left: 3px solid var(--accent2); padding-left: 12px; color: var(--muted); margin: 0 0 10px; }
+  .no-full { color: var(--muted); font-size: 12px; font-style: italic; }
   .topics {
     display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px;
   }
@@ -186,6 +206,9 @@ function render() {
   items.forEach(t => {
     const card = document.createElement('div'); card.className = 'card';
     const desc = t.description || '(описание отсутствует)';
+    const fullHtml = t.full_description
+      ? renderMd(t.full_description)
+      : '<div class="no-full">Полный markdown недоступен — заходи по ссылке выше.</div>';
     card.innerHTML = `
       <div class="src">${escapeHtml(t.source)} · ${host(t.url)} <span class="toggle">▼</span></div>
       <div class="name"><a href="${t.url}" target="_blank" rel="noopener">${escapeHtml(t.name)}</a></div>
@@ -193,7 +216,7 @@ function render() {
       <div class="topics">${t.topics.map(tp =>
         `<span class="topic ${tp===ACTIVE_TOPIC?'active':''}" data-topic="${escapeHtml(tp)}">${escapeHtml(tp)}</span>`
       ).join('')}</div>
-      <div class="full">${escapeHtml(desc)}</div>
+      <div class="full">${fullHtml}</div>
       <a class="url" href="${t.url}" target="_blank" rel="noopener">${escapeHtml(t.url)}</a>
     `;
     // клик по карточке раскрывает/сворачивает (кроме кликов по ссылкам и топикам)
@@ -217,6 +240,65 @@ function render() {
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c =>
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+// Минимальный markdown → HTML рендерер (header, list, code, link, bold, italic, hr, blockquote, table)
+function renderMd(md) {
+  let s = escapeHtml(md);
+  // fenced code blocks ```...```
+  s = s.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+    `<pre><code>${code.replace(/\n$/,'')}</code></pre>`);
+  // inline code `...`
+  s = s.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  // links [text](url)
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  // bold **text** and __text__
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+       .replace(/__([^_]+)__/g, '<strong>$1</strong>');
+  // italic *text* and _text_  (avoid bold collisions)
+  s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>')
+       .replace(/(^|[^_])_([^_\n]+)_/g, '$1<em>$2</em>');
+  // build line-based output
+  const lines = s.split('\n');
+  const out = []; let inUl=false, inOl=false, inBq=false, inTbl=false;
+  function close() {
+    if (inUl) { out.push('</ul>'); inUl=false; }
+    if (inOl) { out.push('</ol>'); inOl=false; }
+    if (inBq) { out.push('</blockquote>'); inBq=false; }
+    if (inTbl) { out.push('</tbody></table>'); inTbl=false; }
+  }
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    let m;
+    if (/^---+\s*$/.test(line)) { close(); out.push('<hr>'); continue; }
+    if (m = line.match(/^(#{1,6})\s+(.*)$/)) { close(); out.push(`<h${m[1].length}>${m[2]}</h${m[1].length}>`); continue; }
+    if (m = line.match(/^\s*[-*]\s+(.*)$/)) {
+      if (!inUl) { close(); out.push('<ul>'); inUl=true; }
+      out.push(`<li>${m[1]}</li>`); continue;
+    }
+    if (m = line.match(/^\s*\d+\.\s+(.*)$/)) {
+      if (!inOl) { close(); out.push('<ol>'); inOl=true; }
+      out.push(`<li>${m[1]}</li>`); continue;
+    }
+    if (m = line.match(/^&gt;\s?(.*)$/)) {
+      if (!inBq) { close(); out.push('<blockquote>'); inBq=true; }
+      out.push(`<p>${m[1]}</p>`); continue;
+    }
+    // table row
+    if (line.includes('|') && line.trim().startsWith('|')) {
+      const cells = line.split('|').slice(1,-1).map(c => c.trim());
+      // separator row
+      if (cells.every(c => /^:?-+:?$/.test(c))) continue;
+      if (!inTbl) { close(); out.push('<table><tbody>'); inTbl=true; }
+      out.push('<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>');
+      continue;
+    }
+    if (line.trim() === '') { close(); continue; }
+    close();
+    out.push(`<p>${line}</p>`);
+  }
+  close();
+  return out.join('\n');
 }
 
 load().catch(e => {
