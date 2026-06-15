@@ -2618,6 +2618,72 @@
     "Vision-text encoders (e.g. CLIP)"
    ],
    "description": "Генеративный ИИ: сгенерировать обложку альбома и короткое видео под ремикс песни (диффузионные модели, GAN, CLIP)."
+  },
+  {
+   "source": "Kazakhstan TST",
+   "name": "AI Olympiad 2026 First Round (cpfed)",
+   "url": "https://judge.nitro-ai.org/competitions/cpfed/ai-olymp-2026-first-round/view",
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation",
+    "Hyperparameter Tuning"
+   ],
+   "description": "Первый отборочный раунд казахстанской AI Olympiad 2026 на платформе cpfed/Nitro; root-страница без отдельных task-описаний."
+  },
+  {
+   "source": "Kazakhstan TST",
+   "name": "AI Olympiad 2026 Second Round (cpfed)",
+   "url": "https://judge.nitro-ai.org/competitions/cpfed/ai-olymp-2026-second-round/view",
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation",
+    "Hyperparameter Tuning"
+   ],
+   "description": "Второй отборочный раунд казахстанской AI Olympiad 2026 на платформе cpfed/Nitro; root-страница без отдельных task-описаний."
+  },
+  {
+   "source": "Nitro AI 2025",
+   "name": "Nitro NLP Hackathon 4th Edition",
+   "url": "https://judge.nitro-ai.org/competitions/nitro-2025/nitro-nlp/view",
+   "topics": [
+    "Text Classification",
+    "Language Modeling",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Transformers (theory needed only for text and image)",
+    "Attention Mechanism",
+    "Data Embeddings (text, image, audio)",
+    "Data Processing",
+    "Model Finetuning (full and parameter-efficient)",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "23-часовой NLP-хакатон от Nitro Association под эгидой Bucharest University (4-я edition); задачи NLP с использованием pre-trained моделей."
+  },
+  {
+   "source": "Nitro AI 2025",
+   "name": "Nitro AI Warmup Round",
+   "url": "https://judge.nitro-ai.org/competitions/nitro-2025/nitro-warmup-round/view",
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation"
+   ],
+   "description": "Warmup-раунд при запуске платформы Nitro: 2 задачи — занять лучшее место на лидерборде и первым отправить bug-репорт в Bug Bounty."
   }
  ],
  "sources": [
@@ -2652,6 +2718,7 @@
   "NEOAI 2025",
   "NEOAI 2026",
   "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+  "Nitro AI 2025",
   "OFIA",
   "Poland 2025",
   "Poland 2026",
@@ -2722,5 +2789,5 @@
   "Weight Initialization",
   "t-SNE, UMAP"
  ],
- "count": 171
+ "count": 175
 }
