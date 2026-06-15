@@ -141,6 +141,13 @@
   }
   .topic.active { background: var(--accent2); color: #fff; }
   .topic:hover { background: rgba(107, 92, 255, 0.3); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: rgba(184, 134, 11, 0.18); color: var(--accent);
+    padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+  }
+  .tag:hover { background: rgba(184, 134, 11, 0.35); }
   .empty { text-align: center; color: var(--muted); padding: 60px 20px; }
   a.url { color: var(--accent2); font-size: 12px; text-decoration: none; word-break: break-all; }
   a.url:hover { text-decoration: underline; }
@@ -152,9 +159,10 @@
   <h1>🧠 IOAI Task Bank</h1>
   <div class="sub" id="sub">Loading…</div>
   <div class="controls">
-    <input id="q" placeholder="🔍 поиск по названию, источнику, описанию, топику…">
+    <input id="q" placeholder="🔍 поиск по названию, источнику, описанию, тэгу…">
     <select id="src"><option value="">все источники</option></select>
-    <select id="topic"><option value="">все топики</option></select>
+    <select id="tag"><option value="">все категории</option></select>
+    <select id="topic"><option value="">все топики (силлабус)</option></select>
     <span class="counter" id="cnt"></span>
   </div>
 </header>
@@ -174,10 +182,13 @@ async function load() {
     `${DATA.count} задач из ${DATA.sources.length} источников · ${DATA.topics.length} топиков`;
   const srcSel = document.getElementById('src');
   DATA.sources.forEach(s => srcSel.add(new Option(s, s)));
+  const tagSel = document.getElementById('tag');
+  (DATA.tags || []).forEach(t => tagSel.add(new Option(t, t)));
   const tpSel = document.getElementById('topic');
   DATA.topics.forEach(t => tpSel.add(new Option(t, t)));
   document.getElementById('q').addEventListener('input', render);
   srcSel.addEventListener('change', render);
+  tagSel.addEventListener('change', render);
   tpSel.addEventListener('change', () => { ACTIVE_TOPIC = tpSel.value || null; render(); });
   render();
 }
@@ -189,12 +200,15 @@ function host(u) {
 function render() {
   const q = document.getElementById('q').value.toLowerCase().trim();
   const src = document.getElementById('src').value;
+  const tag = document.getElementById('tag').value;
   const tp = document.getElementById('topic').value;
   let items = DATA.tasks.filter(t => {
     if (src && t.source !== src) return false;
+    if (tag && !(t.tags || []).includes(tag)) return false;
     if (tp && !t.topics.includes(tp)) return false;
     if (q) {
-      const blob = (t.name + ' ' + t.source + ' ' + t.description + ' ' + t.topics.join(' ')).toLowerCase();
+      const blob = (t.name + ' ' + t.source + ' ' + t.description + ' ' +
+                    t.topics.join(' ') + ' ' + (t.tags||[]).join(' ')).toLowerCase();
       if (!blob.includes(q)) return false;
     }
     return true;
@@ -212,6 +226,9 @@ function render() {
     card.innerHTML = `
       <div class="src">${escapeHtml(t.source)} · ${host(t.url)} <span class="toggle">▼</span></div>
       <div class="name"><a href="${t.url}" target="_blank" rel="noopener">${escapeHtml(t.name)}</a></div>
+      <div class="tags">${(t.tags||[]).map(tg =>
+        `<span class="tag" data-tag="${escapeHtml(tg)}">${escapeHtml(tg)}</span>`
+      ).join('')}</div>
       <div class="desc">${escapeHtml(desc)}</div>
       <div class="topics">${t.topics.map(tp =>
         `<span class="topic ${tp===ACTIVE_TOPIC?'active':''}" data-topic="${escapeHtml(tp)}">${escapeHtml(tp)}</span>`
@@ -231,6 +248,13 @@ function render() {
         const v = el.dataset.topic;
         document.getElementById('topic').value = v;
         ACTIVE_TOPIC = v; render();
+      });
+    });
+    card.querySelectorAll('.tag').forEach(el => {
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        document.getElementById('tag').value = el.dataset.tag;
+        render();
       });
     });
     grid.appendChild(card);
