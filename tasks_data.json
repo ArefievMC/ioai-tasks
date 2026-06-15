@@ -1,0 +1,2249 @@
+{
+ "tasks": [
+  {
+   "source": "AICC",
+   "name": "Alchemy",
+   "url": "https://www.kaggle.com/competitions/alchemy-aicc-round-4",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Data Embeddings (text, image, audio)",
+    "Language Modeling",
+    "Attention Mechanism"
+   ],
+   "description": "Предсказать результат смешивания пары предметов в Little Alchemy при биективном отображении на список кандидатов, разрешён только BERT, метрика Accuracy."
+  },
+  {
+   "source": "AICC",
+   "name": "Audio Demixing",
+   "url": "https://www.kaggle.com/competitions/audio-demixing-aicc-round-2",
+   "topics": [
+    "Pre-trained Audio Encoders: HuBERT",
+    "Autoencoders",
+    "Encoder-Decoder Models (e.g. for Machine Translation or Vision-Language Modeling)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Convolutional Layers"
+   ],
+   "description": "Разделение источников звука: из одной mono-смеси восстановить два исходных сигнала, метрика permutation-invariant MSE."
+  },
+  {
+   "source": "AICC",
+   "name": "Autocorrect",
+   "url": "https://www.kaggle.com/competitions/autocorrect-aicc-round-1-2",
+   "topics": [
+    "Language Modeling",
+    "Transformers (theory needed only for text and image)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Attention Mechanism",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "SGD, Mini-Batch Gradient Descent",
+    "Regularization: Dropout, Early Stopping, Weight Decay"
+   ],
+   "description": "Исправление опечаток в тексте encoder-only моделью без предобученных весов и только на CPU, метрика CER. Разрешено использовать CatBoost и фичеинжиниринг."
+  },
+  {
+   "source": "AICC",
+   "name": "Brain Tumor",
+   "url": "https://www.kaggle.com/competitions/aicc-round-0-brain-tumor",
+   "topics": [
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Self-Supervised Learning for Vision",
+    "Model Finetuning (full and parameter-efficient)",
+    "Convolutional Layers",
+    "Data Processing",
+    "Image Augmentation"
+   ],
+   "description": "Классификация КТ-снимков мозга на 4 класса в условиях почти полного отсутствия меток (self-supervised + pseudo-labeling), метрика Macro F1. Размечено только ~2% трейна."
+  },
+  {
+   "source": "AICC",
+   "name": "Classifier Classifier",
+   "url": "https://www.kaggle.com/competitions/classifier-classifier-aicc-round-6",
+   "topics": [
+    "Convolutional Layers",
+    "Image Classification",
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Self-Supervised Learning for Vision",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "PyTorch Basics"
+   ],
+   "description": "Meta-классификация: по весам обученного CNN-классификатора определить, на какой из 10 классов он обучен, метрика Macro F-Score."
+  },
+  {
+   "source": "AICC",
+   "name": "Deceptive Points",
+   "url": "https://www.kaggle.com/competitions/deceptive-points-aicc-round-0",
+   "topics": [
+    "Linear Regression",
+    "L1 & L2 Regularization",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Feature Engineering",
+    "Data Processing",
+    "Underfitting, Overfitting"
+   ],
+   "description": "Табличная регрессия с устойчивостью к зашумлённым/выбросным записям в train, метрика MSE."
+  },
+  {
+   "source": "AICC",
+   "name": "Drawn Apart",
+   "url": "https://www.kaggle.com/competitions/drawn-apart-aicc-round-3",
+   "topics": [
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Convolutional Layers",
+    "Self-Supervised Learning for Vision",
+    "Data Processing"
+   ],
+   "description": "Классификация изображений в условиях domain shift (cartoon/grayscale стили), метрика F1."
+  },
+  {
+   "source": "AICC",
+   "name": "Essay Gap",
+   "url": "https://www.kaggle.com/competitions/essay-gap-aicc-round-2",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Language Modeling",
+    "Text Classification",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)",
+    "Data Embeddings (text, image, audio)"
+   ],
+   "description": "Cloze-style multiple choice: выбрать из 4 кандидатов предложение, лучше всего заполняющее пропуск в эссе, метрика F1."
+  },
+  {
+   "source": "AICC",
+   "name": "Extreme Condensation",
+   "url": "https://www.kaggle.com/competitions/extreme-condensation-aicc-round-4",
+   "topics": [
+    "Convolutional Layers",
+    "Image Classification",
+    "Backpropagation",
+    "Gradient Descent",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Weight Initialization",
+    "Tensor (Multi-dimensional Array) Manipulation"
+   ],
+   "description": "Dataset distillation: построить один синтетический 28×28 пример и soft-label, чтобы CNN, обученная только на нём, классифицировала MNIST, метрика Accuracy."
+  },
+  {
+   "source": "AICC",
+   "name": "Face Matching",
+   "url": "https://www.kaggle.com/competitions/face-matching-aicc-round-2",
+   "topics": [
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Vision-text encoders (e.g. CLIP)",
+    "Self-Supervised Learning for Vision",
+    "Data Embeddings (text, image, audio)",
+    "Convolutional Layers"
+   ],
+   "description": "Unsupervised face identification: по 15 reference-фото найти все остальные снимки тех же людей, метрика на основе similarity."
+  },
+  {
+   "source": "AICC",
+   "name": "Is That Audio?",
+   "url": "https://www.kaggle.com/competitions/is-that-audio-aicc-round-1-2",
+   "topics": [
+    "Audio Models: Qwen-Audio, Whisper, Voxtral",
+    "Pre-trained Audio Encoders: HuBERT",
+    "Text Classification",
+    "Data Embeddings (text, image, audio)",
+    "Data Processing"
+   ],
+   "description": "Closed-set классификация коротких аудио-клипов по анонимизированным меткам, метрика Accuracy. Аудио внутри класса разнородные и по-разному обработаны."
+  },
+  {
+   "source": "AICC",
+   "name": "Latent Model Classification",
+   "url": "https://www.kaggle.com/competitions/latent-model-classification-aicc-round-0",
+   "topics": [
+    "Data Embeddings (text, image, audio)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Logistic Regression",
+    "K-Means Clustering",
+    "Principal Component Analysis (PCA)",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "PyTorch Basics"
+   ],
+   "description": "Unsupervised бинарная классификация: определить, какая из двух скрытых нейросетей сгенерировала выходные логиты по входу, метрика Accuracy."
+  },
+  {
+   "source": "AICC",
+   "name": "Lost Interpreter",
+   "url": "https://www.kaggle.com/competitions/lost-interpreter-aicc-round-5",
+   "topics": [
+    "Language Modeling",
+    "Transformers (theory needed only for text and image)",
+    "Attention Mechanism",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Text Classification",
+    "Data Processing",
+    "Feature Engineering"
+   ],
+   "description": "Предсказать выходное значение глобальной переменной программы на неизвестном assembly-подобном языке без предобученных моделей, метрика MAE. Предобученные модели запрещены — нужен классический NLP с нуля."
+  },
+  {
+   "source": "AICC",
+   "name": "Massive Problem",
+   "url": "https://www.kaggle.com/competitions/massive-problem-aicc-round-6",
+   "topics": [
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Logistic Regression",
+    "Decision Trees",
+    "Cross-Validation",
+    "Hyperparameter Tuning"
+   ],
+   "description": "Биомедицинская supervised-классификация генов по табличным/последовательным признакам, метрика F1."
+  },
+  {
+   "source": "AICC",
+   "name": "Morty's Time Paradox",
+   "url": "https://www.kaggle.com/competitions/mortys-time-paradox-aicc-round-3",
+   "topics": [
+    "Feature Engineering",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Nearest Neighbors (K-NN)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Data Processing"
+   ],
+   "description": "5-классная классификация по 8 циклическим признакам с подсказкой о кандидатах-классах и балансом классов, метрика Accuracy."
+  },
+  {
+   "source": "AICC",
+   "name": "Nuclei Reconstruction",
+   "url": "https://www.kaggle.com/competitions/nuclei-reconstruction-aicc-round-6",
+   "topics": [
+    "Image Segmentation (U-Net)",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Data Processing",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+   ],
+   "description": "Бинарная семантическая сегментация ядер клеток на гистопатологических H&E-снимках, метрика IoU/Dice."
+  },
+  {
+   "source": "AICC",
+   "name": "Oriented Ship",
+   "url": "https://www.kaggle.com/competitions/oriented-ship-aicc-round-7",
+   "topics": [
+    "Object Detection (YOLO, SSD, DERT)",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Data Processing",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+   ],
+   "description": "Oriented object detection кораблей на аэроснимках с предсказанием повернутых bbox (cx, cy, w, h, theta), метрика SkewIoU. Запрещены специальные модели под эту задачу."
+  },
+  {
+   "source": "AICC",
+   "name": "Polarity",
+   "url": "https://www.kaggle.com/competitions/polarity-aicc-round-7",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Data Embeddings (text, image, audio)",
+    "Text Classification",
+    "Attention Mechanism",
+    "Language Modeling"
+   ],
+   "description": "Бинарная классификация пар слов на синонимы/антонимы только с помощью bert-large-uncased, метрика Macro F-Score."
+  },
+  {
+   "source": "AICC",
+   "name": "Scientific Facts",
+   "url": "https://www.kaggle.com/competitions/scientific-facts-aicc-round-7",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Text Classification",
+    "Language Modeling",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "3-классная NLI-классификация научных утверждений (SUPPORT/CONTRADICT/NOT_ENOUGH_INFO) на SciFact с использованием только SciBERT, метрика F1."
+  },
+  {
+   "source": "AICC",
+   "name": "Sound of Nature",
+   "url": "https://www.kaggle.com/competitions/sound-of-nature-aicc-round-3",
+   "topics": [
+    "Audio Models: Qwen-Audio, Whisper, Voxtral",
+    "Pre-trained Audio Encoders: HuBERT",
+    "Text Classification",
+    "Data Embeddings (text, image, audio)",
+    "Convolutional Layers"
+   ],
+   "description": "9-классная классификация звуков природы и животных по 5-секундным wav-файлам, метрика Macro F1. Аудио внутри класса разнородные и по-разному обработаны."
+  },
+  {
+   "source": "AICC",
+   "name": "Sticky Note Blindness",
+   "url": "https://www.kaggle.com/competitions/sticky-note-blindness-aicc-round-4",
+   "topics": [
+    "Vision-text encoders (e.g. CLIP)",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Data Embeddings (text, image, audio)",
+    "Attention Mechanism"
+   ],
+   "description": "Восстановление истинного класса изображений в CLIP, атакованных typographic-стикерами, метрика Accuracy."
+  },
+  {
+   "source": "AICC",
+   "name": "The Defected Nuts",
+   "url": "https://www.kaggle.com/competitions/the-defected-nuts-aicc-round-1-2",
+   "topics": [
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Segmentation (U-Net)",
+    "Convolutional Layers",
+    "Data Embeddings (text, image, audio)",
+    "Image Augmentation"
+   ],
+   "description": "Pixel-level детекция аномалий на изображениях фундука (anomaly segmentation), обучение только на нормальных примерах, метрика AUPRO."
+  },
+  {
+   "source": "AICC",
+   "name": "Visual Relations",
+   "url": "https://www.kaggle.com/competitions/visual-relations-aicc-round-5",
+   "topics": [
+    "Object Detection (YOLO, SSD, DERT)",
+    "Vision-text encoders (e.g. CLIP)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Classification",
+    "Convolutional Layers",
+    "Data Embeddings (text, image, audio)",
+    "Image Segmentation (U-Net)"
+   ],
+   "description": "Visual relationship detection: для каждой картинки выдать ранжированные триплеты (subject_bbox, predicate, object_bbox) на 35 классов отношений, метрика relation mAP. Включает и сегментацию; из предобученных моделей разрешён только facebook/detr-resnet-50."
+  },
+  {
+   "source": "AICC",
+   "name": "Watermark Removal",
+   "url": "https://www.kaggle.com/competitions/watermark-removal-aicc-round-5",
+   "topics": [
+    "Diffusion Models",
+    "Autoencoders",
+    "Image Segmentation (U-Net)",
+    "Convolutional Layers",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Image Augmentation",
+    "Pre-trained Vision Encoders (e.g. ResNet)"
+   ],
+   "description": "Image-to-image восстановление чистых изображений птиц из watermarked, метрика MSE."
+  },
+  {
+   "source": "Bangladesh AI",
+   "name": "Oculus Mirage",
+   "url": "https://www.kaggle.com/competitions/oculus-mirage/overview",
+   "topics": [
+    "Vision-text encoders (e.g. CLIP)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Data Embeddings (text, image, audio)",
+    "Convolutional Layers",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)",
+    "Image Augmentation",
+    "Self-Supervised Learning for Vision",
+    "Pooling Techniques (Max, Average)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU"
+   ],
+   "description": "Image-to-image retrieval: для каждой картинки из left-директории (high-fidelity снимки старого Токио) найти соответствующую правую (virtual nightish-версия с произвольным наложенным объектом). Encoder обязан использовать `openai/clip-vit-base-patch32`; разрешены и другие предобученные модели, кроме VLM. Сабмит: `left_image, right_image`. Метрика — Accuracy (доля корректно сматченных)."
+  },
+  {
+   "source": "Bangladesh AI",
+   "name": "Olímpicos",
+   "url": "https://www.kaggle.com/competitions/olimpicos",
+   "topics": [
+    "Linear Regression",
+    "L1 & L2 Regularization",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Nearest Neighbors (K-NN)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Underfitting, Overfitting",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Matplotlib and Seaborn for Visualization"
+   ],
+   "description": "Табличная регрессия по характеристикам спортсменов. Train: 800 строк (с таргетом), test: 160 без; фичи — country (8 стран: USA, Kenya, Jamaica, Germany, Brazil, China, Australia, Nigeria), sprint_time (с), jump_height_cm, strength_kg. Таргет — performance_score (стандартизованный composite). Подвох: фичи внутри каждой страны нормированы по своим средним и НЕсравнимы напрямую — нужно восстановить единый reference frame; подсказка из задачи — по одному атлету на страну имеет фичи 0/0/0 с ненулевым таргетом. Метрика — MSE."
+  },
+  {
+   "source": "Bangladesh AI",
+   "name": "The Remote Triage Crisis",
+   "url": "https://www.kaggle.com/competitions/the-remote-triage-crisis/leaderboard",
+   "topics": [
+    "Image Segmentation (U-Net)",
+    "Convolutional Layers",
+    "Image Augmentation",
+    "Pooling Techniques (Max, Average)",
+    "Batch Normalization",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
+    "Backpropagation",
+    "Gradient Descent",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
+    "Weight Initialization",
+    "Convergence and Learning Rates",
+    "Underfitting, Overfitting",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing",
+    "Self-Supervised Learning for Vision",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU"
+   ],
+   "description": "Image segmentation границ кожных поражений (ISIC-стиль): train — всего 50 dermoscopic .jpg + 50 binary masks, test — 250 .jpg без меток. Снимки сделаны сломанным смартфон-дерматоскопом — артефакты освещения, волосы, пузырьки, шум сенсора. Сабмит — RLE-кодированные binary маски. **Предобученные модели запрещены**. Метрика — Dice coefficient (среднее по 250 тестовым снимкам)."
+  },
+  {
+   "source": "Bangladesh BdAIO 2025",
+   "name": "BDAIO2025: Constrained headline generator",
+   "url": "https://www.kaggle.com/competitions/bdaio-2025-constrained-headline-generator/overview",
+   "topics": [
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Language Modeling",
+    "Transformers (theory needed only for text and image)",
+    "Encoder-Decoder Models (e.g. for Machine Translation or Vision-Language Modeling)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Attention Mechanism",
+    "Data Embeddings (text, image, audio)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
+    "PyTorch Basics"
+   ],
+   "description": "Constrained-генерация заголовков новостей: использовать выданную предобученную модель, чтобы по статье сгенерировать заголовок, избегая динамически задаваемых на инференсе запрещённых слов."
+  },
+  {
+   "source": "Colombian AI Olympiad",
+   "name": "**Heart Disease Risk Prediction**",
+   "url": "https://www.kaggle.com/competitions/colombian-ai-olympiad-2025-pr-1-heart-attack",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves"
+   ],
+   "description": "Бинарная табличная классификация: предсказать высокий или низкий риск развития сердечных заболеваний в течение 5 лет."
+  },
+  {
+   "source": "Colombian AI Olympiad",
+   "name": "Colombian Artificial Intelligence Olympiad",
+   "url": "https://www.kaggle.com/competitions/colombian-ai-olympiad-pr-3-five-artists",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pooling Techniques (Max, Average)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing"
+   ],
+   "description": "Классификация изображений: атрибуция картины одному из пяти художников."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] Binary Classification in Space",
+   "url": "https://www.kaggle.com/competitions/cyprus-ai-camp-binary-classification-in-space",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)"
+   ],
+   "description": "Бинарная классификация: отличить обычные галактики от карликовых по табличным/визуальным данным."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] Cyprus Cars Price Oracle",
+   "url": "https://www.kaggle.com/competitions/cyprus-cars-price-oracle",
+   "topics": [
+    "Linear Regression",
+    "L1 & L2 Regularization",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Табличная регрессия: предсказать рыночную цену подержанных автомобилей на Кипре по характеристикам объявления."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] Document Layout Analysis",
+   "url": "https://www.kaggle.com/competitions/cyprus-ai-camp-document-layout-analysis",
+   "topics": [
+    "Convolutional Layers",
+    "Image Augmentation",
+    "Image Segmentation (U-Net)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Classification",
+    "Object Detection (YOLO, SSD, DERT)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pooling Techniques (Max, Average)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+   ],
+   "description": "Анализ макета документов: классификация типа документа, детекция структурных элементов и попиксельная сегментация."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] Fashion Classifier",
+   "url": "https://www.kaggle.com/competitions/fashion-classifier",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pooling Techniques (Max, Average)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing"
+   ],
+   "description": "CV-классификация изображений одежды по категориям, метрика Accuracy."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] Galaxy 10 Classification",
+   "url": "https://www.kaggle.com/competitions/cyprus-ai-camp-galaxy-10-classification",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pooling Techniques (Max, Average)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing"
+   ],
+   "description": "CV-классификация: распознавание 10 типов галактик на цветных снимках 256x256 из Galaxy10 DECaLS, метрика Accuracy."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] Multimodal Skin Classification",
+   "url": "https://www.kaggle.com/competitions/multimodal-skin-classification",
+   "topics": [
+    "Confusion Matrix and ROC Curves",
+    "Decision Trees",
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pooling Techniques (Max, Average)",
+    "Data Embeddings (text, image, audio)",
+    "Data Processing"
+   ],
+   "description": "Мультимодальная классификация поражений кожи по 7 диагнозам (ISIC/HAM10000) на основе дермоскопических изображений и табличных метаданных пациента, метрика F1."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "[Cyprus AI Camp] The Enigma of Wine Quality",
+   "url": "https://www.kaggle.com/competitions/cyprus-ai-camp-the-enigma-of-wine-quality",
+   "topics": [
+    "Confusion Matrix and ROC Curves",
+    "Logistic Regression",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Табличная классификация качества вина по физико-химическим характеристикам, метрика Weighted F1."
+  },
+  {
+   "source": "Cyprus AI Camp 2026",
+   "name": "The Last Frequency — Speech Command Recognition",
+   "url": "https://www.kaggle.com/competitions/the-last-frequency",
+   "topics": [
+    "Audio Models: Qwen-Audio, Whisper, Voxtral",
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Audio Encoders: HuBERT"
+   ],
+   "description": "Распознавание речи: классификация коротких аудио по 35 голосовым командам, метрика Accuracy."
+  },
+  {
+   "source": "Cyprus Spring 2026",
+   "name": "Subtasks",
+   "url": "https://www.kaggle.com/competitions/cyprus-spring-2026-are-you-a-robot",
+   "topics": [
+    "Language Modeling",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Text Classification"
+   ],
+   "description": "NLP-классификация: определить, написано ли вступительное эссе человеком или ИИ-инструментом."
+  },
+  {
+   "source": "HBNU AI 2025",
+   "name": "Image Classification (HBNU AI 2025-Spring)",
+   "url": "https://www.kaggle.com/competitions/image-classification-hbnu-ai-2025-spring/overview",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Model Finetuning (full and parameter-efficient)",
+    "Self-Supervised Learning for Vision",
+    "Vision-text encoders (e.g. CLIP)",
+    "Pooling Techniques (Max, Average)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Batch Normalization",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
+    "Backpropagation",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
+    "Weight Initialization",
+    "Underfitting, Overfitting",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU"
+   ],
+   "description": "Бинарная CV-классификация face anti-spoofing: для каждого изображения определить, настоящее ли это лицо (live) или спуф-атака (spoof). В test есть **unseen domain** примеры — нужна доменная генерализация. Метрика — Accuracy. Разрешены предобученные модели (легально-открытые, commercial-use). Запрещены: внешние датасеты, платные API, генерация/аугментация данных через предобученные модели, utilизация информации из test (data leakage)."
+  },
+  {
+   "source": "HBNU AI 2026",
+   "name": "Image Classificaion(HBNU, AI, 2026-Spring)",
+   "url": "https://www.kaggle.com/competitions/image-classificaion-hbnu-ai-2026-spring",
+   "topics": [],
+   "description": "CV-классификация (face anti-spoofing): отличить реальное лицо от спуфинг-атаки, в тесте присутствуют unseen domain данные, метрика Accuracy."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Pelatnas IOAI Latihan 3",
+   "url": "https://www.kaggle.com/competitions/pelatnas-ioai-latihan-3",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves"
+   ],
+   "description": "Табличная многоклассовая классификация: предсказать категорию вина (комбинация уровня качества и цвета) по химико-физическим признакам."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Pencurian Kanvas",
+   "url": "https://www.kaggle.com/competitions/seminar-soal-ioai",
+   "topics": [
+    "Convolutional Layers",
+    "Image Classification",
+    "Autoencoders",
+    "Self-Supervised Learning for Vision",
+    "Pooling Techniques (Max, Average)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing",
+    "Principal Component Analysis (PCA)"
+   ],
+   "description": "CV/anomaly: по картинкам-картинам 9x9 в оттенках серого определить, какие из них поддельные, отличая стиль настоящего автора от подделок."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Pilihlah Mana yang Merupakan Arti dari Diriku?",
+   "url": "https://www.kaggle.com/competitions/simulasi-ioai25-nlp-ina",
+   "topics": [
+    "Data Embeddings (text, image, audio)",
+    "Language Modeling Both",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Transformers (theory needed only for text and image)",
+    "Text Classification",
+    "K-Means Clustering",
+    "Principal Component Analysis (PCA)",
+    "t-SNE, UMAP",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "NLP без учителя: для 50 документов на неизвестном (марсианском) языке определить их смысл/перевод."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Simulasi 1.3 Pelatnas 2",
+   "url": "https://www.kaggle.com/competitions/simulasi-1-3-pelatnas-2",
+   "topics": [
+    "Attention Mechanism",
+    "Data Embeddings (text, image, audio)",
+    "Encoder-Decoder Models (e.g. for Machine Translation or Vision-Language Modeling)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Transformers (theory needed only for text and image)",
+    "Text Classification"
+   ],
+   "description": "NLP: решать арифметические задачи в виде текстовых формулировок (до трёх операндов), используя encoder/encoder-decoder модели без decoder-only."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Simulasi 2.1 - Pelatnas 1 IOAI 2026",
+   "url": "https://www.kaggle.com/competitions/simulasi-2-1-pelatnas-1-ioai-2026",
+   "topics": [
+    "Linear Regression",
+    "L1 & L2 Regularization",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Pooling Techniques (Max, Average)",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Batch Normalization",
+    "Underfitting, Overfitting",
+    "K-Nearest Neighbors (K-NN)",
+    "Support Vector Machines (SVM)",
+    "Principal Component Analysis (PCA)",
+    "K-Means Clustering",
+    "Autoencoders",
+    "Gradient Descent",
+    "Backpropagation",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
+    "Convergence and Learning Rates",
+    "Weight Initialization",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU"
+   ],
+   "description": "Регрессия временных рядов: для каждого образца дана история суточных значений речного стока длиной T (50–60 дней); предсказать одно число — среднее значение стока за следующие 12 дней (не 12 раздельных предсказаний). Ряды разнородны: могут иметь тренд, сезонность, mean-reverting динамику или локальные изменения в конце окна — единая модель для всех образцов не оптимальна."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Simulasi 2.2 - Pelatnas 1 IOAI 2026",
+   "url": "https://www.kaggle.com/competitions/simulasi-2-2-pelatnas-1-ioai-2026",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Support Vector Machines (SVM)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Pooling Techniques (Max, Average)",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Batch Normalization",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Data Embeddings (text, image, audio)",
+    "Autoencoders"
+   ],
+   "description": "Мультимодальная 4-классовая классификация 1D-сигналов с космической антенны. Каждое наблюдение: основной сигнал (4800 значений) + сигнал модуляции/настройки антенны (128 значений). Нужно совместно использовать оба входа, бороться с шумом, при необходимости строить новые представления. Разрешены классический ML, deep learning (CNN/RNN/LSTM), signal processing, feature engineering. Метрика: Accuracy."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Simulasi 2.3 - Pelatnas 1 IOAI 2026",
+   "url": "https://www.kaggle.com/competitions/simulasi-2-3-pelatnas-1-ioai-2026",
+   "topics": [
+    "Text Classification",
+    "Language Modeling",
+    "Data Embeddings (text, image, audio)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)",
+    "Pooling Techniques (Max, Average)",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Batch Normalization",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Underfitting, Overfitting",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Decision Trees",
+    "Confusion Matrix and ROC Curves",
+    "Encoder-Decoder Models (e.g. for Machine Translation or Vision-Language Modeling)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Gradient Descent",
+    "Backpropagation",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
+    "Convergence and Learning Rates",
+    "Weight Initialization",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU"
+   ],
+   "description": "NLP-классификация позиции: для каждого из 500 «битых» сообщений на alien-языке (словарь из 30 уникальных токенов, длина 7–20) предсказать индекс позиции (0…L), где должен стоять известный пропущенный токен. Дано 1500 целых сообщений из архива для обучения. Входы: x0..x19 (incomplete sequence, дополнен `<PAD>`) + missing_unit. Задача — выучить «грамматику» alien-языка с нуля."
+  },
+  {
+   "source": "Indonesia Pelatnas IOAI",
+   "name": "Translasi Bahasa Planet Mars dengan Kata Kunci",
+   "url": "https://www.kaggle.com/competitions/practice-2-ioai-25-nlp",
+   "topics": [
+    "Encoder-Decoder Models (e.g. for Machine Translation or Vision-Language Modeling)",
+    "Language Modeling",
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Transformers (theory needed only for text and image)",
+    "Attention Mechanism",
+    "Data Embeddings (text, image, audio)"
+   ],
+   "description": "NLP, генеративный перевод: по документу на марсианском языке и 4 ключевым английским фразам сгенерировать английский перевод."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "Community Mirror (Unofficial)",
+   "url": "https://www.kaggle.com/competitions/restroom-ioai-2025",
+   "topics": [
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Self-Supervised Learning for Vision"
+   ],
+   "description": "CV-матчинг: по query-изображению иконки туалета найти иконку противоположного пола из того же туалета (self-supervised эмбеддинги)."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "Computer Vision Challenge 2026",
+   "url": "https://www.kaggle.com/competitions/ioai-computer-vision-challenge-2026",
+   "topics": [],
+   "description": "CV crowd counting: подсчёт количества людей на изображениях городских сцен по точечным аннотациям головы."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "Embedding Secrets",
+   "url": "https://www.kaggle.com/competitions/ioai-nlp-challenge-2026",
+   "topics": [],
+   "description": "NLP: по утечке эмбеддингов восстановить скрытые имена в судебных документах, выбрав из 800 кандидатов 300 настоящих эмбеддингов с шумом."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "IOAI 2-bosqich saralash",
+   "url": "https://www.kaggle.com/competitions/ioai-2-bosqich-saralash",
+   "topics": [],
+   "description": "Бинарная табличная классификация: предсказать вероятность дождя на завтра по метеорологическим признакам."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "IOAI 2026: Spanish National Selection — Natural Scene Vision",
+   "url": "https://www.kaggle.com/competitions/ioai-trainings-cv",
+   "topics": [
+    "Confusion Matrix and ROC Curves",
+    "Convolutional Layers",
+    "Image Augmentation",
+    "Image Classification",
+    "Logistic Regression",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Pre-trained Vision Encoders (e.g. ResNet)"
+   ],
+   "description": "CV-классификация изображений 150x150 пикселей по 6 категориям природных и городских сцен (buildings, forest, glacier, mountain, sea, street), метрика F1."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "Radar (IOAI 2025 Task 1) Mirror (Unofficial)",
+   "url": "https://www.kaggle.com/competitions/radar-ioai-2025",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "Sentinel of the Metropolis",
+   "url": "https://www.kaggle.com/competitions/ioai-machine-learning-challenge-2026",
+   "topics": [
+    "L1 & L2 Regularization",
+    "Linear Regression",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Регрессия: построить soft-сенсор для оценки уровня CO по показаниям дешёвых датчиков среды и сопутствующих загрязнителей."
+  },
+  {
+   "source": "IOAI Mirror / Challenge",
+   "name": "Synthetic Speech Detection (IOAI 2025 GAITE task 5",
+   "url": "https://www.kaggle.com/competitions/ioai-2025-gaite-task-5",
+   "topics": [
+    "Audio Models: Qwen-Audio, Whisper, Voxtral",
+    "Confusion Matrix and ROC Curves",
+    "Data Embeddings (text, image, audio)",
+    "Logistic Regression",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Pre-trained Audio Encoders: HuBERT"
+   ],
+   "description": "Классификация изображений: по спектрограммам аудио отличить синтетическую (AI-сгенерированную) речь от настоящей, метрика F1."
+  },
+  {
+   "source": "IOAI Practice",
+   "name": "BERT Classification (IOAI)",
+   "url": "https://www.kaggle.com/competitions/bert-classification-ioai",
+   "topics": [
+    "Attention Mechanism",
+    "Confusion Matrix and ROC Curves",
+    "Data Embeddings (text, image, audio)",
+    "Logistic Regression",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "NLP, бинарная классификация твитов: определить, упоминается ли в тексте побочная реакция на лекарство (ADR), метрика F1."
+  },
+  {
+   "source": "Japan JOAI 2025",
+   "name": "[Playground] JOAI Competition 2025",
+   "url": "https://www.kaggle.com/competitions/playground-joai-competition-2025",
+   "topics": [
+    "Confusion Matrix and ROC Curves",
+    "Logistic Regression",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Underfitting, Overfitting",
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pooling Techniques (Max, Average)",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Transformers (theory needed only for text and image)",
+    "Attention Mechanism",
+    "Language Modeling",
+    "Data Embeddings (text, image, audio)"
+   ],
+   "description": "Мультимодальная классификация газов по табличным, визуальным и текстовым данным (playground-версия), метрика F1."
+  },
+  {
+   "source": "Japan JOAI 2026",
+   "name": "[Playground]JOAI Competition 2026",
+   "url": "https://www.kaggle.com/competitions/playground-joai-competition-2026",
+   "topics": [
+    "L1 & L2 Regularization",
+    "Linear Regression",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Transformers (theory needed only for text and image)",
+    "Attention Mechanism",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Pooling Techniques (Max, Average)",
+    "Data Embeddings (text, image, audio)",
+    "Autoencoders",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Batch Normalization",
+    "Decision Trees",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Underfitting, Overfitting",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Регрессия по временным рядам: по сигналам wide-field кальциевой нейровизуализации мозга мыши предсказать положение рычага в каждый момент времени, метрика MSE."
+  },
+  {
+   "source": "JOAI Jordan",
+   "name": "Competition Description",
+   "url": "https://www.kaggle.com/competitions/joai-grade-classification",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Nearest Neighbors (K-NN)",
+    "Support Vector Machines (SVM)",
+    "L1 & L2 Regularization",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Underfitting, Overfitting",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Matplotlib and Seaborn for Visualization"
+   ],
+   "description": "Табличная бинарная классификация: предобработать данные (пропуски, дубликаты, выбросы) и предсказать метку A/B (0/1)."
+  },
+  {
+   "source": "JOAI Jordan",
+   "name": "Competition Description",
+   "url": "https://www.kaggle.com/competitions/joai-mobile-price-classification",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Nearest Neighbors (K-NN)",
+    "Support Vector Machines (SVM)",
+    "L1 & L2 Regularization",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Underfitting, Overfitting",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Matplotlib and Seaborn for Visualization"
+   ],
+   "description": "Табличная бинарная классификация: предсказать ценовую категорию мобильного телефона (low/high) по его техническим характеристикам."
+  },
+  {
+   "source": "JOAI Jordan",
+   "name": "JOAI Loan RiskScore Prediction",
+   "url": "https://www.kaggle.com/competitions/joai-loan-risk-score-prediction",
+   "topics": [
+    "L1 & L2 Regularization",
+    "Linear Regression",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Табличная регрессия: предсказать численный risk-score заявки на кредит."
+  },
+  {
+   "source": "JOAI Jordan",
+   "name": "Regression with Messy Application Data",
+   "url": "https://www.kaggle.com/competitions/regforjoai",
+   "topics": [
+    "L1 & L2 Regularization",
+    "Linear Regression",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Табличная регрессия: предсказать одобренную сумму заявки на грязных данных (пропуски, дубли, выбросы, категориальные признаки)."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "Dates and Format:",
+   "url": "https://www.kaggle.com/competitions/neoai-2025",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Broken BERT",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-broken-bert",
+   "topics": [
+    "Attention Mechanism",
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "NLP: восстановить повреждённые эмбеддинги BERT (Kaggle-версия задачи NEOAI)."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Cluster pictures",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-cluster-pictures",
+   "topics": [
+    "Data Embeddings (text, image, audio)",
+    "K-Means Clustering",
+    "Principal Component Analysis (PCA)"
+   ],
+   "description": "CV unsupervised: кластеризация изображений по эмбеддингам с использованием PCA и K-Means."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Cuties segmentation",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-cuties-segmentation",
+   "topics": [
+    "Convolutional Layers",
+    "Image Augmentation",
+    "Image Segmentation (U-Net)",
+    "Pre-trained Vision Encoders (e.g. ResNet)"
+   ],
+   "description": "CV семантическая сегментация мультяшных персонажей (Kaggle-версия NEOAI)."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Evading AI-Generated Text Detection",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-evading-generated-text-detection",
+   "topics": [
+    "Language Modeling",
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Text Classification",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "NLP: обойти детекторы AI-сгенерированного текста, используя языковые модели и атаки на классификаторы."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Intent Detection and Slot Filling",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-intent-detection-and-slot-filling",
+   "topics": [],
+   "description": "NLP: совместное определение интента и заполнение слотов (intent detection + slot filling) в пользовательских репликах."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Tricy Table Data",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-tricy-table-data",
+   "topics": [
+    "Decision Trees",
+    "Feature Engineering",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Табличная задача с непростой структурой: использовать деревья и градиентный бустинг, тип таргета не уточнён."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "NEOAI 2025: Underfitting CV",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-underfitting-cv",
+   "topics": [],
+   "description": "CV: справиться с недообучением модели на задаче компьютерного зрения; точная постановка в summary не раскрыта."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "The Curse of Farmer Hoggart",
+   "url": "https://www.kaggle.com/competitions/neoai-2025-hogspell-challenge",
+   "topics": [],
+   "description": "Генерация изображений: заставить модель генерировать свиней (стори-версия задачи Hogspell)."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "Evaluation Metric",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-mania",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Ранжирование/рекомендация: отобрать топ-8 участников, максимизирующих сумму solution.probability, метрика Recall@8."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 day 1 Kaggleforces",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-1-kaggleforces",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "neoai 2026 day 1 nlp",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-1-nlp",
+   "topics": [],
+   "description": "NLP-задача дня 1 NEOAI 2026."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 day 2 Cuties Nlp",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-2-cutiesnlp",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 Day 3: Cluster frames",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-3-clusterframes",
+   "topics": [
+    "Data Embeddings (text, image, audio)",
+    "K-Means Clustering",
+    "Principal Component Analysis (PCA)"
+   ],
+   "description": "CV unsupervised: кластеризация видеокадров по эмбеддингам с использованием PCA и K-Means."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 Day 3: No copyright!",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-3-watermarks",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 Day 3: Strange Words",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-3-nlp",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 Day 4: Breaking Cat",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-4-boostcat",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 Day 4: GenAI",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-4-genai",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI 2026 Day 4: Match!",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-4-nlp",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI Mania 2026 (ranking)",
+   "url": "https://www.kaggle.com/competitions/neoai-mania-2026",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Задача ранжирования участников: предсказать топ-8 по вероятности успеха, метрика Recall@8 по сумме probability."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "neoai-2026-day-1-cv",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-1-cv",
+   "topics": [],
+   "description": "Задача компьютерного зрения дня 1 NEOAI 2026."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI-2026-day-2-Audio",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-2-audio",
+   "topics": [
+    "Audio Models: Qwen-Audio, Whisper, Voxtral",
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Audio Encoders: HuBERT"
+   ],
+   "description": "Аудио-задача с применением предобученных аудио-моделей (Whisper, Qwen-Audio, HuBERT) и эмбеддингов."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI-2026-day-2-cv",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-2-cv",
+   "topics": [],
+   "description": "Задача компьютерного зрения в рамках NEOAI 2026 day 2."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI-2026-Qualification-CodeStars-Homework",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-qualification-code-stars-homework",
+   "topics": [],
+   "description": "Предсказание результатов кодинг-контестов: ранжирование участников с метрикой 0.3·Recall@100 + 0.7·Kendall tau, усреднённой по тестовым контестам."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI-2026-Qualification-FindComments Homework",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-qualification-find-comments-homework",
+   "topics": [
+    "Backpropagation",
+    "Convolutional Layers",
+    "Gradient Descent",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "NLP-задача поиска/классификации комментариев с использованием предобученных текстовых энкодеров (BERT-like) и трансформеров."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "NEOAI-2026-Qualification-Terminal-animals-Homework",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-qualification-terminal-animals-homework",
+   "topics": [
+    "Language Modeling",
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "NLP/LLM-задача: построить агента для работы в терминале с использованием предобученных языковых моделей."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "neoai2026day0test",
+   "url": "https://www.kaggle.com/competitions/neoai-2026-day-0-test",
+   "topics": [
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "Тестовая задача NEOAI 2026 day 0: пайплайны с моделями, обучаемыми с нуля (random init, spacy.blank, Word2Vec на мини-корпусе), без скачивания предобученных весов."
+  },
+  {
+   "source": "NEOAI 2026",
+   "name": "Northern Eurasia OAI 2026",
+   "url": "https://www.kaggle.com/competitions/neoai-2026",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "OFIA",
+   "name": "OFIA 2026",
+   "url": "https://www.kaggle.com/t/5bc5ead0dc4046ee8d47560c5847809b",
+   "topics": [
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Vision-text encoders (e.g. CLIP)",
+    "Object Detection (YOLO, SSD, DERT)",
+    "Self-Supervised Learning for Vision",
+    "Convolutional Layers",
+    "Image Augmentation"
+   ],
+   "description": "Две связанные подзадачи (по 50 баллов). (1) Идентификация: классификация на 5 классов «агентов» по 12 табличным признакам (числовые + категориальные), train=2000, test=1000. (2) Локализация: для каждой из 1000 surveillance-картинок (1024², 2048² или 4096²) предсказать центр шпиона; на каждого агента есть 5 референсных фото без отличительных аксессуаров. Разрешены претрейны, классический CV, zero-shot подходы. Локализация засчитывается если предсказание попадает в квадрат 200×200 вокруг истинного центра."
+  },
+  {
+   "source": "China NOAI 2024",
+   "name": "Basketball Shooting",
+   "url": "https://github.com/jaredliw/ioai-tsp-2025/tree/main/noai-china-2024/basketball-shooting",
+   "topics": [
+    "Linear Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Табличная регрессия: предсказание процента попаданий в баскетболе."
+  },
+  {
+   "source": "China NOAI 2024",
+   "name": "News Text Classification",
+   "url": "https://github.com/jaredliw/ioai-tsp-2025/tree/main/noai-china-2024/news-text-classification",
+   "topics": [
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Language Modeling"
+   ],
+   "description": "NLP-классификация: категоризация новостных статей с использованием pretrained-энкодеров вроде BERT."
+  },
+  {
+   "source": "China NOAI 2024",
+   "name": "Pendulum Motion",
+   "url": "https://github.com/jaredliw/ioai-tsp-2025/tree/main/noai-china-2024/pendulum-motion",
+   "topics": [
+    "Data Processing",
+    "Feature Engineering",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Linear Regression"
+   ],
+   "description": "Регрессия по временным рядам: восстановить траекторию маятника при пропущенных точках."
+  },
+  {
+   "source": "China NOAI 2024",
+   "name": "Real or Fake Image",
+   "url": "https://github.com/jaredliw/ioai-tsp-2025/tree/main/noai-china-2024/real-or-fake-image",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation"
+   ],
+   "description": "CV-классификация: определить, сгенерировано ли изображение ИИ или реально."
+  },
+  {
+   "source": "Hungary HAIO 2024",
+   "name": "HAIO 2024 — 10 tasks (4 CV + 4 NLP + 2 theoretical)",
+   "url": "https://github.com/Hungarian-AI-Olympiad/HAIO-Hungarian-AI-Olympiad/tree/main/2024",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Language Modeling"
+   ],
+   "description": "Сборник олимпиадных задач: 4 по CV (классификация изображений, CNN), 4 по NLP (классификация текстов, BERT, языковые модели) и 2 теоретические."
+  },
+  {
+   "source": "Hungary HAIO 2025",
+   "name": "HAIO 2025 — 6 tasks (1 ML online + 1 theory + 4 practical)",
+   "url": "https://github.com/Hungarian-AI-Olympiad/HAIO-Hungarian-AI-Olympiad/tree/main/2025",
+   "topics": [
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Image Classification",
+    "Text Classification"
+   ],
+   "description": "Сборник олимпиадных задач: онлайн-квалификация по ML с feature engineering и ансамблями, теоретическая задача и 4 практические по классификации изображений и текстов."
+  },
+  {
+   "source": "Hungary HAIO 2026",
+   "name": "HAIO 2026 — Expanded program",
+   "url": "https://github.com/Hungarian-AI-Olympiad/HAIO-Hungarian-AI-Olympiad/tree/main/2026",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "IOAI 2025",
+   "name": "IOAI 2025 — Problems & Solutions (repo)",
+   "url": "https://github.com/IOAI-official/IOAI-2025",
+   "topics": [],
+   "description": "Набор индивидуальных и командных задач по ML, NLP и CV из официального репозитория IOAI 2025."
+  },
+  {
+   "source": "Kazakhstan TST",
+   "name": "Code Difficulty Classification",
+   "url": "https://github.com/batyrq/IOAI-TST-solution-day3",
+   "topics": [
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Language Modeling"
+   ],
+   "description": "NLP-классификация: разметить фрагменты кода по уровню сложности (easy/medium/hard)."
+  },
+  {
+   "source": "Kazakhstan TST",
+   "name": "Image Restoration (2×2 channel filters)",
+   "url": "https://github.com/batyrq/IOAI-TST-solution-day1",
+   "topics": [
+    "Convolutional Layers",
+    "Autoencoders",
+    "Image Segmentation (U-Net)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+   ],
+   "description": "CV restoration: восстановить изображения, испорченные 2x2 канальными фильтрами."
+  },
+  {
+   "source": "Kazakhstan TST",
+   "name": "Masked Word Position",
+   "url": "https://github.com/batyrq/IOAI-TST-solution-day4",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Language Modeling",
+    "Attention Mechanism"
+   ],
+   "description": "NLP: предсказать позицию замаскированного слова в предложении."
+  },
+  {
+   "source": "Kazakhstan TST",
+   "name": "Player Clustering",
+   "url": "https://github.com/batyrq/IOAI-TST-solution-day2",
+   "topics": [
+    "K-Means Clustering",
+    "Principal Component Analysis (PCA)",
+    "DBSCAN, Hierarchical & Spectral Clustering",
+    "Feature Engineering"
+   ],
+   "description": "Кластеризация (unsupervised): сгруппировать футболистов по их игровым статистикам."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "Broken BERT",
+   "url": "https://github.com/open-cu/neoai-2025/tree/main/5_Broken_BERT",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Data Embeddings (text, image, audio)",
+    "Language Modeling"
+   ],
+   "description": "NLP: восстановить повреждённые эмбеддинги BERT, приблизив их к оригинальным."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "Cuties Segmentation",
+   "url": "https://github.com/open-cu/neoai-2025/tree/main/8_Cuties_Segmentation",
+   "topics": [
+    "Image Segmentation (U-Net)",
+    "Convolutional Layers",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation"
+   ],
+   "description": "CV семантическая сегментация мультяшных персонажей."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "Evading AI-Generated Text Detection",
+   "url": "https://github.com/open-cu/neoai-2025/tree/main/3_Evading_AI_Generated_Text_Detection",
+   "topics": [
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Language Modeling",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "NLP-генерация: построить генератор текста, обходящий детекторы AI-generated text."
+  },
+  {
+   "source": "NEOAI 2025",
+   "name": "Hogspell Challenge",
+   "url": "https://github.com/lenjjiv/steering-hogs",
+   "topics": [
+    "Diffusion Models",
+    "Pre-trained Vision Encoders (e.g. ResNet)"
+   ],
+   "description": "Генерация изображений: управлять (steer) диффузионной моделью, чтобы она генерировала изображения свиней."
+  },
+  {
+   "source": "Poland 2025",
+   "name": "Borrowing (Credit scoring explanations)",
+   "url": "https://github.com/OlimpiadaAI/II-OlimpiadaAI/blob/main/2_etap/kredytobranie/kredytobranie.ipynb",
+   "topics": [
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Cross-Validation"
+   ],
+   "description": "ML на табличных данных: кредитный скоринг с генерацией объяснений предсказаний, классическое ML с feature engineering и ансамблями."
+  },
+  {
+   "source": "Poland 2025",
+   "name": "Coin Counting Machine",
+   "url": "https://github.com/OlimpiadaAI/II-OlimpiadaAI/blob/main/1_etap/1_maszynka_do_liczenia_monet/1_maszynka_do_liczenia_monet.ipynb",
+   "topics": [
+    "Object Detection (YOLO, SSD, DERT)",
+    "Convolutional Layers",
+    "Image Augmentation",
+    "Pre-trained Vision Encoders (e.g. ResNet)"
+   ],
+   "description": "Компьютерное зрение: построение детектора монет с нуля, задача object detection."
+  },
+  {
+   "source": "Poland 2025",
+   "name": "Hallucination Detection",
+   "url": "https://github.com/OlimpiadaAI/II-OlimpiadaAI/blob/main/1_etap/2_wykrywanie_halucynacji/2_wykrywanie_halucynacji_modelowe_rozwiazanie.ipynb",
+   "topics": [
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "NLP-задача классификации: детекция галлюцинаций в ответах языковых моделей с использованием предобученных текстовых энкодеров."
+  },
+  {
+   "source": "Poland 2025",
+   "name": "Non-normal Distribution",
+   "url": "https://github.com/OlimpiadaAI/II-OlimpiadaAI/blob/main/2_etap/rozklad_nienormalny/rozklad_nienormalny.ipynb",
+   "topics": [
+    "Autoencoders",
+    "Convolutional Layers",
+    "Diffusion Models",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+   ],
+   "description": "Восстановление изображений: оценка шума и денойзинг с использованием автоэнкодеров/диффузионных моделей, метрика типа MSE/MAE."
+  },
+  {
+   "source": "Poland 2025",
+   "name": "Source Extraction (GPT-2 query/doc alignment)",
+   "url": "https://github.com/OlimpiadaAI/II-OlimpiadaAI/tree/main/2_etap/ekstrakcja_zrodel",
+   "topics": [
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Data Embeddings (text, image, audio)",
+    "Language Modeling",
+    "Attention Mechanism"
+   ],
+   "description": "NLP-задача поиска источников: выравнивание эмбеддингов запроса и документа через GPT-2, attention-механизмы."
+  },
+  {
+   "source": "Poland 2026",
+   "name": "Convolutional Filters",
+   "url": "https://github.com/OlimpiadaAI/III-OlimpiadaAI",
+   "topics": [
+    "Convolutional Layers",
+    "Image Classification",
+    "Pooling Techniques (Max, Average)"
+   ],
+   "description": "Вводная задача CV: классификация изображений с использованием свёрточных слоёв и пулинга."
+  },
+  {
+   "source": "Romania ONIA 2025",
+   "name": "Byzantine musical-notation + AI-text detection",
+   "url": "https://github.com/stefanasandei/roai-solved/blob/main/00-guide/rezolvari.md",
+   "topics": [
+    "Image Classification",
+    "Convolutional Layers",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "Две задачи: классификация изображений византийской музыкальной нотации (CV) и текстовая классификация AI vs human-written (NLP) с BERT-подобными энкодерами."
+  },
+  {
+   "source": "Romania ONIA 2025",
+   "name": "OJIA Example Problems",
+   "url": "https://github.com/Olimpiada-AI/Propunere-probleme-si-solutii",
+   "topics": [
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Cross-Validation",
+    "Linear Regression"
+   ],
+   "description": "Табличное ML: задачи предсказания (train/test) на платформе Nitro AI Judge, классическое ML с регрессией, ансамблями и feature engineering."
+  },
+  {
+   "source": "AICC",
+   "name": "Archivist's Cards",
+   "url": "https://judge.nitro-ai.org/competitions/aicc/aicc-round-8/3/view",
+   "topics": [
+    "Vision-text encoders (e.g. CLIP)",
+    "Data Embeddings (text, image, audio)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Image retrieval по текстовым «карточкам каталога»: для каждой из 700 тестовых описаний (48–97 строк аннотаций) вернуть top-10 фото из галереи 1500 кандидатов. Разрешена только модель openai/clip-vit-base-patch16 (image + text encoders), без других претрейнов и внешних данных. Описания очень длинные, с десятками наблюдений по отдельным регионам картинки (а не по сцене целиком) и с дублями строк."
+  },
+  {
+   "source": "AICC",
+   "name": "Dice Counting",
+   "url": "https://judge.nitro-ai.org/competitions/aicc/aicc-round-8/1/view",
+   "topics": [
+    "Convolutional Layers",
+    "Image Classification",
+    "Image Augmentation",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Data Processing",
+    "Pooling Techniques (Max, Average)",
+    "Feature Engineering",
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Batch Normalization"
+   ],
+   "description": "Регрессия по фото 2736×2736: для каждого снимка предсказать (1) количество игральных костей и (2) сумму выпавших очков. Тест OOD (10–25 костей vs 1–10 в train). Запрещены претрейны и внешние данные. Метрика — MAE с обрезкой (12 для count, 36 для sum)."
+  },
+  {
+   "source": "AICC",
+   "name": "Pixel Quest",
+   "url": "https://judge.nitro-ai.org/competitions/aicc/aicc-round-8/2/view",
+   "topics": [
+    "Convolutional Layers",
+    "Image Classification",
+    "Pooling Techniques (Max, Average)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Data Embeddings (text, image, audio)",
+    "Self-Supervised Learning for Vision",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+   ],
+   "description": "Visual odometry + навигация робота в raycasted-мире (Doom-стиль), вход 64×64 RGB. Два подзадания: (1) по паре кадров до/после предсказать смещение (dx, dy, угол поворота), (2) обучить политику, которая ходит к цели и обходит ловушки. На борту только камера и компас."
+  },
+  {
+   "source": "Algolymp / PreOJIA / PreONIA",
+   "name": "Algolymp Challenge",
+   "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-challenge",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Algolymp / PreOJIA / PreONIA",
+   "name": "Algolymp PreOJIA IX-X",
+   "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-ix-x",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Algolymp / PreOJIA / PreONIA",
+   "name": "Algolymp PreOJIA XI-XII",
+   "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-xi-xii",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Algolymp / PreOJIA / PreONIA",
+   "name": "Algolymp PreONIA IX-X 2026",
+   "url": "https://judge.nitro-ai.org/competitions/algolymp/preonia-ix-x-2026",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Algolymp / PreOJIA / PreONIA",
+   "name": "Algolymp PreONIA XI-XII 2026",
+   "url": "https://judge.nitro-ai.org/competitions/algolymp/preonia-xi-xii-2026",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Algolymp / PreOJIA / PreONIA",
+   "name": "Algolymp Winter Contest",
+   "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-winter-contest",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "CEOAI 2026 (EUROAI)",
+   "name": "CEOAI 2026 - Practice Round 1",
+   "url": "https://judge.nitro-ai.org/competitions/ceoai/ceoai-2026-practice-1",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Тренировочный раунд по классическому ML: feature engineering, логистическая регрессия и ансамбли (бустинг, бэггинг, random forest)."
+  },
+  {
+   "source": "CEOAI 2026 (EUROAI)",
+   "name": "EUROAI (CEOAI) 2026 - Day 1",
+   "url": "https://judge.nitro-ai.org/competitions/ceoai/ceoai-2026-day-1",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "CEOAI 2026 (EUROAI)",
+   "name": "EUROAI (CEOAI) 2026 - Day 2",
+   "url": "https://judge.nitro-ai.org/competitions/ceoai/ceoai-2026-day-2",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "CEOAI 2026 (EUROAI)",
+   "name": "EUROAI (CEOAI) 2026 - Practice Round 2",
+   "url": "https://judge.nitro-ai.org/competitions/ceoai/ceoai-2026-practice-2",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Тренировочный раунд по классическому ML: feature engineering, логистическая регрессия и ансамбли деревьев."
+  },
+  {
+   "source": "Cram School",
+   "name": "Christmas Training Special",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/christmas-special-2025",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Тренировочный олимпиадный раунд по классическому ML: feature engineering, логистическая регрессия и ансамбли деревьев."
+  },
+  {
+   "source": "Cram School",
+   "name": "Cram School Beginner 1",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-educational-1",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Cram School",
+   "name": "Cram School Beginner 2",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-educational-2",
+   "topics": [
+    "Decision Trees",
+    "Feature Engineering",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Учебный раунд для начинающих: задачи на деревья решений, feature engineering и ансамбли (бустинг, бэггинг, random forest)."
+  },
+  {
+   "source": "Cram School",
+   "name": "Cram School Easter Round",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-practice",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Cram School",
+   "name": "Cram School Intermediate 1",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-training-1",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Cram School",
+   "name": "Cram School PreONIA 2025",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-preonia-2025",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Cram School",
+   "name": "Cram School PreONIA 2026",
+   "url": "https://judge.nitro-ai.org/competitions/cram-school/preonia-2026",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "DecebalTech AI",
+   "name": "DecebalTech AI Challenge",
+   "url": "https://judge.nitro-ai.org/competitions/decebaltech/decebaltech-ai-challenge",
+   "topics": [],
+   "description": "Олимпиадный набор задач по ML, CV и NLP без доступа к интернету для румынских школьников."
+  },
+  {
+   "source": "Georgian AI League (GAIA)",
+   "name": "Georgian AI League I",
+   "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+   "name": "Nitro NLP Hackathon 5th Edition",
+   "url": "https://judge.nitro-ai.org/competitions/nitro/nitro-nlp-hackathon-2026",
+   "topics": [],
+   "description": "NLP-хакатон Nitro: командное соревнование по обработке естественного языка."
+  },
+  {
+   "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+   "name": "PreIAIO",
+   "url": "https://judge.nitro-ai.org/competitions/nitro/pre-iaio-2026",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Тренировочный раунд PreIAIO: задачи на классическое ML — feature engineering, логистическая регрессия и ансамбли (Gradient Boosting, Bagging, Random Forest)."
+  },
+  {
+   "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+   "name": "RISE Final Round",
+   "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-final",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+   "name": "RISE Open Qualifier 1",
+   "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-open-qualifier-1",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+   "name": "RISE Open Qualifier 2",
+   "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-open-qualifier-2",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+   "name": "Spooky Round",
+   "url": "https://judge.nitro-ai.org/competitions/nitro/spooky-round-2025",
+   "topics": [
+    "Backpropagation",
+    "Convolutional Layers",
+    "Feature Engineering",
+    "Gradient Descent",
+    "Language Modeling",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Pre-trained Language Models (open-source and API-based ones)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Хэллоуин-раунд: классические ML и DL задачи на CPU без использования трансформеров и LLM, с ограничением времени 2 часа."
+  },
+  {
+   "source": "Republic of Moldova OAI",
+   "name": "Republic of Moldova - Simulation #1",
+   "url": "https://judge.nitro-ai.org/competitions/rm-olimpiada-ai/simulation-1",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "Lot Baraj 1",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-baraj-1",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "Lot Baraj 2",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-baraj-2",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "OJIA 11-12",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/ojia",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Задача классического ML для румынской олимпиады по ИИ (класс 11-12): feature engineering, логрегрессия и ансамбли."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "OJIA 9-10",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/ojia-9-10",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Задача классического ML для румынской олимпиады по ИИ (класс 9-10): feature engineering, логрегрессия и ансамбли."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ONIA 2025",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/onia",
+   "topics": [
+    "Feature Engineering",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+   ],
+   "description": "Задача классического ML национального этапа румынской олимпиады по ИИ: feature engineering, логрегрессия и ансамбли."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "Practice Session (2024 Qualifier)",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/practice-session",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI - County Stage (IX-X Section)",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/etapa-judeteana-ix-x",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI - County Stage (XI-XII Section)",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/etapa-judeteana-xi-xii",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI - Local Stage",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/oaia",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI - National Stage (IX-X Section)",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/nationala-ix-x-2026",
+   "topics": [
+    "Backpropagation",
+    "Convolutional Layers",
+    "Gradient Descent",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Задачи национального этапа ROAI для классов 9-10: deep learning с использованием свёрточных сетей и трансформеров."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI - National Stage (XI-XII Section)",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/nationala-xi-xii-2026",
+   "topics": [
+    "Backpropagation",
+    "Convolutional Layers",
+    "Gradient Descent",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Задачи национального этапа ROAI для классов 11-12: deep learning с использованием свёрточных сетей и трансформеров."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI - Selection Camp Qualifier",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/baraj-nationala-2026",
+   "topics": [
+    "Backpropagation",
+    "Convolutional Layers",
+    "Gradient Descent",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Отборочный этап для тренировочного лагеря ROAI: задачи на DL с CNN и трансформерами, доступны transformers/timm."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI Selection Camp - CPU Practical Round",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-2-2026",
+   "topics": [
+    "Backpropagation",
+    "Confusion Matrix and ROC Curves",
+    "Convolutional Layers",
+    "Data Embeddings (text, image, audio)",
+    "Gradient Descent",
+    "K-Means Clustering",
+    "L1 & L2 Regularization",
+    "Linear Regression",
+    "Logistic Regression",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Principal Component Analysis (PCA)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Практический раунд на CPU отборочного лагеря ROAI: классическое ML (SVM, kNN, деревья), кластеризация, PCA, метрики качества."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "ROAI Selection Camp - GPU Practical Round",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-1-2026",
+   "topics": [
+    "Backpropagation",
+    "Confusion Matrix and ROC Curves",
+    "Convolutional Layers",
+    "Data Embeddings (text, image, audio)",
+    "Gradient Descent",
+    "K-Means Clustering",
+    "L1 & L2 Regularization",
+    "Linear Regression",
+    "Logistic Regression",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Principal Component Analysis (PCA)",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Практический раунд на GPU отборочного лагеря ROAI: глубокое обучение, CNN, трансформеры, эмбеддинги."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "Simulare OJIA 1",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "Simulare OJIA 2",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-2",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "ROAI 2025/2026 (Romania)",
+   "name": "Simulare OJIA 3",
+   "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-3",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Slovak OAI",
+   "name": "Slovak OAI 2026",
+   "url": "https://judge.nitro-ai.org/competitions/slovenska-olympiada/slovak-aoi-2026",
+   "topics": [
+    "Backpropagation",
+    "Convolutional Layers",
+    "Gradient Descent",
+    "Transformers (theory needed only for text and image)"
+   ],
+   "description": "Задачи олимпиады по IOAI/CEOAI программе: AI Search, ML, Deep Learning с CNN и трансформерами."
+  },
+  {
+   "source": "APOAI 2025",
+   "name": "APOAI 2025 Competition",
+   "url": "https://www.bohrium.com/competitions/7647426696?tab=introduce",
+   "topics": [],
+   "description": "Описание недоступно."
+  },
+  {
+   "source": "Georgia 2025",
+   "name": "Classic ML — align 3 binary classifiers to 3-class",
+   "url": "https://www.bohrium.com/competitions/3072370612?tab=introduce",
+   "topics": [
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering"
+   ],
+   "description": "Классический ML: согласовать три бинарных классификатора так, чтобы получить 3-классовую классификацию."
+  },
+  {
+   "source": "Georgia 2025",
+   "name": "CV — Classifier from image+caption pairs",
+   "url": "https://www.bohrium.com/competitions/6576265377?tab=introduce",
+   "topics": [
+    "Vision-text encoders (e.g. CLIP)",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Data Embeddings (text, image, audio)"
+   ],
+   "description": "CV-классификация: обучить классификатор по списку классов, используя изображения без меток и captions от image2text-модели (CLIP-подобные подходы)."
+  },
+  {
+   "source": "Georgia 2025",
+   "name": "NLP — Train deduplication on positive/negative pairs",
+   "url": "https://www.bohrium.com/competitions/7927749324?tab=introduce",
+   "topics": [
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Data Embeddings (text, image, audio)",
+    "Text Classification",
+    "Model Finetuning (full and parameter-efficient)"
+   ],
+   "description": "NLP-задача дедупликации: обучить классификатор на парах дубликатов и не-дубликатов с использованием маленького BERT."
+  },
+  {
+   "source": "IOAI 2024",
+   "name": "CV — SDXL-mini add hydrant with cow",
+   "url": "https://ioai-official.org/wp-content/uploads/2025/06/On-site-problems.zip",
+   "topics": [
+    "Diffusion Models",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Model Finetuning (full and parameter-efficient)"
+   ],
+   "description": "CV: править веса SDXL-mini так, чтобы по промптам с коровой на изображение добавлялся пожарный гидрант с сохранением коровы."
+  },
+  {
+   "source": "IOAI 2024",
+   "name": "CV — SDXL-mini zebra/giraffe weight edit",
+   "url": "https://ioai-official.org/wp-content/uploads/2025/06/At-home-problems.zip",
+   "topics": [
+    "Diffusion Models",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Model Finetuning (full and parameter-efficient)"
+   ],
+   "description": "CV: править веса SDXL-mini так, чтобы модель генерировала зебру вместо жирафа и наоборот, не меняя промпты."
+  },
+  {
+   "source": "IOAI 2024",
+   "name": "GenAI — Album cover + video remix",
+   "url": "https://ioai-official.org/wp-content/uploads/2025/06/Practical-Round-problems.zip",
+   "topics": [
+    "Diffusion Models",
+    "Generating Images with GANs",
+    "Vision-text encoders (e.g. CLIP)"
+   ],
+   "description": "Генеративный ИИ: сгенерировать обложку альбома и короткое видео под ремикс песни (диффузионные модели, GAN, CLIP)."
+  }
+ ],
+ "sources": [
+  "AICC",
+  "APOAI 2025",
+  "Algolymp / PreOJIA / PreONIA",
+  "Bangladesh AI",
+  "Bangladesh BdAIO 2025",
+  "CEOAI 2026 (EUROAI)",
+  "China NOAI 2024",
+  "Colombian AI Olympiad",
+  "Cram School",
+  "Cyprus AI Camp 2026",
+  "Cyprus Spring 2026",
+  "DecebalTech AI",
+  "Georgia 2025",
+  "Georgian AI League (GAIA)",
+  "HBNU AI 2025",
+  "HBNU AI 2026",
+  "Hungary HAIO 2024",
+  "Hungary HAIO 2025",
+  "Hungary HAIO 2026",
+  "IOAI 2024",
+  "IOAI 2025",
+  "IOAI Mirror / Challenge",
+  "IOAI Practice",
+  "Indonesia Pelatnas IOAI",
+  "JOAI Jordan",
+  "Japan JOAI 2025",
+  "Japan JOAI 2026",
+  "Kazakhstan TST",
+  "NEOAI 2025",
+  "NEOAI 2026",
+  "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
+  "OFIA",
+  "Poland 2025",
+  "Poland 2026",
+  "ROAI 2025/2026 (Romania)",
+  "Republic of Moldova OAI",
+  "Romania ONIA 2025",
+  "Slovak OAI"
+ ],
+ "topics": [
+  "Activation Functions (ReLU, Sigmoid, Tanh)",
+  "Attention Mechanism",
+  "Audio Models: Qwen-Audio, Whisper, Voxtral",
+  "Autoencoders",
+  "Backpropagation",
+  "Batch Normalization",
+  "Confusion Matrix and ROC Curves",
+  "Convergence and Learning Rates",
+  "Convolutional Layers",
+  "Cross-Validation",
+  "DBSCAN, Hierarchical & Spectral Clustering",
+  "Data Embeddings (text, image, audio)",
+  "Data Processing",
+  "Decision Trees",
+  "Diffusion Models",
+  "Encoder-Decoder Models (e.g. for Machine Translation or Vision-Language Modeling)",
+  "Feature Engineering",
+  "Generating Images with GANs",
+  "Gradient Descent",
+  "Hyperparameter Tuning",
+  "Image Augmentation",
+  "Image Classification",
+  "Image Segmentation (U-Net)",
+  "K-Means Clustering",
+  "K-Nearest Neighbors (K-NN)",
+  "L1 & L2 Regularization",
+  "Language Modeling",
+  "Language Modeling Both",
+  "Linear Regression",
+  "Logistic Regression",
+  "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+  "Matplotlib and Seaborn for Visualization",
+  "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+  "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+  "Model Finetuning (full and parameter-efficient)",
+  "Momentum Methods (Adam, AdamW)",
+  "Multi-Layer Perceptrons (MLP)",
+  "NumPy and Pandas for Data Handling",
+  "Object Detection (YOLO, SSD, DERT)",
+  "Pooling Techniques (Max, Average)",
+  "Pre-trained Audio Encoders: HuBERT",
+  "Pre-trained Language Models (open-source and API-based ones)",
+  "Pre-trained Text Encoders (e.g. BERT)",
+  "Pre-trained Vision Encoders (e.g. ResNet)",
+  "Principal Component Analysis (PCA)",
+  "PyTorch Basics",
+  "Regularization: Dropout, Early Stopping, Weight Decay",
+  "SGD, Mini-Batch Gradient Descent",
+  "Scikit-learn for ML",
+  "Self-Supervised Learning for Vision",
+  "Support Vector Machines (SVM)",
+  "Tensor (Multi-dimensional Array) Manipulation",
+  "Text Classification",
+  "Training Models on CPU and GPU",
+  "Transformers (theory needed only for text and image)",
+  "Underfitting, Overfitting",
+  "Vision-text encoders (e.g. CLIP)",
+  "Weight Initialization",
+  "t-SNE, UMAP"
+ ],
+ "count": 171
+}
