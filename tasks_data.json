@@ -1620,92 +1620,183 @@
    "name": "Archivist's Cards",
    "url": "https://judge.nitro-ai.org/competitions/aicc/aicc-round-8/3/view",
    "topics": [
-    "Vision-text encoders (e.g. CLIP)",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Data Embeddings (text, image, audio)",
-    "Pre-trained Vision Encoders (e.g. ResNet)",
-    "Pre-trained Text Encoders (e.g. BERT)",
     "Attention Mechanism",
-    "Transformers (theory needed only for text and image)"
+    "Transformers (theory needed only for text and image)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Vision-text encoders (e.g. CLIP)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Text Classification",
+    "Data Processing"
    ],
-   "description": "Image retrieval по текстовым «карточкам каталога»: для каждой из 700 тестовых описаний (48–97 строк аннотаций) вернуть top-10 фото из галереи 1500 кандидатов. Разрешена только модель openai/clip-vit-base-patch16 (image + text encoders), без других претрейнов и внешних данных. Описания очень длинные, с десятками наблюдений по отдельным регионам картинки (а не по сцене целиком) и с дублями строк."
+   "description": "Image retrieval по текстовым «карточкам каталога»: для каждого из 700 тестовых описаний (48–97 строк аннотаций по регионам изображения, с дублями) вернуть top-10 фото из галереи в 1500 кандидатов. Разрешено использовать только openai/clip-vit-base-patch16 (image + text encoders), без других претрейнов и внешних данных. Метрика — средний reciprocal-rank-squared (1/k²) по 700 карточкам."
   },
   {
    "source": "AICC",
    "name": "Dice Counting",
    "url": "https://judge.nitro-ai.org/competitions/aicc/aicc-round-8/1/view",
    "topics": [
-    "Convolutional Layers",
-    "Image Classification",
-    "Image Augmentation",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
-    "Data Processing",
-    "Pooling Techniques (Max, Average)",
-    "Feature Engineering",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
     "Regularization: Dropout, Early Stopping, Weight Decay",
-    "Batch Normalization"
+    "Batch Normalization",
+    "Convolutional Layers",
+    "Pooling Techniques (Max, Average)",
+    "Image Classification",
+    "Object Detection (YOLO, SSD, DERT)",
+    "Image Augmentation",
+    "Data Processing"
    ],
-   "description": "Регрессия по фото 2736×2736: для каждого снимка предсказать (1) количество игральных костей и (2) сумму выпавших очков. Тест OOD (10–25 костей vs 1–10 в train). Запрещены претрейны и внешние данные. Метрика — MAE с обрезкой (12 для count, 36 для sum)."
+   "description": "Регрессия по фото 2736×2736 RGB: для каждого снимка предсказать (1) количество игральных костей и (2) сумму выпавших очков. Тест OOD (10–25 костей и суммы до 96 vs 1–10 костей и суммы до 37 в train), 200 train / 50 test. Запрещены претрейнованные веса и внешние датасеты. Метрика — MAE с обрезкой (12 для count, 36 для sum)."
   },
   {
    "source": "AICC",
    "name": "Pixel Quest",
    "url": "https://judge.nitro-ai.org/competitions/aicc/aicc-round-8/2/view",
    "topics": [
-    "Convolutional Layers",
-    "Image Classification",
-    "Pooling Techniques (Max, Average)",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Multi-Layer Perceptrons (MLP)",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
+    "Convolutional Layers",
+    "Pooling Techniques (Max, Average)",
+    "Image Classification",
+    "Image Augmentation",
     "Data Embeddings (text, image, audio)",
     "Self-Supervised Learning for Vision",
-    "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
+    "Data Processing"
    ],
-   "description": "Visual odometry + навигация робота в raycasted-мире (Doom-стиль), вход 64×64 RGB. Два подзадания: (1) по паре кадров до/после предсказать смещение (dx, dy, угол поворота), (2) обучить политику, которая ходит к цели и обходит ловушки. На борту только камера и компас."
+   "description": "Visual odometry + навигация робота в raycasted-мире (Doom-стиль), вход 64×64 RGB с компасом. Два подзадания: (1) по паре кадров до/после предсказать смещение (dx, dy ∈ −3..+3) и поворот (4 класса); (2) обучить политику в Gymnasium-среде PixelNav-v0 на сетке 20×20 (трава/песок/вода/цель), которая идёт к цели за 100 шагов с reward shaping."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
    "name": "Algolymp Challenge",
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-challenge",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Общий тренировочный раунд от Algolymp AI Team для подготовки к олимпиаде по ИИ; конкретное условие задачи в описании не раскрыто, только мотивационный посыл «спасать жизни»."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
    "name": "Algolymp PreOJIA IX-X",
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-ix-x",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Симуляционный контест Algolymp для подготовки к окружному этапу румынской олимпиады по ИИ (классы IX–X); задачи строго по официальной программе ROAI для младших классов, конкретные постановки в markdown не приведены."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
    "name": "Algolymp PreOJIA XI-XII",
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-xi-xii",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Linear Regression",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Convolutional Layers",
+    "Image Classification",
+    "Text Classification"
+   ],
+   "description": "Симуляционный контест Algolymp для подготовки к окружному этапу румынской олимпиады по ИИ (классы XI–XII); набор задач строго по официальной программе ROAI для старших классов, конкретные задачи в markdown не приведены."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
    "name": "Algolymp PreONIA IX-X 2026",
    "url": "https://judge.nitro-ai.org/competitions/algolymp/preonia-ix-x-2026",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Симуляционный контест Algolymp для подготовки к национальному этапу олимпиады по ИИ (классы IX–X); задачи строго по программе ROAI для младших классов, конкретные постановки в описании не приведены."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
    "name": "Algolymp PreONIA XI-XII 2026",
    "url": "https://judge.nitro-ai.org/competitions/algolymp/preonia-xi-xii-2026",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Backpropagation",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "Симуляция национальной фазы румынской олимпиады по ИИ для 11-12 классов, организованная Algolymp. Задачи строго соответствуют официальной программе ROAI для XI-XII классов; призов нет, формат тренировочный."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
    "name": "Algolymp Winter Contest",
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-winter-contest",
    "topics": [
-    "Feature Engineering",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
     "Logistic Regression",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+    "L1 & L2 Regularization",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Hyperparameter Tuning",
+    "Cross-Validation",
+    "Feature Engineering",
+    "Data Processing"
    ],
-   "description": "Описание недоступно."
+   "description": "Зимний тренировочный контест Algolymp на скорость обучения модели по табличным данным («помоги Санте на лидерборде»); подразумевается классическое ML-соревнование с фичеинжинирингом и бустингом."
   },
   {
    "source": "CEOAI 2026 (EUROAI)",
@@ -1748,71 +1839,193 @@
    "name": "Christmas Training Special",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/christmas-special-2025",
    "topics": [
-    "Feature Engineering",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
     "Logistic Regression",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation",
+    "Hyperparameter Tuning"
    ],
-   "description": "Тренировочный олимпиадный раунд по классическому ML: feature engineering, логистическая регрессия и ансамбли деревьев."
+   "description": "Рождественский тренировочный раунд Cram School для продвинутых учеников, подготовка к крупным олимпиадам по ИИ. Задачи по классическому ML: feature engineering, логистическая регрессия и ансамбли деревьев."
   },
   {
    "source": "Cram School",
    "name": "Cram School Beginner 1",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-educational-1",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Образовательный раунд Cram School для новичков по базовым концепциям ML; конкретные задачи в markdown не приведены, но раунд ориентирован на отработку базы ML/Python."
   },
   {
    "source": "Cram School",
    "name": "Cram School Beginner 2",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-educational-2",
    "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Logistic Regression",
     "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
     "Feature Engineering",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Underfitting, Overfitting",
+    "Cross-Validation"
    ],
-   "description": "Учебный раунд для начинающих: задачи на деревья решений, feature engineering и ансамбли (бустинг, бэггинг, random forest)."
+   "description": "Учебный раунд Cram School для начинающих: практика базовых концепций ML — деревья решений, feature engineering и ансамбли (бустинг, бэггинг, random forest)."
   },
   {
    "source": "Cram School",
    "name": "Cram School Easter Round",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-practice",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Support Vector Machines (SVM)",
+    "K-Means Clustering",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Image Classification"
+   ],
+   "description": "Пасхальный тренировочный раунд Cram School (формат ROAI). Без интернета, разрешены sklearn, cv2, PIL, skimage, nltk, spacy — то есть задачи по классическому ML, CV (без deep) и базовому NLP."
   },
   {
    "source": "Cram School",
    "name": "Cram School Intermediate 1",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-training-1",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Hyperparameter Tuning",
+    "Cross-Validation",
+    "Feature Engineering",
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Momentum Methods (Adam, AdamW)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Text Classification"
+   ],
+   "description": "Тренировочный раунд Cram School для продвинутых учеников как подготовка к крупным контестам; конкретные задачи в описании не приведены, но раунд ориентирован на отработку DL-стека (CV/NLP) уровня олимпиад."
   },
   {
    "source": "Cram School",
    "name": "Cram School PreONIA 2025",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-preonia-2025",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Linear Regression",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification"
+   ],
+   "description": "Тренировочный раунд Cram School для подготовки к национальной фазе румынской олимпиады по ИИ (ROAI/ONIA 2025). Без интернета (только документация разрешённых библиотек), допускается бесплатный Google Colab."
   },
   {
    "source": "Cram School",
    "name": "Cram School PreONIA 2026",
    "url": "https://judge.nitro-ai.org/competitions/cram-school/preonia-2026",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Training Models on CPU and GPU",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Backpropagation",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "Тренировочный раунд Cram School для подготовки к национальной фазе ROAI 2026. Задачи покрывают AI Search, ML, Deep Learning, NLP, CV и Reinforcement Learning; среда JupyterLab, разрешены torch/sklearn/stable_baselines3/gymnasium и др."
   },
   {
    "source": "DecebalTech AI",
    "name": "DecebalTech AI Challenge",
    "url": "https://judge.nitro-ai.org/competitions/decebaltech/decebaltech-ai-challenge",
-   "topics": [],
-   "description": "Олимпиадный набор задач по ML, CV и NLP без доступа к интернету для румынских школьников."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Text Classification",
+    "Pre-trained Text Encoders (e.g. BERT)"
+   ],
+   "description": "Олимпиадный набор задач по ML/CV/NLP для румынских лицеистов, организованный DecebalTech (колледж Decebal, Дева) при поддержке Amazon. Подготовка к Olimpiada de Inteligență Artificială, без доступа к интернету."
   },
   {
    "source": "Georgian AI League (GAIA)",
    "name": "Georgian AI League I",
    "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Text Classification"
+   ],
+   "description": "Первый раунд лиги Georgian AI League (GAIA) — практические олимпиадные задачи по ИИ для тренировки участников."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -1836,22 +2049,66 @@
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
    "name": "RISE Final Round",
    "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-final",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Means Clustering",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation",
+    "Multi-Layer Perceptrons (MLP)",
+    "Backpropagation",
+    "Convolutional Layers",
+    "Image Classification",
+    "Text Classification"
+   ],
+   "description": "Очный финал RISE 2026 (Călărași, 9 мая 2026): 3 задачи за 4 часа по силлабусу CEOAI. Жёсткие ограничения: только JupyterLab, без GPU, без претрейн-моделей, без pip install и без интернета (только Judge + локальная документация); требуется полная воспроизводимость CSV."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
    "name": "RISE Open Qualifier 1",
    "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-open-qualifier-1",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Logistic Regression",
+    "Linear Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation"
+   ],
+   "description": "Открытый онлайн-квалификатор RISE 2026 (день 1): 2 задачи по силлабусу ROAI за 3 часа без GPU, без предобученных моделей и внешних API; оцениваются по CSV-предсказаниям."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
    "name": "RISE Open Qualifier 2",
    "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-open-qualifier-2",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Logistic Regression",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation",
+    "Hyperparameter Tuning"
+   ],
+   "description": "Открытый онлайн-квалификатор RISE 2026 (день 2): 2 задачи по силлабусу ROAI за 3 часа без GPU, без предобученных моделей и API; оцениваются по CSV-предсказаниям."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -1874,199 +2131,418 @@
    "source": "Republic of Moldova OAI",
    "name": "Republic of Moldova - Simulation #1",
    "url": "https://judge.nitro-ai.org/competitions/rm-olimpiada-ai/simulation-1",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Logistic Regression",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Feature Engineering",
+    "Data Processing",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Text Classification"
+   ],
+   "description": "Подготовительный раунд к Национальной олимпиаде по ИИ Республики Молдова: 2 задачи на платформе Nitro-AI, тренировка анализа данных, построения моделей и стратегии сабмитов в условиях с ограничением по времени."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "Lot Baraj 1",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-baraj-1",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Feature Engineering",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Отборочный тур (Lot Baraj 1) сборной Румынии на международные олимпиады по ИИ: задачи продвинутого уровня по классическому ML и глубокому обучению."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "Lot Baraj 2",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-baraj-2",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Attention Mechanism",
+    "Transformers (theory needed only for text and image)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Второй отборочный тур (Lot Baraj 2) сборной Румынии на международные олимпиады по ИИ: задачи продвинутого уровня с DL/NLP/CV компонентами."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "OJIA 11-12",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/ojia",
    "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
     "Feature Engineering",
+    "Data Processing",
+    "Linear Regression",
     "Logistic Regression",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+    "L1 & L2 Regularization",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Principal Component Analysis (PCA)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation"
    ],
-   "description": "Задача классического ML для румынской олимпиады по ИИ (класс 11-12): feature engineering, логрегрессия и ансамбли."
+   "description": "Уездный этап (OJIA 2025) румынской олимпиады по ИИ для 11-12 классов: классические ML-задачи на табличных данных с использованием sklearn/pandas без GPU."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "OJIA 9-10",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/ojia-9-10",
    "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
     "Feature Engineering",
+    "Data Processing",
+    "Linear Regression",
     "Logistic Regression",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+    "L1 & L2 Regularization",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Cross-Validation"
    ],
-   "description": "Задача классического ML для румынской олимпиады по ИИ (класс 9-10): feature engineering, логрегрессия и ансамбли."
+   "description": "Уездный этап (OJIA 2025) румынской олимпиады по ИИ для 9-10 классов: классические ML-задачи на табличных данных в ограниченной среде sklearn/pandas."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ONIA 2025",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/onia",
    "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
     "Feature Engineering",
+    "Data Processing",
     "Logistic Regression",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Задача классического ML национального этапа румынской олимпиады по ИИ: feature engineering, логрегрессия и ансамбли."
+   "description": "Национальный этап румынской олимпиады по ИИ (ONIA 2025): задачи классического ML и глубокого обучения с оценкой по CSV-предсказаниям."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "Practice Session (2024 Qualifier)",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/practice-session",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Тренировочная сессия по задачам квалификатора ROAI 2024: ознакомление с платформой и базовыми ML-задачами на табличных данных."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI - County Stage (IX-X Section)",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/etapa-judeteana-ix-x",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation"
+   ],
+   "description": "Окружной этап румынской олимпиады по ИИ для 9-10 классов: задачи на классическое ML и обработку данных без GPU (разрешены numpy, scikit-learn, xgboost-cpu, statsmodels, pandas, cvxpy). Минимум 30% баллов для прохождения на национальный этап."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI - County Stage (XI-XII Section)",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/etapa-judeteana-xi-xii",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "L1 & L2 Regularization",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Support Vector Machines (SVM)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing",
+    "Cross-Validation",
+    "Hyperparameter Tuning"
+   ],
+   "description": "Окружной этап румынской олимпиады по ИИ для 11-12 классов: задачи на классическое машинное обучение и анализ данных (разрешены numpy/scipy/sympy, scikit-learn, xgboost, statsmodels, pandas, cvxpy для оптимизации). Оценка по баллам с порогом 30% для квалификации на национальный этап."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI - Local Stage",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/oaia",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "Feature Engineering",
+    "Data Processing",
+    "Linear Regression",
+    "Logistic Regression",
+    "L1 & L2 Regularization",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "K-Means Clustering",
+    "Principal Component Analysis (PCA)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
+   ],
+   "description": "Локальный (онлайн) этап румынской олимпиады по ИИ (ROAI 2026): задачи решаются только классическими ML-инструментами (numpy/scipy/sklearn/pandas) без deep learning."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI - National Stage (IX-X Section)",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/nationala-ix-x-2026",
    "topics": [
-    "Backpropagation",
-    "Convolutional Layers",
+    "NumPy and Pandas for Data Handling",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Gradient Descent",
+    "Backpropagation",
+    "Activation Functions (ReLU, Sigmoid, Tanh)",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
-    "Transformers (theory needed only for text and image)"
+    "Multi-Layer Perceptrons (MLP)",
+    "SGD, Mini-Batch Gradient Descent",
+    "Momentum Methods (Adam, AdamW)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Augmentation"
    ],
-   "description": "Задачи национального этапа ROAI для классов 9-10: deep learning с использованием свёрточных сетей и трансформеров."
+   "description": "Национальный этап ROAI 2026 для 9-10 классов (Бухарест): задачи глубокого обучения на PyTorch с использованием CNN, NLP-инструментов и RL-окружений."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI - National Stage (XI-XII Section)",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/nationala-xi-xii-2026",
    "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Matplotlib and Seaborn for Visualization",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Backpropagation",
-    "Convolutional Layers",
     "Gradient Descent",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
-    "Transformers (theory needed only for text and image)"
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Transformers (theory needed only for text and image)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Задачи национального этапа ROAI для классов 11-12: deep learning с использованием свёрточных сетей и трансформеров."
+   "description": "Национальный этап румынской олимпиады по ИИ для 11-12 классов (Genesis College, Бухарест): задачи на глубокое обучение с PyTorch/torchvision, RL (stable_baselines3, gymnasium), CV (OpenCV, scikit-image) и NLP (spacy, nltk, gensim). Метрика — суммарный балл по задачам."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI - Selection Camp Qualifier",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/baraj-nationala-2026",
    "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Backpropagation",
-    "Convolutional Layers",
     "Gradient Descent",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
-    "Transformers (theory needed only for text and image)"
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Model Finetuning (full and parameter-efficient)",
+    "Transformers (theory needed only for text and image)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Pre-trained Language Models (open-source and API-based ones)"
    ],
-   "description": "Отборочный этап для тренировочного лагеря ROAI: задачи на DL с CNN и трансформерами, доступны transformers/timm."
+   "description": "Отборочный раунд (baraj) тренировочного лагеря румынской сборной по ИИ: задачи на DL c использованием torch, transformers, timm, huggingface_hub, diffusers, для финалистов национального этапа. Метрика — суммарный балл."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI Selection Camp - CPU Practical Round",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-2-2026",
    "topics": [
-    "Backpropagation",
-    "Confusion Matrix and ROC Curves",
-    "Convolutional Layers",
-    "Data Embeddings (text, image, audio)",
-    "Gradient Descent",
-    "K-Means Clustering",
-    "L1 & L2 Regularization",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
     "Linear Regression",
     "Logistic Regression",
-    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "L1 & L2 Regularization",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
-    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Support Vector Machines (SVM)",
+    "K-Means Clustering",
+    "DBSCAN, Hierarchical & Spectral Clustering",
     "Principal Component Analysis (PCA)",
-    "Transformers (theory needed only for text and image)"
+    "t-SNE, UMAP",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Confusion Matrix and ROC Curves",
+    "Cross-Validation",
+    "Feature Engineering"
    ],
-   "description": "Практический раунд на CPU отборочного лагеря ROAI: классическое ML (SVM, kNN, деревья), кластеризация, PCA, метрики качества."
+   "description": "Практический CPU-раунд тренировочного лагеря румынской сборной (Colegiul Tudor Vianu, Бухарест): классическое ML (Naive Bayes, SVM, k-NN, деревья, ансамбли), кластеризация (K-Means, DBSCAN, иерархическая, GMM), метрики качества и корреляции, базовый DL без тяжёлых GPU-моделей. Оценка по суммарному баллу."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "ROAI Selection Camp - GPU Practical Round",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-1-2026",
    "topics": [
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "PyTorch Basics",
+    "Tensor (Multi-dimensional Array) Manipulation",
+    "Training Models on CPU and GPU",
     "Backpropagation",
-    "Confusion Matrix and ROC Curves",
-    "Convolutional Layers",
-    "Data Embeddings (text, image, audio)",
     "Gradient Descent",
-    "K-Means Clustering",
-    "L1 & L2 Regularization",
-    "Linear Regression",
-    "Logistic Regression",
+    "Momentum Methods (Adam, AdamW)",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
-    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
-    "Principal Component Analysis (PCA)",
-    "Transformers (theory needed only for text and image)"
+    "Regularization: Dropout, Early Stopping, Weight Decay",
+    "Batch Normalization",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Image Segmentation (U-Net)",
+    "Object Detection (YOLO, SSD, DERT)",
+    "Vision-text encoders (e.g. CLIP)",
+    "Transformers (theory needed only for text and image)",
+    "Autoencoders",
+    "Generating Images with GANs",
+    "Diffusion Models",
+    "Model Finetuning (full and parameter-efficient)"
    ],
-   "description": "Практический раунд на GPU отборочного лагеря ROAI: глубокое обучение, CNN, трансформеры, эмбеддинги."
+   "description": "Практический GPU-раунд тренировочного лагеря румынской сборной (Colegiul Tudor Vianu, Бухарест): глубокое обучение на torch/transformers/diffusers/timm — CNN-архитектуры (ResNet, EfficientNet, UNet), ViT, CLIP, генеративные модели (autoencoders, GANs, diffusion). Оценка по суммарному баллу."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "Simulare OJIA 1",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Тренировочная симуляция окружного этапа OJIA (румынская олимпиада по ИИ): набор задач уровня OJIA для подготовки, по регламенту OIA 2025. Метрика — суммарный балл по всем задачам."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "Simulare OJIA 2",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-2",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Support Vector Machines (SVM)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Вторая тренировочная симуляция окружного этапа OJIA: задачи на классическое ML по регламенту румынской олимпиады по ИИ. Оценка по суммарному баллу."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
    "name": "Simulare OJIA 3",
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-3",
-   "topics": [],
-   "description": "Описание недоступно."
+   "topics": [
+    "Python Basics (Loops, Functions, etc.)",
+    "NumPy and Pandas for Data Handling",
+    "Scikit-learn for ML",
+    "Linear Regression",
+    "Logistic Regression",
+    "K-Nearest Neighbors (K-NN)",
+    "Decision Trees",
+    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
+    "Support Vector Machines (SVM)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
+    "Feature Engineering",
+    "Data Processing"
+   ],
+   "description": "Третья тренировочная симуляция окружного этапа OJIA: подготовительные задачи к румынской олимпиаде по ИИ по регламенту OIA 2025. Оценка по суммарному баллу."
   },
   {
    "source": "Slovak OAI",
    "name": "Slovak OAI 2026",
    "url": "https://judge.nitro-ai.org/competitions/slovenska-olympiada/slovak-aoi-2026",
    "topics": [
+    "Scikit-learn for ML",
+    "PyTorch Basics",
     "Backpropagation",
-    "Convolutional Layers",
     "Gradient Descent",
-    "Transformers (theory needed only for text and image)"
+    "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
+    "Multi-Layer Perceptrons (MLP)",
+    "Convolutional Layers",
+    "Image Classification",
+    "Pre-trained Vision Encoders (e.g. ResNet)",
+    "Transformers (theory needed only for text and image)",
+    "Pre-trained Text Encoders (e.g. BERT)",
+    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Задачи олимпиады по IOAI/CEOAI программе: AI Search, ML, Deep Learning с CNN и трансформерами."
+   "description": "Национальный финал словацкой олимпиады по ИИ 2026 (Кошице, UPJŠ): отборочный тур для международной команды по программе IOAI/CEOAI с задачами на AI Search, ML и Deep Learning (CNN, трансформеры). Победители формируют национальную сборную."
   },
   {
    "source": "APOAI 2025",
@@ -2231,6 +2707,7 @@
   "Pre-trained Vision Encoders (e.g. ResNet)",
   "Principal Component Analysis (PCA)",
   "PyTorch Basics",
+  "Python Basics (Loops, Functions, etc.)",
   "Regularization: Dropout, Early Stopping, Weight Decay",
   "SGD, Mini-Batch Gradient Descent",
   "Scikit-learn for ML",
