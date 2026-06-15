@@ -4,6 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IOAI Task Bank</title>
+<script>
+(function(){
+  var PW = "322";
+  if (sessionStorage.getItem("ioai_auth") === "1") return;
+  document.addEventListener("DOMContentLoaded", function(){
+    document.body.style.visibility = "hidden";
+    var ov = document.createElement("div");
+    ov.id = "pw-gate";
+    ov.style.cssText = "position:fixed;inset:0;background:#0a0820;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Inter,system-ui,sans-serif;visibility:visible;";
+    ov.innerHTML = '<div style="background:#1e1f44;padding:32px 36px;border-radius:14px;border:1px solid #2e3060;min-width:320px;text-align:center;color:#e8e8ff;">'
+      + '<div style="font-size:22px;font-weight:800;margin-bottom:6px;">🔒 IOAI Task Bank</div>'
+      + '<div style="font-size:13px;color:#8a8ab8;margin-bottom:18px;">Введи пароль для доступа</div>'
+      + '<input id="pw" type="password" autofocus style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #2e3060;background:#0f1023;color:#e8e8ff;font:inherit;font-size:14px;outline:none;text-align:center;letter-spacing:4px;" />'
+      + '<div id="pw-err" style="color:#ff6b6b;font-size:12px;margin-top:8px;height:14px;"></div>'
+      + '<button id="pw-go" style="margin-top:10px;width:100%;padding:10px;border-radius:8px;border:0;background:#6b5cff;color:#fff;font:inherit;font-weight:700;cursor:pointer;">Войти</button>'
+      + '</div>';
+    document.documentElement.appendChild(ov);
+    var pw = ov.querySelector("#pw"), btn = ov.querySelector("#pw-go"), err = ov.querySelector("#pw-err");
+    function tryIt(){
+      if (pw.value === PW) {
+        sessionStorage.setItem("ioai_auth","1");
+        ov.remove();
+        document.body.style.visibility = "visible";
+      } else {
+        err.textContent = "неверный пароль";
+        pw.value = "";
+        pw.focus();
+      }
+    }
+    btn.addEventListener("click", tryIt);
+    pw.addEventListener("keydown", function(e){ if (e.key === "Enter") tryIt(); });
+  });
+})();
+</script>
 <style>
   :root {
     --bg: #0f1023;
