@@ -10,7 +10,7 @@
     "Language Modeling",
     "Attention Mechanism"
    ],
-   "description": "Предсказать результат смешивания пары предметов в Little Alchemy при биективном отображении на список кандидатов, разрешён только BERT, метрика Accuracy."
+   "description": "Текстовая классификация в стиле Little Alchemy: по паре `item1 + item2` предсказать результат комбинации из списка из 70 уникальных кандидатов (биективное соответствие — каждый кандидат используется ровно один раз). Train: 150 троек (item1, item2, result), test: 70 пар, candidates.csv с 70 возможными метками; все слова — короткие англоязычные фразы в нижнем регистре. Метрика — Accuracy (доля верных назначений из 70). Жёсткое ограничение: разрешён только претрейн `bert-base-uncased`, никаких других моделей и внешних данных."
   },
   {
    "source": "AICC",
@@ -23,7 +23,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Convolutional Layers"
    ],
-   "description": "Разделение источников звука: из одной mono-смеси восстановить два исходных сигнала, метрика permutation-invariant MSE."
+   "description": "Audio source separation (регрессия по сигналам): из одной mono-смеси длиной 16 000 сэмплов восстановить два исходных environmental-сигнала. Train: CSV с путями к смешанным wav и двумя ground-truth сигналами sig_1/sig_2; test без таргетов. Метрика — per-sample permutation-invariant MSE; запрещены LLM для написания кода и интернет кроме чтения официальной документации."
   },
   {
    "source": "AICC",
@@ -38,7 +38,7 @@
     "SGD, Mini-Batch Gradient Descent",
     "Regularization: Dropout, Early Stopping, Weight Decay"
    ],
-   "description": "Исправление опечаток в тексте encoder-only моделью без предобученных весов и только на CPU, метрика CER. Разрешено использовать CatBoost и фичеинжиниринг."
+   "description": "Seq2seq-исправление опечаток: на вход — испорченный текст misspell, на выход — корректный text. Train в виде пар (text, misspell) в CSV, test — 2643 строки только с misspell. Метрика — Character Error Rate (CER), нужно быть ниже бейзлайна 0.0944. Запрещены любые предобученные модели и обучение на тесте, только CPU."
   },
   {
    "source": "AICC",
@@ -53,7 +53,7 @@
     "Data Processing",
     "Image Augmentation"
    ],
-   "description": "Классификация КТ-снимков мозга на 4 класса в условиях почти полного отсутствия меток (self-supervised + pseudo-labeling), метрика Macro F1. Размечено только ~2% трейна."
+   "description": "Классификация КТ-снимков мозга на 4 класса (no tumor + 3 типа опухолей) в полу-supervised режиме. Train: ~1311 изображений, лейблы есть только у ~2%; test без меток. Метрика — Macro F1. Запрещены ручная разметка и любые предобученные модели, кроме ResNet18; ноутбук должен укладываться в 20 минут на P100 (16 ГБ)."
   },
   {
    "source": "AICC",
@@ -68,7 +68,7 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "PyTorch Basics"
    ],
-   "description": "Meta-классификация: по весам обученного CNN-классификатора определить, на какой из 10 классов он обучен, метрика Macro F-Score."
+   "description": "Мета-классификация моделей: по `state_dict` маленькой CNN (выход — один логит) определить, на какой из 10 классов она обучена. Данные — `models.pt`: train 50 моделей (по 5 на класс) с известным `target_class`, test 200 моделей без меток; архитектура восстанавливается по `seed`. Метрика — Macro F1. Запрещены LLM, внешний интернет (кроме офиц. документации) и общение с другими участниками."
   },
   {
    "source": "AICC",
@@ -83,7 +83,7 @@
     "Data Processing",
     "Underfitting, Overfitting"
    ],
-   "description": "Табличная регрессия с устойчивостью к зашумлённым/выбросным записям в train, метрика MSE."
+   "description": "Табличная регрессия с устойчивостью к namespace-зашумлённому таргету: часть строк train испорчена «учениками», тестовая выборка содержит только чистые «учительские» записи с истинной линейной зависимостью. Train ~120 строк, 4 числовых признака feature1-feature4, целевая переменная target (numerical). Метрика — Mean Squared Error. Запрещены LLM-инструменты, внешний интернет и общение с участниками."
   },
   {
    "source": "AICC",
@@ -97,7 +97,7 @@
     "Self-Supervised Learning for Vision",
     "Data Processing"
    ],
-   "description": "Классификация изображений в условиях domain shift (cartoon/grayscale стили), метрика F1."
+   "description": "Классификация изображений с domain shift: обучить модель классифицировать скетчи, имея размеченные только фотографии и мультяшные картинки. Train: размеченные cartoon/photograph + 9582 неразмеченных скетча; валидация — 200 размеченных скетчей; test — 4624 скетча. Метрика — F1 Score. Запрещены внешние датасеты, предобученные модели (кроме torchvision) и любое обучение/псевдоразметка по test/val."
   },
   {
    "source": "AICC",
@@ -112,7 +112,7 @@
     "Transformers (theory needed only for text and image)",
     "Data Embeddings (text, image, audio)"
    ],
-   "description": "Cloze-style multiple choice: выбрать из 4 кандидатов предложение, лучше всего заполняющее пропуск в эссе, метрика F1."
+   "description": "Cloze-style multiple choice (4 опции): выбрать предложение, лучше всего заполняющее пропуск между before/after в эссе. Train: размеченные примеры с метками 0–3, test: 80 строк без меток (фичи — before, after, opt_0..opt_3). Метрика — macro F1. Ограничения: <16 GB VRAM, время notebook <30 мин, запрещены LLM для генерации кода и внешний интернет, разрешены общедоступные pretrained-модели (CLIP, ResNet, ViT и т. п.)."
   },
   {
    "source": "AICC",
@@ -128,7 +128,7 @@
     "Weight Initialization",
     "Tensor (Multi-dimensional Array) Manipulation"
    ],
-   "description": "Dataset distillation: построить один синтетический 28×28 пример и soft-label, чтобы CNN, обученная только на нём, классифицировала MNIST, метрика Accuracy."
+   "description": "Dataset distillation для MNIST: сгенерировать ровно один синтетический пример — 28×28 grayscale изображение (784 float-пикселя в [0,1]) и 10-мерный soft-label (неотрицательный, сумма ≈ 1). Тренировочный набор — обычный MNIST (60k изображений) только для анализа; фиксированная CNN будет переобучена с нуля на единственном вашем примере и оценена на 1000 скрытых тестовых цифрах. Метрика — Accuracy переобученной модели (бейзлайн 0.05, референс ~0.2). Запрещены LLM для генерации идей/кода и интернет помимо документации."
   },
   {
    "source": "AICC",
@@ -141,7 +141,7 @@
     "Data Embeddings (text, image, audio)",
     "Convolutional Layers"
    ],
-   "description": "Unsupervised face identification: по 15 reference-фото найти все остальные снимки тех же людей, метрика на основе similarity."
+   "description": "Unsupervised face matching: для каждого из 15 reference-изображений найти все остальные фото того же селебрити в галерее. Датасет — 108 jpg-картинок 15 знаменитостей, train-меток нет. Метрика — средний F1 по 15 запросам; запрещены face-specific модели/библиотеки (FaceNet, ArcFace, dlib и т.п.) и ручная разметка, разрешены general-purpose pretrained (CLIP, ResNet, ViT), лимиты <16 GB VRAM и 30 минут."
   },
   {
    "source": "AICC",
@@ -154,7 +154,7 @@
     "Data Embeddings (text, image, audio)",
     "Data Processing"
    ],
-   "description": "Closed-set классификация коротких аудио-клипов по анонимизированным меткам, метрика Accuracy. Аудио внутри класса разнородные и по-разному обработаны."
+   "description": "Closed-set классификация коротких .wav-клипов из разнородных источников по анонимизированным меткам (по сути язык/класс). Train и test заданы CSV с путями к аудио, test — 78 примеров, sample rate, длительность и громкость варьируются. Метрика — Accuracy. По правилам AICC запрещены LLM и интернет, кроме официальной документации библиотек."
   },
   {
    "source": "AICC",
@@ -169,7 +169,7 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "PyTorch Basics"
    ],
-   "description": "Unsupervised бинарная классификация: определить, какая из двух скрытых нейросетей сгенерировала выходные логиты по входу, метрика Accuracy."
+   "description": "Unsupervised бинарная классификация: определить, какая из двух скрытых моделей (A или B) сгенерировала наблюдаемые 5-мерные логиты по 100-мерному входу. Train: 5000 строк с X (100D) и Y (5D) без меток; выданы веса двух penultimate-модулей. Метрика — Accuracy. Источник логитов в трейне неизвестен, истинной разметки нет."
   },
   {
    "source": "AICC",
@@ -185,7 +185,7 @@
     "Data Processing",
     "Feature Engineering"
    ],
-   "description": "Предсказать выходное значение глобальной переменной программы на неизвестном assembly-подобном языке без предобученных моделей, метрика MAE. Предобученные модели запрещены — нужен классический NLP с нуля."
+   "description": "Регрессия / реконструкция интерпретатора: по строке программы на неизвестном ассемблер-подобном языке предсказать финальное целое значение единственной переменной. Train: ~5000 пар (program, output) в CSV, test без меток. Метрика — MAE (меньше — лучше); строго запрещены предобученные модели, LLM-помощь и интернет."
   },
   {
    "source": "AICC",
@@ -200,7 +200,7 @@
     "Cross-Validation",
     "Hyperparameter Tuning"
    ],
-   "description": "Биомедицинская supervised-классификация генов по табличным/последовательным признакам, метрика F1."
+   "description": "Supervised-классификация одиночных клеток по экспрессии генов в 1 из 12 типов с batch-effect: train взят с 9 пациентов, test — с отдельного 10-го (unseen batch). Train ~7401 строк по 1434 фичи Gene1-Gene1434 плюс batch; формат — 9 файлов RNA_seq_patient_0..8 и test.csv. Метрика — macro-averaged F1 Score (baseline 0.2413). Запрещены LLM и интернет; архитектурных ограничений нет, но критична работа с памятью."
   },
   {
    "source": "AICC",
@@ -214,7 +214,7 @@
     "Multi-Layer Perceptrons (MLP)",
     "Data Processing"
    ],
-   "description": "5-классная классификация по 8 циклическим признакам с подсказкой о кандидатах-классах и балансом классов, метрика Accuracy."
+   "description": "5-классовая классификация по 8 циклическим числовым признакам (показания часов), где в train для каждой строки даны 4 кандидата-метки из 5 (истинная — среди них). Train+test суммарно 1500 строк, каждый из 5 классов встречается ровно 500 раз, в test кандидаты не даны. Метрика — Accuracy; использовать test при разработке разрешено, но запрещены LLM, интернет и общение с другими."
   },
   {
    "source": "AICC",
@@ -228,7 +228,7 @@
     "Data Processing",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
-   "description": "Бинарная семантическая сегментация ядер клеток на гистопатологических H&E-снимках, метрика IoU/Dice."
+   "description": "Бинарная семантическая сегментация ядер клеток на H&E-гистопатологических снимках (датасет MoNuSAC). Train: пары RGB-JPEG + PNG-маски разных размеров и органов; test: 42 RGB-изображения без масок, ответ — base85-PNG маска того же размера. Метрика — IoU/Dice-подобный шаблон. Ограничения: pretrained-модели только из torchvision, запрещены внешние датасеты, обучение на test/val (в т. ч. unsupervised и псевдо-разметка через CLIP), LLM для кода и интернет."
   },
   {
    "source": "AICC",
@@ -242,7 +242,7 @@
     "Data Processing",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
-   "description": "Oriented object detection кораблей на аэроснимках с предсказанием повернутых bbox (cx, cy, w, h, theta), метрика SkewIoU. Запрещены специальные модели под эту задачу."
+   "description": "Oriented object detection кораблей на аэро/спутниковых снимках: предсказать повернутые bbox в формате `(conf, cx, cy, w, h, theta)` с нормализованными координатами и углом в радианах. Датасет: 903 train изображений + 226 val, YOLO-подобная разметка в .txt. Метрика — mAP@0.5 по Rotated IoU (SkewIoU ≥ 0.5 = TP). Запрещены LLM для кода/идей и интернет помимо официальной документации."
   },
   {
    "source": "AICC",
@@ -255,7 +255,7 @@
     "Attention Mechanism",
     "Language Modeling"
    ],
-   "description": "Бинарная классификация пар слов на синонимы/антонимы только с помощью bert-large-uncased, метрика Macro F-Score."
+   "description": "Бинарная NLP-классификация пар слов: 0 — синонимы, 1 — антонимы. Train: всего 50 размеченных пар (25/25), test: 686 пар; каждое слово — один токен из словаря BERT, train- и test-слова не пересекаются. Метрика — macro-F1; разрешено использовать только bert-large-uncased, запрещены другие pretrained-модели, внешние лексиконы, тезаурусы (включая nltk.corpus) и внешние корпуса."
   },
   {
    "source": "AICC",
@@ -268,7 +268,7 @@
     "Attention Mechanism",
     "Transformers (theory needed only for text and image)"
    ],
-   "description": "3-классная NLI-классификация научных утверждений (SUPPORT/CONTRADICT/NOT_ENOUGH_INFO) на SciFact с использованием только SciBERT, метрика F1."
+   "description": "3-классная NLI: для пары (claim, evidence) предсказать SUPPORT / CONTRADICT / NOT_ENOUGH_INFO на данных SciFact. Train — 887 строк, test — 222 строки, тексты на сложном биомедицинском языке. Метрика — F1. Запрещены LLM для генерации кода/идей и любой интернет, кроме доков библиотек."
   },
   {
    "source": "AICC",
@@ -281,7 +281,7 @@
     "Data Embeddings (text, image, audio)",
     "Convolutional Layers"
    ],
-   "description": "9-классная классификация звуков природы и животных по 5-секундным wav-файлам, метрика Macro F1. Аудио внутри класса разнородные и по-разному обработаны."
+   "description": "Классификация 5-секундных wav-записей (моно, 44.1 кГц) природных звуков на 9 классов (cat, chirping_birds, cow, dog, hen, pig, rain, sheep, water_drops). Train: 800 записей, test: 200 (public 100 / private 100). Метрика — Macro F1. Запрещены любые предобученные модели, кроме torchvision; запрещены внешние датасеты и обучение/псевдоразметка по test."
   },
   {
    "source": "AICC",
@@ -294,7 +294,7 @@
     "Data Embeddings (text, image, audio)",
     "Attention Mechanism"
    ],
-   "description": "Восстановление истинного класса изображений в CLIP, атакованных typographic-стикерами, метрика Accuracy."
+   "description": "Робастная классификация изображений: восстановить истинный класс объектов на CLIP-картинках, атакованных typographic-стикером с обманчивым словом. Данные: ~348 PNG, `class_embeddings.pt` (~800 классов, [K,512]) и `metadata.csv` с долей площади стикера; разрешено использовать только `openai/clip-vit-base-patch16`, без других предобученных моделей и внешних данных. Метрика — Accuracy (baseline ~0.46, reference ~0.90)."
   },
   {
    "source": "AICC",
@@ -307,7 +307,7 @@
     "Data Embeddings (text, image, audio)",
     "Image Augmentation"
    ],
-   "description": "Pixel-level детекция аномалий на изображениях фундука (anomaly segmentation), обучение только на нормальных примерах, метрика AUPRO."
+   "description": "Пиксельная anomaly segmentation (unsupervised one-class): по RGB-фото фундука 1024x1024 выдавать pixel-level карту аномальности. Train: 431 нормальное изображение (только дефект-фри), test: 70 изображений с дефектами (cracks, cuts, holes, print contamination), доля аномалии 0.23-28%. Метрика — AUPRO. Запрещены LLM и интернет, доступны только тренировочные нормальные изображения."
   },
   {
    "source": "AICC",
@@ -322,7 +322,7 @@
     "Data Embeddings (text, image, audio)",
     "Image Segmentation (U-Net)"
    ],
-   "description": "Visual relationship detection: для каждой картинки выдать ранжированные триплеты (subject_bbox, predicate, object_bbox) на 35 классов отношений, метрика relation mAP. Включает и сегментацию; из предобученных моделей разрешён только facebook/detr-resnet-50."
+   "description": "Visual relationship detection: для каждого изображения предсказать триплеты (bbox субъекта, предикат, bbox объекта) на 35 классов отношений, до 100 предсказаний на картинку. Train: 4000 изображений с ~15k размеченных отношений, test: 1000 изображений. Метрика — relation mAP при IoU >= 0.5 по обоим bbox; из предобученных моделей разрешён только facebook/detr-resnet-50, запрещены внешние датасеты, LLM и интернет."
   },
   {
    "source": "AICC",
@@ -337,7 +337,7 @@
     "Image Augmentation",
     "Pre-trained Vision Encoders (e.g. ResNet)"
    ],
-   "description": "Image-to-image восстановление чистых изображений птиц из watermarked, метрика MSE."
+   "description": "Image-to-image задача восстановления чистых 64×64 изображений птиц (CUB-200-2011) из watermarked-версий (текстовые надписи и диагональные линии), решение ожидается через DDPM/DDIM/Palette. Train: 2000 пар clean/watermarked, test: 200 watermarked, ответ — base85-PNG в CSV. Метрика — MSE. Ограничения: pretrained только из torchvision, запрещены внешние датасеты, обучение на test/val, разметка test через сторонние модели, LLM-генерация кода и интернет."
   },
   {
    "source": "Bangladesh AI",
@@ -363,7 +363,7 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "Training Models on CPU and GPU"
    ],
-   "description": "Image-to-image retrieval: для каждой картинки из left-директории (high-fidelity снимки старого Токио) найти соответствующую правую (virtual nightish-версия с произвольным наложенным объектом). Encoder обязан использовать `openai/clip-vit-base-patch32`; разрешены и другие предобученные модели, кроме VLM. Сабмит: `left_image, right_image`. Метрика — Accuracy (доля корректно сматченных)."
+   "description": "Image-to-image retrieval: для каждой картинки из left-директории (high-fidelity снимки старого Токио) найти соответствующее изображение из right-директории (затемнённая virtual-версия с произвольно наложенным объектом). Тест — 209 запросов; сабмит — CSV `left_image,right_image`. Метрика — Accuracy (доля правильно сматченных пар). Ограничения: энкодер-слой обязан использовать `openai/clip-vit-base-patch32`, другие претрейны разрешены, но VLM запрещены."
   },
   {
    "source": "Bangladesh AI",
@@ -386,7 +386,7 @@
     "Scikit-learn for ML",
     "Matplotlib and Seaborn for Visualization"
    ],
-   "description": "Табличная регрессия по характеристикам спортсменов. Train: 800 строк (с таргетом), test: 160 без; фичи — country (8 стран: USA, Kenya, Jamaica, Germany, Brazil, China, Australia, Nigeria), sprint_time (с), jump_height_cm, strength_kg. Таргет — performance_score (стандартизованный composite). Подвох: фичи внутри каждой страны нормированы по своим средним и НЕсравнимы напрямую — нужно восстановить единый reference frame; подсказка из задачи — по одному атлету на страну имеет фичи 0/0/0 с ненулевым таргетом. Метрика — MSE."
+   "description": "Табличная регрессия: предсказать стандартизованный composite performance_score атлета. Train: 800 строк, test: 160; фичи — country (8 стран: USA, Kenya, Jamaica, Germany, Brazil, China, Australia, Nigeria), sprint_time (сек), jump_height_cm, strength_kg, причём метрики нормированы внутри страны и напрямую несопоставимы (нужно восстановить общую систему координат, подсказка — атлеты с фичами 0/0/0 и ненулевым таргетом). Метрика — MSE."
   },
   {
    "source": "Bangladesh AI",
@@ -417,7 +417,7 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "Training Models on CPU and GPU"
    ],
-   "description": "Image segmentation границ кожных поражений (ISIC-стиль): train — всего 50 dermoscopic .jpg + 50 binary masks, test — 250 .jpg без меток. Снимки сделаны сломанным смартфон-дерматоскопом — артефакты освещения, волосы, пузырьки, шум сенсора. Сабмит — RLE-кодированные binary маски. **Предобученные модели запрещены**. Метрика — Dice coefficient (среднее по 250 тестовым снимкам)."
+   "description": "Бинарная сегментация границ кожных поражений (ISIC-стиль) на дерматоскопических снимках, снятых сломанным смартфон-дерматоскопом (волосы, пузыри, неравномерный свет). Train: 50 .jpg + 50 бинарных .png-масок; test: 250 .jpg без меток, разное разрешение. Сабмит — RLE-кодированные маски. Метрика — средний Dice по 250 снимкам. Предобученные модели строго запрещены."
   },
   {
    "source": "Bangladesh BdAIO 2025",
@@ -440,7 +440,7 @@
     "Training Models on CPU and GPU",
     "PyTorch Basics"
    ],
-   "description": "Constrained-генерация заголовков новостей: использовать выданную предобученную модель, чтобы по статье сгенерировать заголовок, избегая динамически задаваемых на инференсе запрещённых слов."
+   "description": "Constrained-генерация заголовков новостей на бенгальском: по статье сгенерировать заголовок, не используя динамически задаваемые запрещённые слова. Train не нужен, test: 495 статей со списком banned-words; используется выданная предобученная модель titulm3b. Метрика — модифицированный BERTScore F1 со штрафом за долю запрещённых слов в предсказании. Дообучать модель нельзя — только умный inference."
   },
   {
    "source": "Colombian AI Olympiad",
@@ -457,7 +457,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Confusion Matrix and ROC Curves"
    ],
-   "description": "Бинарная табличная классификация: предсказать высокий или низкий риск развития сердечных заболеваний в течение 5 лет."
+   "description": "Бинарная табличная классификация: предсказать высокий/низкий риск сердечного заболевания в течение 5 лет по медико-лайфстайл признакам (возраст, пол, курение, холестерин, стресс, диета и т.п., ~13 переменных, синтетические данные, баланс 60/40). Train.csv + test.csv, всего ~50 000 записей (rowId = `id`, ~1500 на test). Метрика — F1 Score; до 10 сабмитов в день, до 3 финальных; разрешены онлайн-инструменты и AI-чаты."
   },
   {
    "source": "Colombian AI Olympiad",
@@ -473,7 +473,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Data Processing"
    ],
-   "description": "Классификация изображений: атрибуция картины одному из пяти художников."
+   "description": "Многоклассовая классификация изображений: атрибуция картины одному из пяти художников (artist_id 0-4). Test ~2000 строк (image_id), train берётся из HuggingFace dataset eleon360/five-artists-dataset, test — из eleon360/five-artists-test-dataset. Метрика — Accuracy Score. Командные слияния запрещены, разрешены публичные pretrained-backbone."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -493,7 +493,7 @@
     "Image Classification",
     "Pre-trained Vision Encoders (e.g. ResNet)"
    ],
-   "description": "Бинарная классификация: отличить обычные галактики от карликовых по табличным/визуальным данным."
+   "description": "Бинарная классификация галактик (0 — карликовая, 1 — обычная) по 13 числовым признакам. Train: 1000 наблюдений с метками, test: значительно больше (несбалансированный, как в реальности). Метрика — Accuracy с пересчётом в баллы по формуле min(100, (acc-0.55)*294); применяются общие правила Cyprus AI Camp 2026."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -511,7 +511,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Табличная регрессия: предсказать рыночную цену подержанных автомобилей на Кипре по характеристикам объявления."
+   "description": "Табличная регрессия рыночной цены подержанных авто на Кипре (объявления Bazaraki) по характеристикам объявления. Train: ~730 строк, test: 91 строка; фичи — title, location, Year, Doors, Drive, Seats, Colour, Gearbox, Mileage, MOT till, Body type, Fuel type, Engine size, Power, Extras (много пропусков и грязного текста). Метрика — MAPE (баллы по шкале от 0 при ≥0.65 до 100 при ≤0.15). Учебное соревнование без денежных призов."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -528,7 +528,7 @@
     "Pooling Techniques (Max, Average)",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
-   "description": "Анализ макета документов: классификация типа документа, детекция структурных элементов и попиксельная сегментация."
+   "description": "Multi-task анализ макета документов на 2500 реальных изображениях DocLayNet (2000 train + 500 test, 800×1100, .npy): (A) классификация типа документа из 6 классов — Accuracy, 30 баллов; (B) детекция 6 структурных элементов с bbox в COCO-формате — 40 баллов; (C) попиксельная semantic segmentation на 7 классов (фон + 6 элементов) — 30 баллов. Можно решать любое подмножество задач, итог = сумма баллов (max 100). Метрики для B/C — стандартные mAP / IoU; формула A: `max(0, min(30, (acc − 0.5) × 60))`."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -544,7 +544,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Data Processing"
    ],
-   "description": "CV-классификация изображений одежды по категориям, метрика Accuracy."
+   "description": "Многоклассовая CV-классификация изображений (Fashion-MNIST) на 10 категорий одежды. Train: 60 000 grayscale-картинок 28×28 (npy), test: 10 000 (5K public + 5K private). Метрика — Accuracy; специальные ограничения по моделям и претрейнам указаны в baseline-ноутбуке организаторов, действуют общие правила Cyprus AI Camp 2026."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -560,7 +560,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Data Processing"
    ],
-   "description": "CV-классификация: распознавание 10 типов галактик на цветных снимках 256x256 из Galaxy10 DECaLS, метрика Accuracy."
+   "description": "CV-классификация морфологии галактик по 10 классам (Galaxy10 DECaLS). Данные — .npy массивы цветных снимков 256x256x3 uint8 (~20k всего: train_images/labels, public и private test ~3548 снимков). Метрика — Accuracy на private leaderboard, образовательный контест без денежных призов."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -582,7 +582,7 @@
     "Data Embeddings (text, image, audio)",
     "Data Processing"
    ],
-   "description": "Мультимодальная классификация поражений кожи по 7 диагнозам (ISIC/HAM10000) на основе дермоскопических изображений и табличных метаданных пациента, метрика F1."
+   "description": "Мультимодальная классификация дермоскопических снимков кожи на 7 диагнозов (ISIC/HAM10000: mel, bcc, akiec, bkl, nv, df, vasc) с использованием изображений 224x224 и таб. метаданных (age, sex, anatom_site). Train: 4000, test: 1000. Метрика — Weighted F1. Спецограничения задачи указаны в baseline-ноутбуке организаторов."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -593,7 +593,7 @@
     "Logistic Regression",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Табличная классификация качества вина по физико-химическим характеристикам, метрика Weighted F1."
+   "description": "Многоклассовая табличная классификация качества португальских красных «Vinho Verde» по 11 физико-химическим признакам (кислотность, сахар, SO2, плотность, pH, алкоголь и др.) с 6 классами качества (3–8). Train: 1279, val: 320, public test: 160, private test: 160. Метрика — Weighted F1; правила и ограничения — в baseline-ноутбуке организаторов."
   },
   {
    "source": "Cyprus AI Camp 2026",
@@ -604,7 +604,7 @@
     "Data Embeddings (text, image, audio)",
     "Pre-trained Audio Encoders: HuBERT"
    ],
-   "description": "Распознавание речи: классификация коротких аудио по 35 голосовым командам, метрика Accuracy."
+   "description": "Аудио-классификация: распознавание 35 голосовых команд (Google Speech Commands v2) по сырым waveforms длительностью 1 секунда при 16 кГц. Дано train_waveforms.npy формы (N, 16000) и train_labels.npy, public+private test ~2120 (private_test_waveforms.npy). Метрика — Accuracy (points = (Acc-0.40)*166.67, clamp 0-100). Можно работать с raw audio (1D CNN) или mel-spectrogram (2D CNN), augmentation поощряется."
   },
   {
    "source": "Cyprus Spring 2026",
@@ -615,7 +615,7 @@
     "Pre-trained Text Encoders (e.g. BERT)",
     "Text Classification"
    ],
-   "description": "NLP-классификация: определить, написано ли вступительное эссе человеком или ИИ-инструментом."
+   "description": "Мульти-задача по эссе на поступление: (1) предсказать Robust Readability Metric, (2) регрессия sentiment score, (3) unsupervised определение «человек vs ИИ» (без меток в train). Train: 840 эссе с текстом и sentiment_score, test: эссе без меток. Итоговый скор — среднее по подзадачам (MAE/RMSE/F1); до 5 сабмитов в день, индивидуально, внешние данные допускаются."
   },
   {
    "source": "HBNU AI 2025",
@@ -647,14 +647,14 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "Training Models on CPU and GPU"
    ],
-   "description": "Бинарная CV-классификация face anti-spoofing: для каждого изображения определить, настоящее ли это лицо (live) или спуф-атака (spoof). В test есть **unseen domain** примеры — нужна доменная генерализация. Метрика — Accuracy. Разрешены предобученные модели (легально-открытые, commercial-use). Запрещены: внешние датасеты, платные API, генерация/аугментация данных через предобученные модели, utilизация информации из test (data leakage)."
+   "description": "Бинарная CV-классификация face anti-spoofing: для каждого изображения предсказать live vs spoof. Test: 2000 изображений, причём часть — из unseen domain (требуется доменная генерализация). Метрика — Accuracy, 5 сабмишенов в день. Ограничения: запрещены внешние датасеты, платные API, генерация/аугментация данных через предобученные модели и любое использование test-инфы (data leakage); разрешены только pretrained-модели с commercial-use лицензией."
   },
   {
    "source": "HBNU AI 2026",
    "name": "Image Classificaion(HBNU, AI, 2026-Spring)",
    "url": "https://www.kaggle.com/competitions/image-classificaion-hbnu-ai-2026-spring",
    "topics": [],
-   "description": "CV-классификация (face anti-spoofing): отличить реальное лицо от спуфинг-атаки, в тесте присутствуют unseen domain данные, метрика Accuracy."
+   "description": "Бинарная классификация face anti-spoofing (live vs spoof) на изображениях лиц; в test есть unseen-domain данные. Test ~2000 строк. Метрика — Accuracy. Разрешены претрейны с commercial-use лицензией, запрещены внешние датасеты, платные API, аугментация/генерация данных через претрейны и любая утечка инфо о тесте; лимит 5 сабмитов в сутки."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -671,7 +671,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Confusion Matrix and ROC Curves"
    ],
-   "description": "Табличная многоклассовая классификация: предсказать категорию вина (комбинация уровня качества и цвета) по химико-физическим признакам."
+   "description": "Табличная многоклассовая классификация вина: предсказать комбинированную метку kategori (качество good/average/bad × цвет red/white, 6 классов) по 11 химико-физическим признакам (keasaman_tetap/volatile, asam_sitrat, gula_residual, klorida, sulfur_dioksida bebas/total, massa_jenis, pH, sulfat, alkohol). Test: 1300 строк. Метрика — Accuracy; запрещено загружать данные в ChatGPT и искать решения в Google/Kaggle."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -687,7 +687,7 @@
     "Data Processing",
     "Principal Component Analysis (PCA)"
    ],
-   "description": "CV/anomaly: по картинкам-картинам 9x9 в оттенках серого определить, какие из них поддельные, отличая стиль настоящего автора от подделок."
+   "description": "Мультизадача по grayscale-картинам 9x9 (разного размера в пикселях): предсказать цвет рамки (border_color, 10 баллов), число пустых клеток (banyak, 15 баллов) и бинарную подлинность картины (valid, 75 баллов). Метрики — Accuracy для первых двух, F1-Macro для valid; суммарно 100. Решать только в Google Colab, поиск в интернете запрещён, разрешён только ChatGPT для пояснений."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -705,7 +705,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "NLP без учителя: для 50 документов на неизвестном (марсианском) языке определить их смысл/перевод."
+   "description": "Cross-lingual information retrieval без учителя: для 50 запросов на неизвестном «марсианском» языке отранжировать 1459 английских кандидатов-переводов. Доп. ресурс — параллельный корпус из 500 пар (eng500/unk500). Метрика — средний DCG(d; b=10) по позиции правильного перевода в ранге. Для каждого запроса ровно один правильный документ."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -719,7 +719,7 @@
     "Transformers (theory needed only for text and image)",
     "Text Classification"
    ],
-   "description": "NLP: решать арифметические задачи в виде текстовых формулировок (до трёх операндов), используя encoder/encoder-decoder модели без decoder-only."
+   "description": "NLP-задача math word problems: по тексту арифметической задачи (до трёх операндов из +,−,×,÷; не все упомянутые числа используются) предсказать числовой ответ. Train.csv + test_ready.csv (~333 строки в test). Метрика — Accuracy; разрешены encoder-only и encoder-decoder Transformer-модели и Word2Vec, decoder-only модели строго запрещены, RNN/LSTM/GRU предпочтительны, data augmentation разрешена."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -762,7 +762,7 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "Training Models on CPU and GPU"
    ],
-   "description": "Регрессия временных рядов: для каждого образца дана история суточных значений речного стока длиной T (50–60 дней); предсказать одно число — среднее значение стока за следующие 12 дней (не 12 раздельных предсказаний). Ряды разнородны: могут иметь тренд, сезонность, mean-reverting динамику или локальные изменения в конце окна — единая модель для всех образцов не оптимальна."
+   "description": "Регрессия временных рядов: по истории суточного речного стока длиной obs_len (до 60 дней, x_1..x_60 с NaN-паддингом) предсказать среднее значение стока за следующие 12 дней (одно число target). Test ~400 строк, ряды разнородны (тренд, сезонность, mean-reverting, локальные изменения), единая модель неоптимальна. Метрика — Mean Absolute Error (MAE)."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -789,7 +789,7 @@
     "Data Embeddings (text, image, audio)",
     "Autoencoders"
    ],
-   "description": "Мультимодальная 4-классовая классификация 1D-сигналов с космической антенны. Каждое наблюдение: основной сигнал (4800 значений) + сигнал модуляции/настройки антенны (128 значений). Нужно совместно использовать оба входа, бороться с шумом, при необходимости строить новые представления. Разрешены классический ML, deep learning (CNN/RNN/LSTM), signal processing, feature engineering. Метрика: Accuracy."
+   "description": "4-классовая классификация мультимодальных 1D-сигналов с космической антенны: каждое наблюдение — основной сигнал (4800 значений) + сигнал модуляции (128 значений). Размер ~660 строк, в test метки скрыты. Метрика — Accuracy; разрешены классический ML, CNN/RNN/LSTM, signal processing и feature engineering."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -832,7 +832,7 @@
     "Tensor (Multi-dimensional Array) Manipulation",
     "Training Models on CPU and GPU"
    ],
-   "description": "NLP-классификация позиции: для каждого из 500 «битых» сообщений на alien-языке (словарь из 30 уникальных токенов, длина 7–20) предсказать индекс позиции (0…L), где должен стоять известный пропущенный токен. Дано 1500 целых сообщений из архива для обучения. Входы: x0..x19 (incomplete sequence, дополнен `<PAD>`) + missing_unit. Задача — выучить «грамматику» alien-языка с нуля."
+   "description": "NLP-задача предсказания позиции: по «битой» последовательности на alien-языке (словарь ~30 токенов, длина 7–20, паддинг <PAD>) и известному missing_unit определить индекс позиции (0…L), куда он должен быть вставлен. Train: 1500 целых сообщений, test: 500; фичи — x0..x19 и missing_unit. Метрика — MAE. Нужно выучить грамматику alien-языка с нуля."
   },
   {
    "source": "Indonesia Pelatnas IOAI",
@@ -847,7 +847,7 @@
     "Attention Mechanism",
     "Data Embeddings (text, image, audio)"
    ],
-   "description": "NLP, генеративный перевод: по документу на марсианском языке и 4 ключевым английским фразам сгенерировать английский перевод."
+   "description": "Генеративный машинный перевод: по документу на синтетическом «марсианском» языке и 4 ключевым английским фразам сгенерировать английский перевод (гарантировано, что все 4 фразы войдут в правильный перевод). Ресурсы: parallel corpus 500 пар (eng500.txt / unk500.txt) и 50 тестовых документов (unk50.csv) + keywords.txt. Метрика — BLEU-3 против скрытого gold перевода."
   },
   {
    "source": "IOAI Mirror / Challenge",
@@ -858,28 +858,28 @@
     "Pre-trained Vision Encoders (e.g. ResNet)",
     "Self-Supervised Learning for Vision"
    ],
-   "description": "CV-матчинг: по query-изображению иконки туалета найти иконку противоположного пола из того же туалета (self-supervised эмбеддинги)."
+   "description": "CV cross-gender icon matching: по cropped-иконке туалета найти в галерее original-иконку противоположного пола из того же туалета. Train: 4 png-картинки (crop/orig × male/female) на каждый restroom-ID; test: query (cropped) и gallery (originals, |gallery|=2·|query|), id перемешаны. Метрика — Precision@1; сабмит — отсортированный по убыванию уверенности список N индексов на каждый query."
   },
   {
    "source": "IOAI Mirror / Challenge",
    "name": "Computer Vision Challenge 2026",
    "url": "https://www.kaggle.com/competitions/ioai-computer-vision-challenge-2026",
    "topics": [],
-   "description": "CV crowd counting: подсчёт количества людей на изображениях городских сцен по точечным аннотациям головы."
+   "description": "Crowd counting на изображениях городских сцен: предсказать число людей на снимке. Train — всего 100 JPG с точечными аннотациями голов в .mat плюс ground_truth_train.json с готовыми счётчиками; test — 216 JPG без меток. Метрика — RMSE на private (~70% сплит). Решение должно быть воспроизводимо, организаторы могут запросить ноутбук."
   },
   {
    "source": "IOAI Mirror / Challenge",
    "name": "Embedding Secrets",
    "url": "https://www.kaggle.com/competitions/ioai-nlp-challenge-2026",
    "topics": [],
-   "description": "NLP: по утечке эмбеддингов восстановить скрытые имена в судебных документах, выбрав из 800 кандидатов 300 настоящих эмбеддингов с шумом."
+   "description": "Деанонимизация судебных документов через утечку FastText-эмбеддингов: для каждого токена xxxxxxxxxx предсказать скрытое имя. Корпус: 6606 документов, 23131 редактированных позиций; кандидатов 800 эмбеддингов (300 настоящих с шумом + 500 ловушек). Метрика — 0.7·bag_score + 0.3·positional_score. Эмбеддинги испанского cc.es.300.bin, метки для трейна не предоставлены."
   },
   {
    "source": "IOAI Mirror / Challenge",
    "name": "IOAI 2-bosqich saralash",
    "url": "https://www.kaggle.com/competitions/ioai-2-bosqich-saralash",
    "topics": [],
-   "description": "Бинарная табличная классификация: предсказать вероятность дождя на завтра по метеорологическим признакам."
+   "description": "Бинарная вероятностная классификация: по дневным метеопризнакам (MinTemp, MaxTemp, Rainfall, Evaporation, Sunshine, ветер, влажность, давление, облачность) предсказать вероятность дождя завтра. Train.csv + test.csv (~730 строк) + metaData.csv; выход — вероятность в [0,1]. Метрика — MSE; запрещены multi-accounts, шаринг кода вне команды и ручная разметка теста; до 5 сабмитов/день, 2 финальных."
   },
   {
    "source": "IOAI Mirror / Challenge",
@@ -894,14 +894,14 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Pre-trained Vision Encoders (e.g. ResNet)"
    ],
-   "description": "CV-классификация изображений 150x150 пикселей по 6 категориям природных и городских сцен (buildings, forest, glacier, mountain, sea, street), метрика F1."
+   "description": "Многоклассовая классификация изображений 150x150 px по 6 категориям сцен (buildings, forest, glacier, mountain, sea, street). Train ~14k картинок, test ~3000 (ID — имя файла, Label — 0..5). Метрика — Micro F1-Score. Допускаются публичные pretrained backbone (timm/torchvision ImageNet), запрещено копирование чужих пайплайнов, лимит 10 submissions/день, требуется детерминированность (фикс seeds)."
   },
   {
    "source": "IOAI Mirror / Challenge",
    "name": "Radar (IOAI 2025 Task 1) Mirror (Unofficial)",
    "url": "https://www.kaggle.com/competitions/radar-ioai-2025",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Семантическая сегментация радарных хитмэпов (зеркало задачи IOAI 2025 Task 1): для каждого .mat.pt-сэмпла формы 7×50×181 предсказать карту классов 50×181 со значениями из {-1, 0, 1, 2, 3} (фон/чемодан/стул/человек/стена). Train ~? + test 500. Метрика — взвешенная попиксельная accuracy (фон — 1 балл, объект — 50 баллов), нормированная в [0,1]."
   },
   {
    "source": "IOAI Mirror / Challenge",
@@ -913,7 +913,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
    ],
-   "description": "Регрессия: построить soft-сенсор для оценки уровня CO по показаниям дешёвых датчиков среды и сопутствующих загрязнителей."
+   "description": "Табличная регрессия soft-сенсора: предсказать отклик химического CO-сенсора PT08.S1(CO) по 4 фичам (Temp_Lima, Humedad_Relativa, Emisiones_Diesel/NO₂, NOx(GT)). Train: 6549 строк, val: 1872 (public LB), test: 936 (private LB), всего 2808 предсказаний в одном CSV. Метрика — RMSE. Критично обработать значения -200 (ошибка сенсора) в фичах и таргете; решение должно быть воспроизводимо (организаторы могут запросить код)."
   },
   {
    "source": "IOAI Mirror / Challenge",
@@ -927,7 +927,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Pre-trained Audio Encoders: HuBERT"
    ],
-   "description": "Классификация изображений: по спектрограммам аудио отличить синтетическую (AI-сгенерированную) речь от настоящей, метрика F1."
+   "description": "Бинарная классификация изображений: по спектрограммам (.pt) отличить синтетическую AI-сгенерированную речь (label=1, spoof) от настоящей человеческой (label=0). Test содержит 2749 примеров, фичи уже извлечены в виде спектрограмм — фактически image classification. Метрика — F1 по классу spoof. Задача — зеркало IOAI 2025 GAITE task 5."
   },
   {
    "source": "IOAI Practice",
@@ -941,7 +941,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "NLP, бинарная классификация твитов: определить, упоминается ли в тексте побочная реакция на лекарство (ADR), метрика F1."
+   "description": "Бинарная NLP-классификация твитов: содержит ли текст упоминание побочной реакции на лекарство (ADR=1 vs no-ADR=0). Train: 9 515 размеченных твитов (SMM4H/Toloka), test: 1 504. Фичи: tweet (текст), таргет: class. Метрика — F1; специальных ограничений по моделям не заявлено (baseline на RNN)."
   },
   {
    "source": "Japan JOAI 2025",
@@ -972,7 +972,7 @@
     "Language Modeling",
     "Data Embeddings (text, image, audio)"
    ],
-   "description": "Мультимодальная классификация газов по табличным, визуальным и текстовым данным (playground-версия), метрика F1."
+   "description": "Мультимодальная классификация газа Gas по 2 показаниям датчиков MQ8/MQ5, обрезанной PNG-картинке и текстовому Caption (сгенерирован по полной картинке). Train — 640 строк CSV, test — без колонки Gas. Метрика — weighted F1. Playground-версия JOAI 2025."
   },
   {
    "source": "Japan JOAI 2026",
@@ -1001,7 +1001,7 @@
     "Underfitting, Overfitting",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Регрессия по временным рядам: по сигналам wide-field кальциевой нейровизуализации мозга мыши предсказать положение рычага в каждый момент времени, метрика MSE."
+   "description": "Регрессия временных рядов: по wide-field Ca²⁺-сигналам 44 областей коры мозга мыши предсказать положение рычага (lever) в каждом кадре. Данные нарезаны на окна по 20–40 кадров, идентифицируемые sample_id; train содержит lever, test — нет (~149k строк всего). Метрика — MSE. Использовать исходный датасет статьи Kondo et al. запрещено."
   },
   {
    "source": "JOAI Jordan",
@@ -1025,7 +1025,7 @@
     "Scikit-learn for ML",
     "Matplotlib and Seaborn for Visualization"
    ],
-   "description": "Табличная бинарная классификация: предобработать данные (пропуски, дубликаты, выбросы) и предсказать метку A/B (0/1)."
+   "description": "Учебная бинарная табличная классификация: по признакам успеваемости студента предсказать класс Grade (A→1, B→0) с обязательной предобработкой (пропуски, дубликаты, числовые выбросы). Train.csv + test.csv (~1600 строк, rowId=`Student_ID`); сабмит ровно 2 колонки `Student_ID,Grade`. Метрика — Accuracy; внешние датасеты запрещены без разрешения инструктора, нельзя менять формат сабмита."
   },
   {
    "source": "JOAI Jordan",
@@ -1049,7 +1049,7 @@
     "Scikit-learn for ML",
     "Matplotlib and Seaborn for Visualization"
    ],
-   "description": "Табличная бинарная классификация: предсказать ценовую категорию мобильного телефона (low/high) по его техническим характеристикам."
+   "description": "Табличная бинарная классификация: предсказать ценовую категорию мобильника (low=0/high=1) по техническим характеристикам с предобработкой грязных данных. Test ~400 строк, есть пропуски, дубликаты, числовые выбросы и номинальные категориальные колонки; таргет в train задан строками low/high, в submission требуются 0/1. Метрика — Accuracy Score. Внешние датасеты запрещены без согласования инструктора."
   },
   {
    "source": "JOAI Jordan",
@@ -1061,7 +1061,7 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
    ],
-   "description": "Табличная регрессия: предсказать численный risk-score заявки на кредит."
+   "description": "Табличная регрессия: предсказать численный RiskScore кредитной заявки по финансовым/демографическим признакам (доход, кредитная история, занятость и т.д.). Train+test ~4000 строк, есть пропуски, дубли, выбросы и категориальные признаки, требующие препроцессинга. Метрика — MAE; задача не классификационная, метки вида low/high запрещены."
   },
   {
    "source": "JOAI Jordan",
@@ -1073,14 +1073,14 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
    ],
-   "description": "Табличная регрессия: предсказать одобренную сумму заявки на грязных данных (пропуски, дубли, выбросы, категориальные признаки)."
+   "description": "Табличная регрессия одобренной суммы заявки (approved_amount) на «грязных» данных с реалистичными проблемами: пропуски, дубликаты строк, невалидные числовые значения, выбросы и категориальные признаки, требующие кодирования. Test: 300 строк, нужно сделать предобработку, обучить и провалидировать модель. Метрика — MSE."
   },
   {
    "source": "NEOAI 2025",
    "name": "Dates and Format:",
    "url": "https://www.kaggle.com/competitions/neoai-2025",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Тестовое разминочное соревнование NEOAI 2025 для знакомства с Kaggle: классификация изображений на 6 классов по нескольким примерам каждого класса в `train` и небольшому `test` (24 строки). Метрика — Accuracy; цель — достичь идеального 1.0 за минимум сабмитов. По умолчанию претрейны и внешние данные запрещены."
   },
   {
    "source": "NEOAI 2025",
@@ -1091,7 +1091,7 @@
     "Data Embeddings (text, image, audio)",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "NLP: восстановить повреждённые эмбеддинги BERT (Kaggle-версия задачи NEOAI)."
+   "description": "NLP-задача восстановления повреждённых эмбеддингов BERT (Kaggle-зеркало NEOAI 2025); итоговый прогноз — классификационная метка. Test: 2 499 строк, описание данных и конкретные ограничения вынесены в baseline-ноутбук организаторов. Метрика — Accuracy; действуют общие правила NEOAI 2025."
   },
   {
    "source": "NEOAI 2025",
@@ -1102,7 +1102,7 @@
     "K-Means Clustering",
     "Principal Component Analysis (PCA)"
    ],
-   "description": "CV unsupervised: кластеризация изображений по эмбеддингам с использованием PCA и K-Means."
+   "description": "Unsupervised CV-кластеризация изображений: построить эмбеддинги и разбить 3840 картинок на кластеры (по бейзлайну — PCA + K-Means). Метрика — Adjusted Rand Score относительно скрытых классов. Специфические ограничения задаются в baseline-ноутбуке организаторов и общих правилах NEOAI."
   },
   {
    "source": "NEOAI 2025",
@@ -1114,7 +1114,7 @@
     "Image Segmentation (U-Net)",
     "Pre-trained Vision Encoders (e.g. ResNet)"
    ],
-   "description": "CV семантическая сегментация мультяшных персонажей (Kaggle-версия NEOAI)."
+   "description": "Семантическая сегментация мультяшных персонажей (CV-задача NEOAI). Test: 1000 изображений, идентификатор img_id; конкретные размеры train и ограничения описаны в baseline-ноутбуке организаторов. Метрика — кастомный metric_template (IoU-подобный). Применяются общие правила NEOAI плюс task-specific ограничения из baseline."
   },
   {
    "source": "NEOAI 2025",
@@ -1126,14 +1126,14 @@
     "Text Classification",
     "Transformers (theory needed only for text and image)"
    ],
-   "description": "NLP: обойти детекторы AI-сгенерированного текста, используя языковые модели и атаки на классификаторы."
+   "description": "NLP / adversarial: сгенерировать или преобразовать тексты так, чтобы обойти детекторы AI-сгенерированного текста при сохранении смысла. Test ~500 примеров; конкретный формат данных и ограничения описаны в baseline-ноутбуке организаторов. Метрика задаётся шаблоном площадки (доля успешно обманутых детекторов); применяются общие правила NEOAI 2025."
   },
   {
    "source": "NEOAI 2025",
    "name": "NEOAI 2025: Intent Detection and Slot Filling",
    "url": "https://www.kaggle.com/competitions/neoai-2025-intent-detection-and-slot-filling",
    "topics": [],
-   "description": "NLP: совместное определение интента и заполнение слотов (intent detection + slot filling) в пользовательских репликах."
+   "description": "NLP joint task: одновременное определение интента и заполнение слотов (intent detection + slot filling) по пользовательским репликам. Test ~694 строки; точные описание данных, формат и архитектурные ограничения вынесены в baseline-ноутбук организаторов (раздел Code). Метрика — intent_detection_and_slot_filling_f1_avg (среднее F1 по обеим подзадачам). Действуют общие правила NEOAI 2025 плюс специфические лимиты из baseline."
   },
   {
    "source": "NEOAI 2025",
@@ -1144,21 +1144,21 @@
     "Feature Engineering",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
    ],
-   "description": "Табличная задача с непростой структурой: использовать деревья и градиентный бустинг, тип таргета не уточнён."
+   "description": "Табличная задача NEOAI 2025 с непростой структурой данных, ориентированная на деревья и градиентный бустинг. Размер ~22378 строк; описание данных, тип целевой переменной и специальные ограничения вынесены в baseline-ноутбук от организаторов. Метрика — кастомная (metric_template e4d6d5); правила и формат сабмита нужно смотреть в Code-секции."
   },
   {
    "source": "NEOAI 2025",
    "name": "NEOAI 2025: Underfitting CV",
    "url": "https://www.kaggle.com/competitions/neoai-2025-underfitting-cv",
    "topics": [],
-   "description": "CV: справиться с недообучением модели на задаче компьютерного зрения; точная постановка в summary не раскрыта."
+   "description": "CV-задача про борьбу с недообучением: точная постановка и правила вынесены в baseline-ноутбук от организаторов в разделе Code. Test: 5100 строк, идентификатор id. Метрика — закрытый шаблон (см. baseline); действуют общие правила NEOAI 2025 плюс специальные ограничения из baseline (как правило, запрет внешних данных и сторонних pretrained без согласования)."
   },
   {
    "source": "NEOAI 2025",
    "name": "The Curse of Farmer Hoggart",
    "url": "https://www.kaggle.com/competitions/neoai-2025-hogspell-challenge",
    "topics": [],
-   "description": "Генерация изображений: заставить модель генерировать свиней (стори-версия задачи Hogspell)."
+   "description": "Файнтюн Stable Diffusion (только `runwayml/stable-diffusion-v1-5`) так, чтобы по 182 промптам генерировать изображения по правилам: промпты про лошадей → свиньи; промпты про свиней → свиньи; нейтральные промпты → без искажений. Сабмит — CSV с base64-PNG 512×512. Метрика — гармоническое среднее трёх Accuracy (horse/pig/neutral), оцениваемых CLIP zero-shot. Запрещены: правка промптов, внешние модели/чекпоинты/API, ручной отбор, negative prompt, img2img, водяные знаки."
   },
   {
    "source": "NEOAI 2026",
@@ -1169,28 +1169,28 @@
     "Logistic Regression",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
    ],
-   "description": "Ранжирование/рекомендация: отобрать топ-8 участников, максимизирующих сумму solution.probability, метрика Recall@8."
+   "description": "Ранжирование/прогноз отбора в национальную команду: для каждого из 60 кандидатов предсказать вероятность попадания в сборную России на IOAI 2026. Фичи — результаты предыдущих 10 соревнований (ВсОШ AI, NTO, NEOAI, IAIO qual и др.) в виде набора CSV с place, final_score и потрековыми баллами по participant_id. Метрика — Final Score = 0.8·Recall@8 + 0.2·NDCG@60 (soft recall по solution.probability)."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 day 1 Kaggleforces",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-1-kaggleforces",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Бинарная классификация на табличных данных (день 1 NEOAI 2026, формат Kaggleforces); описание задачи и данных в публичном тексте отсутствуют, есть только bilingual baseline. Test — 1900 строк. Метрика — ROC-AUC."
   },
   {
    "source": "NEOAI 2026",
    "name": "neoai 2026 day 1 nlp",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-1-nlp",
    "topics": [],
-   "description": "NLP-задача дня 1 NEOAI 2026."
+   "description": "NLP-задача дня 1 NEOAI 2026. Test: 5122 строки, идентификатор задаётся стандартным rowId; постановка и данные раскрыты только через baseline-ноутбук (`baseline-neoai-day1-nlp`). Метрика — кастомный metric_template организаторов. Действуют общие правила NEOAI: запрет внешних датасетов и LLM-помощников."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 day 2 Cuties Nlp",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-2-cutiesnlp",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "NLP-задача дня 2 NEOAI 2026 (CutiesNLP): классификация по текстовым данным согласно baseline-ноутбуку организаторов. Test ~1000 строк; точная схема train/test и фич публикуется только в baseline. Метрика — Accuracy; ограничения — общие правила NEOAI."
   },
   {
    "source": "NEOAI 2026",
@@ -1201,42 +1201,42 @@
     "K-Means Clustering",
     "Principal Component Analysis (PCA)"
    ],
-   "description": "CV unsupervised: кластеризация видеокадров по эмбеддингам с использованием PCA и K-Means."
+   "description": "CV unsupervised: кластеризация видеокадров по эмбеддингам (PCA + K-Means по baseline). Test ~720 кадров; точные детали данных, число кластеров и допустимые методы описаны в baseline-ноутбуке организаторов в разделе Code. Метрика — кастомный metric_template (d5e2e9). Действуют общие правила NEOAI 2026 плюс ограничения из baseline."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 Day 3: No copyright!",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-3-watermarks",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Задача NEOAI 2026 Day 3 про удаление/детекцию вотермарок без предоставленного датасета (организаторы прямо пишут «самый лучший датасет — это тот, которого нет»). Размер не указан, train/test — на стороне участника. Метрика — кастомная (metric_template 9c4300); оценивается «по вайбу» и собственному пайплайну."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 Day 3: Strange Words",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-3-nlp",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "NLP-классификация «странных слов» (NEOAI 2026 Day 3); содержательное описание данных не раскрыто организаторами в публичных вкладках. Test: 800 строк с id. Метрика — Accuracy. Применяются стандартные правила NEOAI/Kaggle (один аккаунт, без мультиаккаунтов и заведомо специальные ограничения раунда)."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 Day 4: Breaking Cat",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-4-boostcat",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Табличная регрессия на 3000 строк («Гарри Поттер и сломанный катбуст» — намёк на CatBoost). Метрика — R². Конкретное описание признаков в raw отсутствует, есть только тизер про catboost. По общим правилам NEOAI претрейны и внешние данные запрещены."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 Day 4: GenAI",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-4-genai",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "GenAI-задача NEOAI 2026 Day 4; явное описание и датасет в условии отсутствуют («самый лучший датасет — это тот, которого нет»), всё вынесено в baseline-ноутбук организаторов. Test: 1 000 строк; метрика — кастомный шаблон (metric_template). Действуют общие правила NEOAI 2026."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI 2026 Day 4: Match!",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-4-nlp",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "NLP-задача дня 4 NEOAI 2026 («Match!»): по публичному описанию деталей нет, известно лишь, что это классификация на ~1000 тестовых примеров. Метрика — Accuracy."
   },
   {
    "source": "NEOAI 2026",
@@ -1247,14 +1247,14 @@
     "Logistic Regression",
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)"
    ],
-   "description": "Задача ранжирования участников: предсказать топ-8 по вероятности успеха, метрика Recall@8 по сумме probability."
+   "description": "Ранжирование/предсказание вероятности попадания участника в сборную России на IOAI по истории его результатов в 10 предыдущих олимпиадах (Всеросс 2024–2025, NTO, NEOAI 2025, IAIO Quals и др.). Test: 60 кандидатов (участников). Метрика — 0.4·Recall@8 + 0.6·NDCG@60 по предсказанной probability. Таблицы по каждой олимпиаде содержат place, final_score и трек-специфичные баллы."
   },
   {
    "source": "NEOAI 2026",
    "name": "neoai-2026-day-1-cv",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-1-cv",
    "topics": [],
-   "description": "Задача компьютерного зрения дня 1 NEOAI 2026."
+   "description": "Computer Vision-задача дня 1 NEOAI 2026: попиксельная сегментация изображений (binary/semantic mask). Test ~500 изображений; описание данных и фич — в baseline-ноутбуке организаторов. Метрика — Dice coefficient; применяются общие правила NEOAI 2026."
   },
   {
    "source": "NEOAI 2026",
@@ -1265,21 +1265,21 @@
     "Data Embeddings (text, image, audio)",
     "Pre-trained Audio Encoders: HuBERT"
    ],
-   "description": "Аудио-задача с применением предобученных аудио-моделей (Whisper, Qwen-Audio, HuBERT) и эмбеддингов."
+   "description": "Аудио-задача бинарной классификации с применением предобученных аудио-моделей (Whisper, Qwen-Audio, HuBERT) и их эмбеддингов. Test ~280 строк; полное описание данных и пайплайн — в baseline-ноутбуке egorgij21/baseline-day2-audio. Метрика — ROC AUC Score. Действуют общие правила NEOAI 2026, специальных ограничений по архитектуре нет («have fun»)."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI-2026-day-2-cv",
    "url": "https://www.kaggle.com/competitions/neoai-2026-day-2-cv",
    "topics": [],
-   "description": "Задача компьютерного зрения в рамках NEOAI 2026 day 2."
+   "description": "Задача компьютерного зрения NEOAI 2026 Day 2 (классификация изображений). Размер ~5000 строк, конкретные классы и формат данных — в baseline-ноутбуке. Метрика — F1 Score; критичное ограничение — запрещено использовать любые предобученные модели."
   },
   {
    "source": "NEOAI 2026",
    "name": "NEOAI-2026-Qualification-CodeStars-Homework",
    "url": "https://www.kaggle.com/competitions/neoai-2026-qualification-code-stars-homework",
    "topics": [],
-   "description": "Предсказание результатов кодинг-контестов: ранжирование участников с метрикой 0.3·Recall@100 + 0.7·Kendall tau, усреднённой по тестовым контестам."
+   "description": "Ранжирование участников соревновательного программирования: для каждого тестового контеста (~1000 хендлов) предсказать итоговый порядок мест. Train: parquet-таблицы train/train_results/problems/contest с историческими результатами и метаданными, test: 15018 пар (contestId, handle). Метрика — усреднённая по контестам 0.3·Recall@100 + 0.7·Kendall τ. Запрещены pretrained-модели и любые библиотеки вне стандартной среды Kaggle."
   },
   {
    "source": "NEOAI 2026",
@@ -1291,7 +1291,7 @@
     "Gradient Descent",
     "Transformers (theory needed only for text and image)"
    ],
-   "description": "NLP-задача поиска/классификации комментариев с использованием предобученных текстовых энкодеров (BERT-like) и трансформеров."
+   "description": "NLP-задача атрибуции автора: по тексту комментария предсказать топ-5 наиболее вероятных авторов (multiclass с большим числом классов). Train — `train_texts.csv` (index, text, target=author_id), test — `test_texts.csv` (~5000), данные хронологически упорядочены, в test — последние 50 длинных сообщений каждого пользователя. Метрика — Recall@5. Разрешены только предобученные веса `deepvk/USER2-small` и `deepvk/USER2-base`, внешние данные запрещены, можно качать NLTK-корпуса."
   },
   {
    "source": "NEOAI 2026",
@@ -1302,7 +1302,7 @@
     "Pre-trained Language Models (open-source and API-based ones)",
     "Transformers (theory needed only for text and image)"
    ],
-   "description": "NLP/LLM-задача: построить агента для работы в терминале с использованием предобученных языковых моделей."
+   "description": "Многоклассовая классификация изображений, представленных как ASCII-арт: по строке 128×128 символов определить породу животного. Train/test — CSV с полем img (ASCII-строка) и label; test 3 669 строк. Метрика — F1-micro; запрещены внешние датасеты, из претрейн-весов разрешены только google-bert/bert-base-uncased и gpt2 (архитектура модели любая)."
   },
   {
    "source": "NEOAI 2026",
@@ -1312,14 +1312,14 @@
     "Data Embeddings (text, image, audio)",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "Тестовая задача NEOAI 2026 day 0: пайплайны с моделями, обучаемыми с нуля (random init, spacy.blank, Word2Vec на мини-корпусе), без скачивания предобученных весов."
+   "description": "Технический «day 0»-тест окружения NEOAI 2026: запускается скрипт, проверяющий, что пайплайны (ML/NLP/CV) работают на моделях, обученных с нуля (random init, spacy.blank, Word2Vec на мини-корпусе). Test — всего 2 строки. Метрика — Accuracy, по сути формальная. Запрещено скачивание любых предобученных весов."
   },
   {
    "source": "NEOAI 2026",
    "name": "Northern Eurasia OAI 2026",
    "url": "https://www.kaggle.com/competitions/neoai-2026",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Тренировочная классификация изображений на 6 классов для знакомства с платформой Kaggle перед основными раундами NEOAI 2026. Test: 24 изображения, train — несколько примеров на класс. Метрика — Accuracy; цель — достичь 1.0 за минимальное число сабмитов. Применяются общие правила NEOAI (без LLM, без интернета сверх документации)."
   },
   {
    "source": "OFIA",
@@ -1401,7 +1401,7 @@
     "Pre-trained Text Encoders (e.g. BERT)",
     "Language Modeling"
    ],
-   "description": "Сборник олимпиадных задач: 4 по CV (классификация изображений, CNN), 4 по NLP (классификация текстов, BERT, языковые модели) и 2 теоретические."
+   "description": "Root-страница олимпиады без отдельного условия: репозиторий HAIO 2024 со сборником из 10 задач (4 CV, 4 NLP, 2 теоретические). Конкретные постановки, датасеты и метрики — в отдельных подпапках задач."
   },
   {
    "source": "Hungary HAIO 2025",
@@ -1413,21 +1413,21 @@
     "Image Classification",
     "Text Classification"
    ],
-   "description": "Сборник олимпиадных задач: онлайн-квалификация по ML с feature engineering и ансамблями, теоретическая задача и 4 практические по классификации изображений и текстов."
+   "description": "Сборник задач HAIO 2025 (Венгерская олимпиада по ИИ): онлайн-отбор на Kaggle «Egyetemi Felvételi» — предсказание результатов поступления в вуз (ML, метрика ROC-AUC), плюс очный финал из теоретической части и 4 практических задач по CV, ML, NLP и RL. Конкретные датасеты и лимиты задаются в отдельных one-pager'ах каждой задачи."
   },
   {
    "source": "Hungary HAIO 2026",
    "name": "HAIO 2026 — Expanded program",
    "url": "https://github.com/Hungarian-AI-Olympiad/HAIO-Hungarian-AI-Olympiad/tree/main/2026",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "Программа Венгерской олимпиады по ИИ 2026: онлайн-отборочный (2 Kaggle-задачи ML: «Подсчёт снеговиков» и «Контроль качества на конвейере») и национальный финал (теория + 3 практические задачи по CV/ML/NLP — «Измельчённые документы», «Корруптированный кодекс», «Ограниченная генерация»). Размеры датасетов и метрики — индивидуально по каждой подзадаче в репозитории. Зимний сезон и лагеря — в планах."
   },
   {
    "source": "IOAI 2025",
    "name": "IOAI 2025 — Problems & Solutions (repo)",
    "url": "https://github.com/IOAI-official/IOAI-2025",
    "topics": [],
-   "description": "Набор индивидуальных и командных задач по ML, NLP и CV из официального репозитория IOAI 2025."
+   "description": "Официальный репозиторий IOAI 2025 со сборником индивидуальных и командных задач (ML, NLP, CV) и эталонными решениями. Каждая задача поставляется со своим train/test, описанием фич и условиями. Метрики и ограничения индивидуальны для каждой задачи (см. соответствующие подкаталоги задач)."
   },
   {
    "source": "Kazakhstan TST",
@@ -1438,7 +1438,7 @@
     "Pre-trained Text Encoders (e.g. BERT)",
     "Language Modeling"
    ],
-   "description": "NLP-классификация: разметить фрагменты кода по уровню сложности (easy/medium/hard)."
+   "description": "NLP-классификация фрагментов исходного кода по уровню сложности (easy/medium/hard) — задача day-3 казахстанского отборочного TST к IOAI. Данные и точные размеры train/test даны в задании отбора (GitHub-репозиторий — пример решения участника), типично пара тысяч кодовых сниппетов. Метрика — Accuracy/F1 (multiclass). Ограничения соответствуют формату IOAI TST: индивидуальная работа, без внешних данных вне разрешённых."
   },
   {
    "source": "Kazakhstan TST",
@@ -1450,7 +1450,7 @@
     "Image Segmentation (U-Net)",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
-   "description": "CV restoration: восстановить изображения, испорченные 2x2 канальными фильтрами."
+   "description": "CV-задача восстановления изображений: вход — картинки, испорченные 2×2 канальными фильтрами, нужно реконструировать исходное изображение. Датасет — учебный (IOAI TST day 1), размер train/test небольшой, фичи — сырые пиксели. Метрика — попиксельная ошибка реконструкции; ограничения соответствуют формату TST (без внешних данных и тяжёлых претрейнов)."
   },
   {
    "source": "Kazakhstan TST",
@@ -1461,7 +1461,7 @@
     "Language Modeling",
     "Attention Mechanism"
    ],
-   "description": "NLP: предсказать позицию замаскированного слова в предложении."
+   "description": "NLP-задача предсказания позиции замаскированного слова в предложении (Kazakhstan IOAI TST, день 4). Доступен только репозиторий с авторским решением: train/test разбиение и точное число фичей в README не зафиксированы. Метрика на основе позиционной точности (accuracy/MAE по индексу), действуют ограничения TST: офлайн-исполнение, без внешних датасетов и платных API."
   },
   {
    "source": "Kazakhstan TST",
@@ -1473,7 +1473,7 @@
     "DBSCAN, Hierarchical & Spectral Clustering",
     "Feature Engineering"
    ],
-   "description": "Кластеризация (unsupervised): сгруппировать футболистов по их игровым статистикам."
+   "description": "Unsupervised кластеризация футболистов по их игровым атрибутам (passing, shooting, defense и т.п.); игрок может иметь несколько позиций (например {CM, CAM}), кластеризация должна отражать overlapping роли. Датасет — train.csv с числовыми статистиками. Метрика — B-Cubed F1 для мульти-позиционной кластеризации (референсное решение получило 0.534). Репозиторий — решение Kazakhstan IOAI TST Day 2; задача — соответствующее Kaggle-соревнование `tst-day-2`."
   },
   {
    "source": "NEOAI 2025",
@@ -1530,7 +1530,7 @@
     "Feature Engineering",
     "Cross-Validation"
    ],
-   "description": "ML на табличных данных: кредитный скоринг с генерацией объяснений предсказаний, классическое ML с feature engineering и ансамблями."
+   "description": "Табличный кредитный скоринг с генерацией объяснений предсказаний: бинарная классификация дефолта плюс human-readable объяснение каждого решения. Train/test заданы в ноутбуке kredytobranie.ipynb (2-й этап польской OlimpiadaAI), несколько тысяч заявок с числовыми и категориальными фичами. Метрика — комбинация качества классификации и качества объяснений. Ограничения формата олимпиады: индивидуальная работа, без интернета вне разрешённой документации."
   },
   {
    "source": "Poland 2025",
@@ -1542,7 +1542,7 @@
     "Image Augmentation",
     "Pre-trained Vision Encoders (e.g. ResNet)"
    ],
-   "description": "Компьютерное зрение: построение детектора монет с нуля, задача object detection."
+   "description": "Computer vision / object detection: построить детектор монет с нуля и посчитать их на изображении. Датасет небольшой (учебный, 1 этап польской OlimpiadaAI), фичи — RGB-картинки с монетами. Метрика — точность подсчёта/детекции; ограничение — решение в формате ноутбука для школьного этапа, без тяжёлых предобученных моделей."
   },
   {
    "source": "Poland 2025",
@@ -1553,7 +1553,7 @@
     "Text Classification",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "NLP-задача классификации: детекция галлюцинаций в ответах языковых моделей с использованием предобученных текстовых энкодеров."
+   "description": "NLP-классификация: детекция галлюцинаций в ответах языковых моделей по тексту запроса и ответа (Польская олимпиада по ИИ, 1 этап). Размер train/test и фичей описан в эталонном ноутбуке организаторов; типовой подход — pretrained-текстовые энкодеры + классификационная голова. Метрика — Accuracy/F1; ограничения этапа: без интернета во время финала, только локальные ресурсы и заранее одобренные модели."
   },
   {
    "source": "Poland 2025",
@@ -1565,7 +1565,7 @@
     "Diffusion Models",
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
-   "description": "Восстановление изображений: оценка шума и денойзинг с использованием автоэнкодеров/диффузионных моделей, метрика типа MSE/MAE."
+   "description": "Задача «Rozkład Nienormalny» 2-го этапа польской AI-олимпиады (II OAI, 2025): удаление шума с изображений + классификация типа шума (разные распределения). Точные параметры датасета и формулу метрики в raw README не раскрыли — там лишь общий обзор олимпиады; ожидаемые метрики — что-то вроде MSE/MAE на восстановлении + Accuracy/F1 на классификации шума. Среда: Python 3.11, пакеты из `environment.yml`, оценка автоматическая на платформе."
   },
   {
    "source": "Poland 2025",
@@ -1600,7 +1600,7 @@
     "Text Classification",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "Две задачи: классификация изображений византийской музыкальной нотации (CV) и текстовая классификация AI vs human-written (NLP) с BERT-подобными энкодерами."
+   "description": "Сборник авторских решений задач IOAI-подобных олимпиад (ROAI, IAIO, NEOAI, MLCompete, Nitro AI Judge), включая две учебные задачи: классификация изображений византийской музыкальной нотации (CV) и детекция AI-сгенерированных текстов vs human-written (NLP) с BERT-подобными энкодерами. Конкретные размеры выборок зависят от исходных контестов. Метрики — accuracy/F1 в зависимости от задачи; решения нацелены на максимальный балл (100/100). Стандартные ограничения IOAI: 6 часов, без интернета и LLM, только документация."
   },
   {
    "source": "Romania ONIA 2025",
@@ -1613,7 +1613,7 @@
     "Cross-Validation",
     "Linear Regression"
    ],
-   "description": "Табличное ML: задачи предсказания (train/test) на платформе Nitro AI Judge, классическое ML с регрессией, ансамблями и feature engineering."
+   "description": "Сборник примерных задач OJIA (Олимпиада AI, Румыния) с условиями и эталонными решениями: преимущественно табличные предсказательные задачи (train/test) под Nitro AI Judge. Размеры датасетов и фич меняются от задачи к задаче. Метрики задаются индивидуально (точность/F1/MAE и т.п.); типично — классический ML на sklearn/pandas без GPU, без внешних данных."
   },
   {
    "source": "AICC",
@@ -1633,7 +1633,7 @@
     "Text Classification",
     "Data Processing"
    ],
-   "description": "Image retrieval по текстовым «карточкам каталога»: для каждого из 700 тестовых описаний (48–97 строк аннотаций по регионам изображения, с дублями) вернуть top-10 фото из галереи в 1500 кандидатов. Разрешено использовать только openai/clip-vit-base-patch16 (image + text encoders), без других претрейнов и внешних данных. Метрика — средний reciprocal-rank-squared (1/k²) по 700 карточкам."
+   "description": "Image retrieval по текстовым «карточкам каталога»: для каждого из 700 тестовых описаний (48-97 строк аннотаций по регионам изображения, возможны дубли) вернуть top-10 фотографий из галереи в 1500 кандидатов. Метрика — средний reciprocal-rank-squared (1/k²) по 700 карточкам. Жёсткое ограничение: разрешено использовать только openai/clip-vit-base-patch16 (image+text encoders), запрещены другие претрейны и внешние данные."
   },
   {
    "source": "AICC",
@@ -1655,7 +1655,7 @@
     "Image Augmentation",
     "Data Processing"
    ],
-   "description": "Регрессия по фото 2736×2736 RGB: для каждого снимка предсказать (1) количество игральных костей и (2) сумму выпавших очков. Тест OOD (10–25 костей и суммы до 96 vs 1–10 костей и суммы до 37 в train), 200 train / 50 test. Запрещены претрейнованные веса и внешние датасеты. Метрика — MAE с обрезкой (12 для count, 36 для sum)."
+   "description": "Регрессия по фото костей 2736×2736 RGB: для каждого снимка предсказать (1) количество игральных костей и (2) сумму выпавших очков. Train 200 / test 50, причём test — OOD (10–25 костей и суммы до 96 против 1–10 костей и сумм до 37 в train). Метрика — MAE с обрезкой (12 для count, 36 для sum); запрещены предобученные веса и внешние датасеты."
   },
   {
    "source": "AICC",
@@ -1677,7 +1677,7 @@
     "Self-Supervised Learning for Vision",
     "Data Processing"
    ],
-   "description": "Visual odometry + навигация робота в raycasted-мире (Doom-стиль), вход 64×64 RGB с компасом. Два подзадания: (1) по паре кадров до/после предсказать смещение (dx, dy ∈ −3..+3) и поворот (4 класса); (2) обучить политику в Gymnasium-среде PixelNav-v0 на сетке 20×20 (трава/песок/вода/цель), которая идёт к цели за 100 шагов с reward shaping."
+   "description": "Visual odometry + RL-навигация робота в raycasted Doom-стиль мире (вход 64×64 RGB + компас). Подзадача 1: по паре кадров до/после предсказать смещение (dx, dy ∈ −3..+3, регрессия/классификация) и поворот (4 класса). Подзадача 2: обучить политику в Gymnasium-среде PixelNav-v0 на сетке 20×20 (трава/песок/вода/цель), дойти до цели за 100 шагов. Метрики — accuracy для VO и success rate / cumulative reward для политики; запрещены внешние датасеты, интернет и LLM-генерация кода."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
@@ -1693,7 +1693,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Общий тренировочный раунд от Algolymp AI Team для подготовки к олимпиаде по ИИ; конкретное условие задачи в описании не раскрыто, только мотивационный посыл «спасать жизни»."
+   "description": "Root-страница тренировочного раунда от Algolymp AI Team для подготовки к олимпиаде по ИИ — конкретного условия задачи, датасета и метрики в markdown нет, только маркетинговый посыл «спасать жизни» и ссылка на курс."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
@@ -1713,7 +1713,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Симуляционный контест Algolymp для подготовки к окружному этапу румынской олимпиады по ИИ (классы IX–X); задачи строго по официальной программе ROAI для младших классов, конкретные постановки в markdown не приведены."
+   "description": "Root-страница контеста без отдельного условия: симуляционный набор Algolymp PreOJIA для 9–10 классов румынской олимпиады по ИИ. Конкретные задачи (постановка, датасет, метрика) даны в markdown отдельных задач на платформе nitro-ai."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
@@ -1734,7 +1734,7 @@
     "Image Classification",
     "Text Classification"
    ],
-   "description": "Симуляционный контест Algolymp для подготовки к окружному этапу румынской олимпиады по ИИ (классы XI–XII); набор задач строго по официальной программе ROAI для старших классов, конкретные задачи в markdown не приведены."
+   "description": "Симуляционный тренировочный контест Algolymp для подготовки к окружному этапу ROAI (классы XI–XII). Конкретные задачи и датасеты в публичном описании не приведены — строго по официальной программе ROAI для старших классов. Призов и формальных метрик нет, формат повторяет правила реальной олимпиады."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
@@ -1754,7 +1754,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Симуляционный контест Algolymp для подготовки к национальному этапу олимпиады по ИИ (классы IX–X); задачи строго по программе ROAI для младших классов, конкретные постановки в описании не приведены."
+   "description": "Симуляционный контест Algolymp для подготовки к национальному этапу ROAI (классы IX–X). Конкретные задачи и датасеты в публичном описании не приведены — набор строго по официальной программе ROAI для младших классов (базовый ML, элементы DL). Метрика и формат — как на боевом нацэтапе. Призов нет, цель — self-assessment в боевых условиях."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
@@ -1777,7 +1777,7 @@
     "Text Classification",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "Симуляция национальной фазы румынской олимпиады по ИИ для 11-12 классов, организованная Algolymp. Задачи строго соответствуют официальной программе ROAI для XI-XII классов; призов нет, формат тренировочный."
+   "description": "Тренировочный набор задач PreONIA XI-XII 2026 от Algolymp — симуляция национальной фазы румынской олимпиады по ИИ для 11-12 классов. Несколько задач разных типов (табличные/CV/NLP), каждая со своим train/test и фичами; призов нет. Метрика — сумма баллов за подзадачи; разрешённый инструментарий строго соответствует официальной программе ROAI XI-XII."
   },
   {
    "source": "Algolymp / PreOJIA / PreONIA",
@@ -1796,7 +1796,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Зимний тренировочный контест Algolymp на скорость обучения модели по табличным данным («помоги Санте на лидерборде»); подразумевается классическое ML-соревнование с фичеинжинирингом и бустингом."
+   "description": "Зимний тренировочный контест Algolymp на скорость обучения модели по табличным данным (сюжет — «помоги Санте на лидерборде»): классическое ML-соревнование. Данные представляют собой train/test CSV среднего размера с числовыми и категориальными фичами (точные размеры — в задании на платформе Judge). Метрика — задача-специфическая (Accuracy/MAE/AUC в зависимости от подзадачи). Ограничения формата PreOJIA/PreONIA: офлайн-среда Judge, без интернета и LLM."
   },
   {
    "source": "CEOAI 2026 (EUROAI)",
@@ -1850,7 +1850,7 @@
     "Cross-Validation",
     "Hyperparameter Tuning"
    ],
-   "description": "Рождественский тренировочный раунд Cram School для продвинутых учеников, подготовка к крупным олимпиадам по ИИ. Задачи по классическому ML: feature engineering, логистическая регрессия и ансамбли деревьев."
+   "description": "Рождественский тренировочный раунд Cram School для продвинутых учеников, подготовка к крупным олимпиадам по ИИ. Конкретный состав задач, размеры train/test и метрики в публичном описании не указаны — есть только общий анонс открытого тренировочного контеста."
   },
   {
    "source": "Cram School",
@@ -1869,7 +1869,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Образовательный раунд Cram School для новичков по базовым концепциям ML; конкретные задачи в markdown не приведены, но раунд ориентирован на отработку базы ML/Python."
+   "description": "Образовательный раунд Cram School для новичков, созданный учениками летней школы. Конкретные задачи и размеры данных в описании не указаны — раунд направлен на отработку базовых ML-концепций и Python. Метрика — стандартная для каждой подзадачи (accuracy/MSE/F1). Открытый формат без призов, для самопроверки."
   },
   {
    "source": "Cram School",
@@ -1888,7 +1888,7 @@
     "Underfitting, Overfitting",
     "Cross-Validation"
    ],
-   "description": "Учебный раунд Cram School для начинающих: практика базовых концепций ML — деревья решений, feature engineering и ансамбли (бустинг, бэггинг, random forest)."
+   "description": "Учебный раунд Cram School Beginner 2: набор простых табличных задач для практики деревьев решений, feature engineering и ансамблей (boosting, bagging, random forest). Небольшие train/test CSV с готовыми фичами. Метрика — задаётся отдельно для каждой подзадачи (обычно Accuracy/F1/RMSE); ограничения — стандартный sklearn-стек, без внешних данных."
   },
   {
    "source": "Cram School",
@@ -1911,7 +1911,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Image Classification"
    ],
-   "description": "Пасхальный тренировочный раунд Cram School (формат ROAI). Без интернета, разрешены sklearn, cv2, PIL, skimage, nltk, spacy — то есть задачи по классическому ML, CV (без deep) и базовому NLP."
+   "description": "Пасхальный тренировочный раунд Cram School в формате ROAI: несколько задач (классический ML на табличных данных, CV без deep, базовый NLP). Размеры train/test — небольшие (сотни-тысячи строк/изображений), указаны в каждой подзадаче на Judge. Метрика — задача-специфическая (Accuracy/F1/MAE), общий балл суммируется. Жёсткие ограничения: без интернета, разрешены только sklearn, cv2, PIL, skimage, nltk, spacy (без deep-фреймворков и претрейнов)."
   },
   {
    "source": "Cram School",
@@ -1934,7 +1934,7 @@
     "Image Classification",
     "Text Classification"
    ],
-   "description": "Тренировочный раунд Cram School для продвинутых учеников как подготовка к крупным контестам; конкретные задачи в описании не приведены, но раунд ориентирован на отработку DL-стека (CV/NLP) уровня олимпиад."
+   "description": "Тренировочный раунд Cram School для продвинутых учеников как подготовка к крупным DL-контестам (CV/NLP уровня олимпиад). Размер и состав датасетов в описании не приведены, конкретика — внутри платформы. Метрика — суммарный балл по CSV-предсказаниям; ограничения стандартные для нитро-формата (без внешних API и заранее размеченного теста)."
   },
   {
    "source": "Cram School",
@@ -1957,7 +1957,7 @@
     "Convolutional Layers",
     "Image Classification"
    ],
-   "description": "Тренировочный раунд Cram School для подготовки к национальной фазе румынской олимпиады по ИИ (ROAI/ONIA 2025). Без интернета (только документация разрешённых библиотек), допускается бесплатный Google Colab."
+   "description": "Тренировочный раунд Cram School PreONIA 2025 для подготовки к национальной фазе румынской олимпиады по ИИ (ROAI/ONIA). Содержит несколько задач разного типа с собственными train/test и метриками. Ограничения: офлайн (только документация разрешённых библиотек), допускается бесплатный Google Colab, запрещены LLM-генерация кода и коммуникация во время раунда."
   },
   {
    "source": "Cram School",
@@ -1982,7 +1982,7 @@
     "Text Classification",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "Тренировочный раунд Cram School для подготовки к национальной фазе ROAI 2026. Задачи покрывают AI Search, ML, Deep Learning, NLP, CV и Reinforcement Learning; среда JupyterLab, разрешены torch/sklearn/stable_baselines3/gymnasium и др."
+   "description": "Root-страница тренировочного раунда Cram School PreONIA 2026 для подготовки к национальному этапу ROAI 2026 — отдельной задачи нет, лишь общий syllabus (AI Search, ML, DL, NLP, CV, RL) и регламент. Среда: JupyterLab на judge.nitro-ai.org, разрешены torch/torchvision/sklearn/stable_baselines3/gymnasium/numpy/pandas/opencv/spacy/nltk и др., интернет вне платформы и официальной документации запрещён."
   },
   {
    "source": "DecebalTech AI",
@@ -2005,7 +2005,7 @@
     "Text Classification",
     "Pre-trained Text Encoders (e.g. BERT)"
    ],
-   "description": "Олимпиадный набор задач по ML/CV/NLP для румынских лицеистов, организованный DecebalTech (колледж Decebal, Дева) при поддержке Amazon. Подготовка к Olimpiada de Inteligență Artificială, без доступа к интернету."
+   "description": "Root-страница контеста без отдельного условия: подготовительный набор задач по ML/CV/NLP от DecebalTech для румынских лицеистов. Конкретные постановки, датасеты и метрики — в индивидуальных задачах на nitro-ai, доступ к интернету ограничен."
   },
   {
    "source": "Georgian AI League (GAIA)",
@@ -2025,7 +2025,7 @@
     "Image Classification",
     "Text Classification"
    ],
-   "description": "Первый раунд лиги Georgian AI League (GAIA) — практические олимпиадные задачи по ИИ для тренировки участников."
+   "description": "Первый раунд лиги Georgian AI League (GAIA) — практические олимпиадные задачи по ИИ для тренировки. Информативного описания задач, данных и метрик в публичном анонсе нет, всё доступно только участникам после входа на платформу."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -2068,7 +2068,7 @@
     "Image Classification",
     "Text Classification"
    ],
-   "description": "Очный финал RISE 2026 (Călărași, 9 мая 2026): 3 задачи за 4 часа по силлабусу CEOAI. Жёсткие ограничения: только JupyterLab, без GPU, без претрейн-моделей, без pip install и без интернета (только Judge + локальная документация); требуется полная воспроизводимость CSV."
+   "description": "Очный финал RISE 2026 (Călărași, 9 мая 2026): 3 задачи за 4 часа по силлабусу CEOAI — смесь табличного ML, CV и NLP. Train/test небольшого размера, заданы в каждой задаче на Judge. Метрика — суммарный балл по 3 задачам (внутри каждой — Accuracy/F1/MAE). Жёсткие ограничения: только JupyterLab без GPU, без претрейн-моделей, без pip install и без интернета (только Judge + локальная документация); требуется полная воспроизводимость submission CSV."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -2088,7 +2088,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Cross-Validation"
    ],
-   "description": "Открытый онлайн-квалификатор RISE 2026 (день 1): 2 задачи по силлабусу ROAI за 3 часа без GPU, без предобученных моделей и внешних API; оцениваются по CSV-предсказаниям."
+   "description": "Открытый онлайн-квалификатор RISE 2026 (день 1): 2 задачи по силлабусу ROAI на 3 часа. Размеры train/test и фичи задаются индивидуально в каждой задаче, формат — CSV-предсказания. Метрика — суммарный балл по задачам; критично: без GPU, без предобученных моделей и внешних API."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -2108,7 +2108,7 @@
     "Cross-Validation",
     "Hyperparameter Tuning"
    ],
-   "description": "Открытый онлайн-квалификатор RISE 2026 (день 2): 2 задачи по силлабусу ROAI за 3 часа без GPU, без предобученных моделей и API; оцениваются по CSV-предсказаниям."
+   "description": "Открытый онлайн-квалификатор RISE 2026, день 2: 2 задачи по силлабусу ROAI (CV/NLP/таблицы) с CSV-сабмитом. Time limit — 3 часа; данные и фичи специфичны для каждой задачи. Метрики — задаче-зависимые (классификация/регрессия); ограничения: без GPU, без предобученных моделей, без интернета и платных API, оценка только по предсказаниям."
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -2146,7 +2146,7 @@
     "Image Classification",
     "Text Classification"
    ],
-   "description": "Подготовительный раунд к Национальной олимпиаде по ИИ Республики Молдова: 2 задачи на платформе Nitro-AI, тренировка анализа данных, построения моделей и стратегии сабмитов в условиях с ограничением по времени."
+   "description": "Root-страница контеста без отдельного условия: тренировочный раунд Национальной олимпиады по ИИ Республики Молдова из 2 задач на платформе nitro-ai (с лимитом сабмитов). Конкретные постановки, датасеты и метрики — в самих задачах."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2166,7 +2166,7 @@
     "Model Finetuning (full and parameter-efficient)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Отборочный тур (Lot Baraj 1) сборной Румынии на международные олимпиады по ИИ: задачи продвинутого уровня по классическому ML и глубокому обучению."
+   "description": "Отборочный тур (Lot Baraj 1) сборной Румынии ROAI 2025. Содержательного описания задач, размеров датасетов и метрик в публичном тексте нет — приведён только регламент анти-фрод платформы Judge Nitro AI и общие правила тура. Интернет ограничен платформой и доками разрешённых библиотек."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2187,7 +2187,7 @@
     "Transformers (theory needed only for text and image)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Второй отборочный тур (Lot Baraj 2) сборной Румынии на международные олимпиады по ИИ: задачи продвинутого уровня с DL/NLP/CV компонентами."
+   "description": "Второй отборочный тур сборной Румынии на международные олимпиады по ИИ (Lot Baraj 2) — задачи продвинутого уровня по DL/NLP/CV. Конкретные постановки и размеры датасетов раскрываются только во время тура на платформе Judge Nitro AI. Метрики — индивидуально по задачам. Жёсткие правила: только платформа конкурса и официальные документации, антифрод по сессии браузера/устройства."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2210,7 +2210,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Cross-Validation"
    ],
-   "description": "Уездный этап (OJIA 2025) румынской олимпиады по ИИ для 11-12 классов: классические ML-задачи на табличных данных с использованием sklearn/pandas без GPU."
+   "description": "Уездный этап OJIA 2025 румынской олимпиады по ИИ (11-12 классы): несколько классических ML-задач на табличных данных с train/test CSV и предзаданными фичами. Метрика — сумма баллов по подзадачам (внутри обычно Accuracy/F1/RMSE); разрешён только классический ML (sklearn/pandas/numpy), без GPU, deep learning и внешних датасетов."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2232,7 +2232,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Cross-Validation"
    ],
-   "description": "Уездный этап (OJIA 2025) румынской олимпиады по ИИ для 9-10 классов: классические ML-задачи на табличных данных в ограниченной среде sklearn/pandas."
+   "description": "Уездный этап (OJIA 2025) румынской олимпиады по ИИ для 9-10 классов: классические ML-задачи на табличных данных (регрессия/классификация). Train/test — небольшие CSV (сотни-тысячи строк), заданы в каждой подзадаче на Judge. Метрика — задача-специфическая (Accuracy/F1/MAE), суммируется в общий балл. Ограничения: ограниченная sandbox-среда sklearn/pandas/numpy без интернета, без deep-фреймворков и претрейнов."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2253,7 +2253,7 @@
     "Model Finetuning (full and parameter-efficient)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Национальный этап румынской олимпиады по ИИ (ONIA 2025): задачи классического ML и глубокого обучения с оценкой по CSV-предсказаниям."
+   "description": "Национальный этап румынской олимпиады по ИИ (ONIA 2025): набор задач по классическому ML и глубокому обучению. Размеры train/test и фичи специфичны для каждой задачи раунда, формат — CSV-предсказания. Метрика — суммарный балл по всем задачам; правила стандартные для ROAI (без интернета и LLM)."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2273,7 +2273,7 @@
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Тренировочная сессия по задачам квалификатора ROAI 2024: ознакомление с платформой и базовыми ML-задачами на табличных данных."
+   "description": "Тренировочная сессия на задачах квалификатора ROAI 2024 для ознакомления с платформой Nitro и базовыми ML-задачами на табличных данных. Train/test и фичи — типовые табличные датасеты квалификации (десятки тысяч строк, числовые + категориальные признаки). Метрики — Accuracy/F1/RMSE в зависимости от задачи; режим тренировочный, формальных штрафов нет, но действуют общие ограничения ROAI (без интернета, без сторонних данных)."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2293,7 +2293,7 @@
     "Data Processing",
     "Cross-Validation"
    ],
-   "description": "Окружной этап румынской олимпиады по ИИ для 9-10 классов: задачи на классическое ML и обработку данных без GPU (разрешены numpy, scikit-learn, xgboost-cpu, statsmodels, pandas, cvxpy). Минимум 30% баллов для прохождения на национальный этап."
+   "description": "Root-страница окружного этапа ROAI 2025/2026 для 9-10 классов — отдельного условия задачи нет, только организационная информация и регламент. Среда CPU-only (без GPU), разрешённые пакеты: numpy/scipy/cvxpy/scikit-learn/xgboost-cpu/ydf/statsmodels/pandas/polars/opencv/pillow/nltk/networkx и т.п.; минимальный порог квалификации на национальный этап — 30% общего балла."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2316,7 +2316,7 @@
     "Cross-Validation",
     "Hyperparameter Tuning"
    ],
-   "description": "Окружной этап румынской олимпиады по ИИ для 11-12 классов: задачи на классическое машинное обучение и анализ данных (разрешены numpy/scipy/sympy, scikit-learn, xgboost, statsmodels, pandas, cvxpy для оптимизации). Оценка по баллам с порогом 30% для квалификации на национальный этап."
+   "description": "Root-страница контеста без отдельного условия: окружной этап ROAI 2025 для 11–12 классов, классическое ML/анализ данных. Разрешённый стек — numpy/scipy/sympy, scikit-learn, xgboost, statsmodels, pandas, cvxpy; конкретные задачи, датасеты и метрики — в отдельных постановках."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2339,7 +2339,7 @@
     "Principal Component Analysis (PCA)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Локальный (онлайн) этап румынской олимпиады по ИИ (ROAI 2026): задачи решаются только классическими ML-инструментами (numpy/scipy/sklearn/pandas) без deep learning."
+   "description": "Локальный (онлайн) этап ROAI 2026: набор задач, решаемых только классическими ML-инструментами (numpy, scipy, sympy, sklearn, statsmodels, pandas, polars, cvxpy и т. п.) — никакого deep learning. Конкретные задачи, train/test и метрики в публичном описании не раскрыты. Для прохода в окружной этап достаточно >20% суммарного балла."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2362,7 +2362,7 @@
     "Pre-trained Vision Encoders (e.g. ResNet)",
     "Image Augmentation"
    ],
-   "description": "Национальный этап ROAI 2026 для 9-10 классов (Бухарест): задачи глубокого обучения на PyTorch с использованием CNN, NLP-инструментов и RL-окружений."
+   "description": "Национальный этап ROAI 2026 для 9–10 классов (Genesis College, Бухарест): задачи глубокого обучения на PyTorch с CNN/torchvision, NLP (nltk, spacy, gensim) и RL (stable_baselines3, gymnasium). Конкретные размеры данных и метрики — по каждой задаче на платформе. Разрешён фиксированный whitelist пакетов и сайтов с документацией; интернет вне платформы запрещён."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2385,7 +2385,7 @@
     "Transformers (theory needed only for text and image)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Национальный этап румынской олимпиады по ИИ для 11-12 классов (Genesis College, Бухарест): задачи на глубокое обучение с PyTorch/torchvision, RL (stable_baselines3, gymnasium), CV (OpenCV, scikit-image) и NLP (spacy, nltk, gensim). Метрика — суммарный балл по задачам."
+   "description": "Национальный этап ROAI 2026 (Genesis College, Бухарест) для 11-12 классов: задачи глубокого обучения (PyTorch/torchvision), RL (stable_baselines3, gymnasium), CV (OpenCV, scikit-image) и NLP (spacy, nltk, gensim). Размер train/test и фичи индивидуальны для каждой подзадачи. Метрика — суммарный балл; разрешённый стек строго ограничен официальным списком библиотек, внешний интернет и LLM запрещены."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2408,7 +2408,7 @@
     "Pre-trained Text Encoders (e.g. BERT)",
     "Pre-trained Language Models (open-source and API-based ones)"
    ],
-   "description": "Отборочный раунд (baraj) тренировочного лагеря румынской сборной по ИИ: задачи на DL c использованием torch, transformers, timm, huggingface_hub, diffusers, для финалистов национального этапа. Метрика — суммарный балл."
+   "description": "Отборочный baraj (тренировочный лагерь) румынской сборной по ИИ для финалистов национального этапа: задачи на DL (CV/NLP) с дообучением и инференсом. Train/test средние по размеру (тысячи примеров), заданы в каждой задаче на Judge. Метрика — суммарный балл по задачам (внутри — Accuracy/F1/IoU). Разрешённые библиотеки: torch, transformers, timm, huggingface_hub, diffusers; среда офлайновая, без свободного интернета."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2433,7 +2433,7 @@
     "Cross-Validation",
     "Feature Engineering"
    ],
-   "description": "Практический CPU-раунд тренировочного лагеря румынской сборной (Colegiul Tudor Vianu, Бухарест): классическое ML (Naive Bayes, SVM, k-NN, деревья, ансамбли), кластеризация (K-Means, DBSCAN, иерархическая, GMM), метрики качества и корреляции, базовый DL без тяжёлых GPU-моделей. Оценка по суммарному баллу."
+   "description": "Практический CPU-раунд тренировочного лагеря румынской сборной: задачи по классическому ML (Naive Bayes, SVM, k-NN, деревья, ансамбли), кластеризации (K-Means, DBSCAN, иерархическая, GMM), метрикам качества/корреляции и базовому DL. Размеры train/test зависят от задачи, фичи преимущественно табличные. Метрика — суммарный балл; критично: только CPU, без тяжёлых GPU-моделей."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2463,7 +2463,7 @@
     "Diffusion Models",
     "Model Finetuning (full and parameter-efficient)"
    ],
-   "description": "Практический GPU-раунд тренировочного лагеря румынской сборной (Colegiul Tudor Vianu, Бухарест): глубокое обучение на torch/transformers/diffusers/timm — CNN-архитектуры (ResNet, EfficientNet, UNet), ViT, CLIP, генеративные модели (autoencoders, GANs, diffusion). Оценка по суммарному баллу."
+   "description": "Практический GPU-раунд тренировочного лагеря румынской сборной (Colegiul Tudor Vianu): задачи на глубокое обучение с torch/transformers/diffusers/timm — CNN (ResNet/EfficientNet/UNet), ViT, CLIP, autoencoders/GANs/diffusion. Несколько подзадач с собственными датасетами (изображения/текст) и сабмитом через judge. Оценка — сумма баллов по задачам; ограничения: без внешних датасетов и интернета, разрешённый GPU и фиксированный список библиотек."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2482,7 +2482,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Тренировочная симуляция окружного этапа OJIA (румынская олимпиада по ИИ): набор задач уровня OJIA для подготовки, по регламенту OIA 2025. Метрика — суммарный балл по всем задачам."
+   "description": "Root-страница тренировочной симуляции OJIA (окружной этап румынской AI-олимпиады) — конкретного условия задачи в markdown нет, только ссылка на официальный regulament OIA 2025 и Discord; сабмиты принимаются и после окончания. Метрика — суммарный балл по входящим задачам по регламенту OJIA."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2502,7 +2502,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Вторая тренировочная симуляция окружного этапа OJIA: задачи на классическое ML по регламенту румынской олимпиады по ИИ. Оценка по суммарному баллу."
+   "description": "Root-страница контеста без отдельного условия: вторая симуляция окружного этапа OJIA по регламенту румынской олимпиады по ИИ (классическое ML). Оценка — по сумме баллов задач; конкретные постановки, датасеты и метрики — в отдельных задачах."
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -2522,7 +2522,7 @@
     "Feature Engineering",
     "Data Processing"
    ],
-   "description": "Третья тренировочная симуляция окружного этапа OJIA: подготовительные задачи к румынской олимпиаде по ИИ по регламенту OIA 2025. Оценка по суммарному баллу."
+   "description": "Третья тренировочная симуляция окружного этапа OJIA (ROAI). Конкретного описания задач, данных и метрик нет — действует общий регламент OIA 2025, суммарный балл по нескольким задачам. Сабмиты принимаются и после окончания основного времени."
   },
   {
    "source": "Slovak OAI",
@@ -2542,14 +2542,14 @@
     "Pre-trained Text Encoders (e.g. BERT)",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "Национальный финал словацкой олимпиады по ИИ 2026 (Кошице, UPJŠ): отборочный тур для международной команды по программе IOAI/CEOAI с задачами на AI Search, ML и Deep Learning (CNN, трансформеры). Победители формируют национальную сборную."
+   "description": "Национальный финал словацкой олимпиады по ИИ 2026 (UPJŠ Кошице, 16–18 апреля): отборочный тур для международной команды по программе IOAI/CEOAI с задачами на AI Search, классический ML и Deep Learning (CNN, трансформеры). Конкретные датасеты и метрики раскрываются на платформе Nitro AI Judge во время тура. Победители формируют национальную сборную."
   },
   {
    "source": "APOAI 2025",
    "name": "APOAI 2025 Competition",
    "url": "https://www.bohrium.com/competitions/7647426696?tab=introduce",
    "topics": [],
-   "description": "Описание недоступно."
+   "description": "APOAI 2025 Competition (Bohrium, AI for Science): прикладная научная ML-задача с собственным train/test набором и доменными фичами (детали — на странице задачи на Bohrium). Размер датасета и состав признаков задаются организатором. Метрика и ограничения — согласно официальной странице конкурса (стандартные правила Bohrium: один аккаунт, без шаринга решений, без ручной разметки теста)."
   },
   {
    "source": "Georgia 2025",
@@ -2560,7 +2560,7 @@
     "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
     "Feature Engineering"
    ],
-   "description": "Классический ML: согласовать три бинарных классификатора так, чтобы получить 3-классовую классификацию."
+   "description": "Классический ML: согласовать три бинарных классификатора так, чтобы их выходы дали корректную 3-классовую классификацию (decomposition / one-vs-rest калибровка). Train/test — табличные данные среднего объёма, точные размеры в описании на bohrium.com. Метрика — Accuracy / F1 по итоговым 3 классам. Формат «AI for Science»-платформы Bohrium: запрещены чужие готовые решения, требуется ноутбук-сабмишн."
   },
   {
    "source": "Georgia 2025",
@@ -2572,7 +2572,7 @@
     "Pre-trained Vision Encoders (e.g. ResNet)",
     "Data Embeddings (text, image, audio)"
    ],
-   "description": "CV-классификация: обучить классификатор по списку классов, используя изображения без меток и captions от image2text-модели (CLIP-подобные подходы)."
+   "description": "CV-классификация: обучить классификатор по заданному списку классов, используя неразмеченные изображения и caption-ы от image2text-модели (CLIP-подобный пайплайн). Размеры train/test в описании не приведены, входные данные — картинки + сгенерированные текстовые описания. Метрика — классификационная (точность по списку классов); ограничения определяются правилами Bohrium AI for Science."
   },
   {
    "source": "Georgia 2025",
@@ -2584,7 +2584,7 @@
     "Text Classification",
     "Model Finetuning (full and parameter-efficient)"
    ],
-   "description": "NLP-задача дедупликации: обучить классификатор на парах дубликатов и не-дубликатов с использованием маленького BERT."
+   "description": "NLP-классификация пар на дубликаты/не-дубликаты (train deduplication) с использованием маленького BERT-энкодера, Грузия 2025. Train: пары предложений с бинарной меткой, test: пары без меток (точные размеры в materials платформы Bohrium). Метрика — Accuracy/F1 по бинарной классификации; ограничения: запрещены большие предобученные LLM, разрешены только small-BERT и собственные модели, без внешних разметок."
   },
   {
    "source": "IOAI 2024",
@@ -2668,7 +2668,7 @@
     "Hyperparameter Tuning",
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
-   "description": "23-часовой NLP-хакатон от Nitro Association под эгидой Bucharest University (4-я edition); задачи NLP с использованием pre-trained моделей."
+   "description": "23-часовой NLP-хакатон Nitro NLP 4th Edition от Nitro Association под эгидой Bucharest University: классические NLP-задачи (классификация текста / NER / QA) с использованием pre-trained моделей. Train/test заданы на платформе Judge, обычно тысячи текстовых примеров. Метрика — задача-специфическая (F1 / Accuracy), суммарный балл. Ограничения хакатона: командная работа на 23 часа, разрешены публичные pretrained-модели, без внешних размеченных датасетов вне предоставленных."
   },
   {
    "source": "Nitro AI 2025",
@@ -2683,7 +2683,7 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
     "Cross-Validation"
    ],
-   "description": "Warmup-раунд при запуске платформы Nitro: 2 задачи — занять лучшее место на лидерборде и первым отправить bug-репорт в Bug Bounty."
+   "description": "Warmup-раунд при запуске платформы Nitro: 2 мета-задачи — занять лучшее место на лидерборде и первым отправить bug-report в Bug Bounty. Полноценного ML-датасета нет, размер train/test не определён. Метрика — позиция на лидерборде + признание bug-репорта; ограничения минимальные, это разогревочный раунд."
   }
  ],
  "sources": [
