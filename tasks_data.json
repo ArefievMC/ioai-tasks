@@ -3081,34 +3081,6 @@
    "full_description": ""
   },
   {
-   "source": "Georgian AI League (GAIA)",
-   "name": "Georgian AI League I",
-   "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i",
-   "topics": [
-    "Python Basics (Loops, Functions, etc.)",
-    "NumPy and Pandas for Data Handling",
-    "Matplotlib and Seaborn for Visualization",
-    "Scikit-learn for ML",
-    "Data Processing",
-    "Feature Engineering",
-    "Linear Regression",
-    "Logistic Regression",
-    "Decision Trees",
-    "Model Ensembles (Gradient Boosting, Bagging, Random Forest)",
-    "K-Nearest Neighbors (K-NN)",
-    "Support Vector Machines (SVM)",
-    "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)",
-    "Confusion Matrix and ROC Curves",
-    "Hyperparameter Tuning",
-    "Cross-Validation",
-    "K-Means Clustering",
-    "Principal Component Analysis (PCA)"
-   ],
-   "tags": [],
-   "description": "Первый раунд лиги Georgian AI League (GAIA) — практические олимпиадные задачи по ИИ для тренировки. Информативного описания задач, данных и метрик в публичном анонсе нет, всё доступно только участникам после входа на платформу.",
-   "full_description": "GAIA-ს ახალი წამოწყება რომელიც მიზნად ისახავს მეტ პრაქტიკულ საოლიმპიადო ამოცანაზე მუშაობას ოფიციალურად იხსნება! ეს არის ჩვენი ლიგის პირველი შეჯიბრი, წარმატებას გისურვებთ!"
-  },
-  {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
    "name": "Nitro NLP Hackathon 5th Edition",
    "url": "https://judge.nitro-ai.org/competitions/nitro/nitro-nlp-hackathon-2026",
@@ -3909,7 +3881,8 @@
     "Checked"
    ],
    "description": "Двухчастная задача компьютерного зрения по аудиту склада на 256x256 RGB изображениях. Подзадача 1.1 — классификация поворота снимка на четыре класса (0/90/180/270 градусов), метрика Macro F1. Подзадача 1.2 — image retrieval: для каждой query-картинки найти соответствующее эталонное фото товара из официального каталога.",
-   "full_description": "## Overview\n\nFaceți cunoștință cu **Sami**, o veveriță extrem de serioasă, mereu îmbrăcată într-o vestă reflectorizantă mult prea mare pentru el. Sami a fost numit recent **Chief Compliance Officer** la *Forest Fulfillment Center*.\n\nRolul lui este să se asigure că toate produsele sunt:\n\n* depozitate **în orientarea corectă**, și\n* **identificate corect** în Catalogul Oficial.\n\nDin păcate, colegii lui (bursucii și ratonii):\n\n* așază pachetele în orientări greșite,\n* le rotesc la întâmplare,\n* aduc produse fotografiate „în sălbăticie”, diferite de imaginile oficiale din catalog.\n\nSami a adunat mii de poze de audit, dar nu le poate analiza manual.\n\n👉 **Ajutați-l pe Sami să automatizeze verificarea conformității.**\n---\n\n## Input Format\n\nVeți primi mai multe fișiere CSV și un folder cu imagini (prezent in starter_kit). Imaginile sunt fișiere `.jpg` color, redimensionate la **256 × 256 pixeli**.\n\n### `train_data.csv`\n\nFolosit **doar pentru antrenare** (Task 1.1).\n\n|     Coloana    |            Descriere           |\n| :------------: | :----------------------------: |\n|   image_path   |       Calea către imagine      |\n| rotation_label | Eticheta rotației (0, 1, 2, 3) |\n\n---\n\n### `test_data.csv`\n\nSetul de **evaluare** (input pentru ambele subtask-uri).\n\n|    Coloana   |          Descriere          |\n| :----------: | :-------------------------: |\n| datapoint_id |    ID unic al exemplului    |\n|  image_path  | Imaginea de audit („query”) |\n\n\n---\n\n### `vision_catalog.csv` (prezent in starter_kit.zip)\n\nGaleria oficială de produse.\n\n|   Coloana  |                Descriere               |\n| :--------: | :------------------------------------: |\n| gallery_id |     ID unic al imaginii din catalog    |\n| image_path | Imaginea de studio (orientare corectă) |\n\n\n---\n\n## Subtask-uri\n\n### 🔹 Task 1.1 — Protocolul de Orientare (Rotation)\n\n**Punctaj maxim:** 30 puncte\n\n#### Context\n\nRegula nr. 1 din manualul de siguranță spune:\n\n> „Toate pachetele trebuie depozitate cu partea de sus orientată în sus.”\n\nPentru a simula toate cazurile posibile, imaginile din setul de test au fost rotite cu **unul dintre următoarele unghiuri fixe**: 0°, 90°, 180°, 270°\n\n⚠️ Nu există alte rotații și **nu sunt aplicate flip-uri** (oglindiri).\n---\n\n#### Sarcină\n\nPentru fiecare imagine din `vision_test.csv`, determinați **unghiul de rotație** aplicat.\n\n#### Codificarea claselor\n\n| Label |          Unghi         |\n| :---: | :--------------------: |\n|   0   | 0° (orientare corectă) |\n|   1   |           90°          |\n|   2   |          180°          |\n|   3   |          270°          |\n\n\n#### Metrică\n\n**Macro F1-score**\n\n---\n\n### 🔹 Task 1.2 — Verificarea Inventarului (Image Retrieval)\n\n**Punctaj maxim:** 70 puncte\n\n#### Context\n\nRegula nr. 2 spune:\n\n> „Orice produs găsit pe raft trebuie identificat corect în Catalogul Oficial.”\n\nPentru fiecare imagine din `test_data.csv`, trebuie identificată **imaginea pereche** din `vision_catalog.csv` care corespunde **aceluiași produs**.\n\n🕵️ Atenție:\n\n* imaginile din test pot fi fotografiate din unghiuri diferite,\n* pot avea iluminare diferită,\n* pot avea variații de culoare sau ambalaj.\n* pot contine informatii despre produs, fara a il reprezenta direct\n\n---\n\n#### Sarcină\n\nPentru fiecare `datapoint_id`, returnați **gallery_id** al imaginii corecte din catalog.\n\n#### Metrică\n\n**Top-1 Accuracy**\n\n---\n\n## Output Format\n\nSe va încărca **un singur fișier CSV** care conține predicțiile pentru **ambele subtask-uri**.\n\n### Format\n\n```\nsubtaskID,datapointID,answer\n```\n\n* `task_id` ∈ {`1`, `2`}\n* pentru Task 1.1 → `answer` este un **label numeric** (0–3)\n* pentru Task 1.2 → `answer` este un **gallery_id**\n\n---\n\n## Exemplu de fișier de output\n\n```csv\nsubtaskID,datapointID,answer\n1,10001,2\n2,10001,G00421\n1,10002,0\n2,10002,G01999\n```\n\n---\n\n## Scoring — Problema 1\n\n### Task 1.1 — Rotation (30 puncte)\n\n|   Macro F1  | Punctaj |\n| :---------: | :-----: |\n|    < 0.30   |    0p   |\n| 0.30 – 0.60 |   10p   |\n|    > 0.60   |   30p   |\n\n\n---\n\n### Task 1.2 — Retrieval (70 puncte)\n\n| Top-1 Accuracy | Punctaj |\n| :------------: | :-----: |\n|      < 5%      |    0p   |\n|    5% – 20%    |   20p   |\n|    20% – 50%   |   50p   |\n|      > 50%     |   70p   |\n\n\n---\n## Link imagini si galerie\nhttps://tinyurl.com/DecebalTechAIstarterkit"
+   "full_description": "## Overview\n\nFaceți cunoștință cu **Sami**, o veveriță extrem de serioasă, mereu îmbrăcată într-o vestă reflectorizantă mult prea mare pentru el. Sami a fost numit recent **Chief Compliance Officer** la *Forest Fulfillment Center*.\n\nRolul lui este să se asigure că toate produsele sunt:\n\n* depozitate **în orientarea corectă**, și\n* **identificate corect** în Catalogul Oficial.\n\nDin păcate, colegii lui (bursucii și ratonii):\n\n* așază pachetele în orientări greșite,\n* le rotesc la întâmplare,\n* aduc produse fotografiate „în sălbăticie”, diferite de imaginile oficiale din catalog.\n\nSami a adunat mii de poze de audit, dar nu le poate analiza manual.\n\n👉 **Ajutați-l pe Sami să automatizeze verificarea conformității.**\n---\n\n## Input Format\n\nVeți primi mai multe fișiere CSV și un folder cu imagini (prezent in starter_kit). Imaginile sunt fișiere `.jpg` color, redimensionate la **256 × 256 pixeli**.\n\n### `train_data.csv`\n\nFolosit **doar pentru antrenare** (Task 1.1).\n\n|     Coloana    |            Descriere           |\n| :------------: | :----------------------------: |\n|   image_path   |       Calea către imagine      |\n| rotation_label | Eticheta rotației (0, 1, 2, 3) |\n\n---\n\n### `test_data.csv`\n\nSetul de **evaluare** (input pentru ambele subtask-uri).\n\n|    Coloana   |          Descriere          |\n| :----------: | :-------------------------: |\n| datapoint_id |    ID unic al exemplului    |\n|  image_path  | Imaginea de audit („query”) |\n\n\n---\n\n### `vision_catalog.csv` (prezent in starter_kit.zip)\n\nGaleria oficială de produse.\n\n|   Coloana  |                Descriere               |\n| :--------: | :------------------------------------: |\n| gallery_id |     ID unic al imaginii din catalog    |\n| image_path | Imaginea de studio (orientare corectă) |\n\n\n---\n\n## Subtask-uri\n\n### 🔹 Task 1.1 — Protocolul de Orientare (Rotation)\n\n**Punctaj maxim:** 30 puncte\n\n#### Context\n\nRegula nr. 1 din manualul de siguranță spune:\n\n> „Toate pachetele trebuie depozitate cu partea de sus orientată în sus.”\n\nPentru a simula toate cazurile posibile, imaginile din setul de test au fost rotite cu **unul dintre următoarele unghiuri fixe**: 0°, 90°, 180°, 270°\n\n⚠️ Nu există alte rotații și **nu sunt aplicate flip-uri** (oglindiri).\n---\n\n#### Sarcină\n\nPentru fiecare imagine din `vision_test.csv`, determinați **unghiul de rotație** aplicat.\n\n#### Codificarea claselor\n\n| Label |          Unghi         |\n| :---: | :--------------------: |\n|   0   | 0° (orientare corectă) |\n|   1   |           90°          |\n|   2   |          180°          |\n|   3   |          270°          |\n\n\n#### Metrică\n\n**Macro F1-score**\n\n---\n\n### 🔹 Task 1.2 — Verificarea Inventarului (Image Retrieval)\n\n**Punctaj maxim:** 70 puncte\n\n#### Context\n\nRegula nr. 2 spune:\n\n> „Orice produs găsit pe raft trebuie identificat corect în Catalogul Oficial.”\n\nPentru fiecare imagine din `test_data.csv`, trebuie identificată **imaginea pereche** din `vision_catalog.csv` care corespunde **aceluiași produs**.\n\n🕵️ Atenție:\n\n* imaginile din test pot fi fotografiate din unghiuri diferite,\n* pot avea iluminare diferită,\n* pot avea variații de culoare sau ambalaj.\n* pot contine informatii despre produs, fara a il reprezenta direct\n\n---\n\n#### Sarcină\n\nPentru fiecare `datapoint_id`, returnați **gallery_id** al imaginii corecte din catalog.\n\n#### Metrică\n\n**Top-1 Accuracy**\n\n---\n\n## Output Format\n\nSe va încărca **un singur fișier CSV** care conține predicțiile pentru **ambele subtask-uri**.\n\n### Format\n\n```\nsubtaskID,datapointID,answer\n```\n\n* `task_id` ∈ {`1`, `2`}\n* pentru Task 1.1 → `answer` este un **label numeric** (0–3)\n* pentru Task 1.2 → `answer` este un **gallery_id**\n\n---\n\n## Exemplu de fișier de output\n\n```csv\nsubtaskID,datapointID,answer\n1,10001,2\n2,10001,G00421\n1,10002,0\n2,10002,G01999\n```\n\n---\n\n## Scoring — Problema 1\n\n### Task 1.1 — Rotation (30 puncte)\n\n|   Macro F1  | Punctaj |\n| :---------: | :-----: |\n|    < 0.30   |    0p   |\n| 0.30 – 0.60 |   10p   |\n|    > 0.60   |   30p   |\n\n\n---\n\n### Task 1.2 — Retrieval (70 puncte)\n\n| Top-1 Accuracy | Punctaj |\n| :------------: | :-----: |\n|      < 5%      |    0p   |\n|    5% – 20%    |   20p   |\n|    20% – 50%   |   50p   |\n|      > 50%     |   70p   |\n\n\n---\n## Link imagini si galerie\nhttps://tinyurl.com/DecebalTechAIstarterkit",
+   "solutions_url": "https://github.com/stefanasandei/roai-solved/blob/main/contests/decebal-tech-2025/sami.ipynb"
   },
   {
    "source": "Nitro AI (RISE/PreIAIO/Spooky/Warmup)",
@@ -4002,7 +3975,8 @@
     "Checked"
    ],
    "description": "Среди 1000 регрессионных моделей только 5 были обучены на корректных лейблах, остальные — на повреждённых. Даны 15 признаков и 1000 столбцов предсказаний моделей на тренировке; нужно вернуть индексы 5 'чистых' моделей одной строкой ответа. Задача сводится к согласованности предсказаний моделей друг с другом / с истинным регрессионным сигналом.",
-   "full_description": "# 🪐 ამოცანა: პლანეტა X-ის მოდელის შერჩევა (Planet X Model Selection)\n\n## მიმოხილვა\n\nპლანეტა X-ზე მეცნიერები ცდილობდნენ იდუმალი ფენომენის Y-ის პროგნოზირებას X მახასიათებლების საფუძველზე. თუმცა, პლანეტა X-ს აქვს უჩვეულო გრავიტაციული ანომალიები, რომლებიც ზოგჯერ აზიანებენ მათ საზომ ინსტრუმენტებს მონაცემთა შეგროვების დროს!\n\nწლების განმავლობაში მათ შეაგროვეს მონაცემები და გაწვრთნეს 1000 რეგრესიული მოდელი. სამწუხაროდ, ამ მოდელებიდან მხოლოდ მცირე რაოდენობა (**ზუსტად 5**) იყო გაწვრთნილი მაშინ, როდესაც ინსტრუმენტები სწორად მუშაობდნენ. დანარჩენი გაწვრთნილი იყო დაზიანებულ ლეიბლებზე!\n\n## დავალება\n\nთქვენ გადმოგეცემათ:\n\n1. **ტაბულარული მონაცემები** (`train_data.csv`)\n\n**თქვენი მიზანია:** იდენტიფიცირეთ 5 სწორად გაწვრთნილი მოდელის ინდექსები.\n\n## შემავალი ფაილები (Input Files)\n\n### `train_data.csv`\nცხრილური მონაცემები, რომელიც შეიცავს:\n* პირველი 15 სვეტი — მახასიათებლები (features), რომლებზეც მოდელები გაწვრთნილია\n* დანარჩენი 1000 სვეტი — 1000 მოდელის პროგნოზები სასწავლო მონაცემებზე\n\nმონაცემების ჩატვირთვა შეგიძლიათ შემდეგნაირად:\n\n```python\nimport pandas as pd\n\ndata = pd.read_csv(\"train_data.csv\")\nfeatures = data.iloc[:, :15]\npredictions = data.iloc[:, 15:]\n```\n\n## გამომავალი ფორმატი (Output Format)\n\nთქვენ უნდა შექმნათ CSV ფაილი, რომელიც შეიცავს ზუსტად **სამ სვეტს და 1 სტრიქონს**:\n\n```csv\nsubtaskID,datapointID,answer\n1,0,\"1,4,3,16,246\"\n```\n\nსადაც:\n\n* `subtaskID` ზუსტად 1-ია (პლატფორმის ფორმატიდან გამომდინარე)\n* `datapointID` ზუსტად 0-ია\n* `answer` — სტრინგი, რომელიც შეიცავს მძიმით გამოყოფილ 5 მოდელის ინდექსს (0-999)\n\n**არცერთ შემთხვევაში არ შეცვალოთ ქოლუმნების სახელები.**\n\n## შეფასება (Evaluation)\n\nთქვენი ნამუშევარი შეფასდება სიზუსტით (Accuracy).\n\n### ქულების მიღების წესები (Scoring Rules)\n\nსაბოლოო ქულა შეფასდება 100 ქულიანი ექურესით. შესაბამისად თუ გამოიცანით:\n* 1 მოდელი მიიღებთ 20 ქულას\n* 2 მოდელი მიიღებთ 40 ქულას\n* 3 მოდელი მიიღებთ 60 ქულას\n* 4 მოდელი მიიღებთ 80 ქულას\n* 5 მოდელი მიიღებთ 100 ქულას\n\n\nწარმატებები, დედამიწელო მეცნიერო! 🚀"
+   "full_description": "# 🪐 ამოცანა: პლანეტა X-ის მოდელის შერჩევა (Planet X Model Selection)\n\n## მიმოხილვა\n\nპლანეტა X-ზე მეცნიერები ცდილობდნენ იდუმალი ფენომენის Y-ის პროგნოზირებას X მახასიათებლების საფუძველზე. თუმცა, პლანეტა X-ს აქვს უჩვეულო გრავიტაციული ანომალიები, რომლებიც ზოგჯერ აზიანებენ მათ საზომ ინსტრუმენტებს მონაცემთა შეგროვების დროს!\n\nწლების განმავლობაში მათ შეაგროვეს მონაცემები და გაწვრთნეს 1000 რეგრესიული მოდელი. სამწუხაროდ, ამ მოდელებიდან მხოლოდ მცირე რაოდენობა (**ზუსტად 5**) იყო გაწვრთნილი მაშინ, როდესაც ინსტრუმენტები სწორად მუშაობდნენ. დანარჩენი გაწვრთნილი იყო დაზიანებულ ლეიბლებზე!\n\n## დავალება\n\nთქვენ გადმოგეცემათ:\n\n1. **ტაბულარული მონაცემები** (`train_data.csv`)\n\n**თქვენი მიზანია:** იდენტიფიცირეთ 5 სწორად გაწვრთნილი მოდელის ინდექსები.\n\n## შემავალი ფაილები (Input Files)\n\n### `train_data.csv`\nცხრილური მონაცემები, რომელიც შეიცავს:\n* პირველი 15 სვეტი — მახასიათებლები (features), რომლებზეც მოდელები გაწვრთნილია\n* დანარჩენი 1000 სვეტი — 1000 მოდელის პროგნოზები სასწავლო მონაცემებზე\n\nმონაცემების ჩატვირთვა შეგიძლიათ შემდეგნაირად:\n\n```python\nimport pandas as pd\n\ndata = pd.read_csv(\"train_data.csv\")\nfeatures = data.iloc[:, :15]\npredictions = data.iloc[:, 15:]\n```\n\n## გამომავალი ფორმატი (Output Format)\n\nთქვენ უნდა შექმნათ CSV ფაილი, რომელიც შეიცავს ზუსტად **სამ სვეტს და 1 სტრიქონს**:\n\n```csv\nsubtaskID,datapointID,answer\n1,0,\"1,4,3,16,246\"\n```\n\nსადაც:\n\n* `subtaskID` ზუსტად 1-ია (პლატფორმის ფორმატიდან გამომდინარე)\n* `datapointID` ზუსტად 0-ია\n* `answer` — სტრინგი, რომელიც შეიცავს მძიმით გამოყოფილ 5 მოდელის ინდექსს (0-999)\n\n**არცერთ შემთხვევაში არ შეცვალოთ ქოლუმნების სახელები.**\n\n## შეფასება (Evaluation)\n\nთქვენი ნამუშევარი შეფასდება სიზუსტით (Accuracy).\n\n### ქულების მიღების წესები (Scoring Rules)\n\nსაბოლოო ქულა შეფასდება 100 ქულიანი ექურესით. შესაბამისად თუ გამოიცანით:\n* 1 მოდელი მიიღებთ 20 ქულას\n* 2 მოდელი მიიღებთ 40 ქულას\n* 3 მოდელი მიიღებთ 60 ქულას\n* 4 მოდელი მიიღებთ 80 ქულას\n* 5 მოდელი მიიღებთ 100 ქულას\n\n\nწარმატებები, დედამიწელო მეცნიერო! 🚀",
+   "solutions_url": "https://github.com/stefanasandei/roai-solved/blob/main/national-contests/georgia/2026/phase_1/planet-x.ipynb"
   },
   {
    "source": "Georgian AI League (GAIA)",
@@ -6265,18 +6239,6 @@
    "solutions_url": "https://github.com/stefanasandei/roai-solved/blob/main/contests/nitro-nlp/2024/notebook.ipynb"
   },
   {
-   "source": "DecebalTech AI",
-   "name": "DecebalTech AI Challenge — Sami the Compliance Officer",
-   "url": "https://judge.nitro-ai.org/competitions/decebaltech/decebaltech-ai-challenge/2/view",
-   "topics": [],
-   "tags": [
-    "Image Classification"
-   ],
-   "description": "Sami, Ofițerul de Conformitate: подзадача 2 DecebalTech AI Challenge. Компьютерное зрение / классификация (детали в notebook'е).",
-   "full_description": "",
-   "solutions_url": "https://github.com/stefanasandei/roai-solved/blob/main/contests/decebal-tech-2025/sami.ipynb"
-  },
-  {
    "source": "APOAI 2025-mock",
    "name": "APOAI 2025-mock #1 — Basketball Shot Made Prediction (MLP)",
    "url": "https://www.bohrium.com/competitions/5135119121",
@@ -6455,19 +6417,6 @@
    "description": "Использовать вероятности предсказаний модели как confidence; сравнить с y_target и отфильтровать только high-confidence строки. Theory of ML / confidence calibration.",
    "full_description": "",
    "solutions_url": "https://github.com/stefanasandei/roai-solved/blob/main/national-contests/georgia/2026/phase_1/memory-trace.ipynb"
-  },
-  {
-   "source": "Georgia 2026 (GAIA AI League I)",
-   "name": "Georgia 2026 AI League I — Planet X Model Selection (1000 Linear Regressions + KNN)",
-   "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i",
-   "topics": [],
-   "tags": [
-    "Tabular Regression",
-    "Clustering"
-   ],
-   "description": "Обучить векторизованную linear regression: 1000 моделей × 15 признаков → 1000 целевых. После усреднения коэффициентов применить KNN, найти 5 ближайших моделей.",
-   "full_description": "",
-   "solutions_url": "https://github.com/stefanasandei/roai-solved/blob/main/national-contests/georgia/2026/phase_1/planet-x.ipynb"
   },
   {
    "source": "Georgia 2026 (GAIA AI League I)",
@@ -7007,5 +6956,5 @@
   "Text Classification",
   "Time Series"
  ],
- "count": 392
+ "count": 389
 }
