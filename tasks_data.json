@@ -4435,7 +4435,8 @@
    "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-open-qualifier-2/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular Classification",
+    "Checked"
    ],
    "description": "Задача RISE Open Qualifier 2: по 14 непрерывным физическим признакам начальной телеметрии кинетической последовательности предсказать два бинарных таргета — финальное состояние (Equilibrium vs Collapse) и характер последовательности (Playful vs Direct). Это классический табличный классификационный сетап на 100 000 строк трейна и 30 000 тестовых строк, с двумя подзадачами и оценкой по macro F1. Допустима GPU-акселерация для обучения и инференса.",
    "full_description": "### Author’s Note\n*Note that contestants are explicitly allowed to use GPU acceleration for both training and inference, although it is not required.*\n\n## Background Narrative\n\nDuring the Renaissance, an eccentric guild of scholars traveling between the Iberian Peninsula and the Carpathian Mountains developed a mesmerizing and highly intricate kinetic game played on a large, finely engraved brass plate. Players would simultaneously release dozens of heavy, magnetized tops onto the board. Driven by gravity, magnetic repulsion, and acoustic vibrations from tuning forks attached to the plate, the tops would enter a chaotic, interwoven dance.\n\nDepending on the initial physical conditions, the board would eventually settle into one of two final states:\n\n**Equilibrium**: the tops fall into perfect magnetic resonance, spinning continuously without ever colliding. **Collapse**: the nonlinear forces destabilize the system, causing the tops to violently crash and stop.\n\nHowever, historians studying the guild’s recovered logbooks noticed a fascinating intermediate regime. We define a **Playful Sequence** as any kinetic sequence that, rather than immediately stabilizing or collapsing, enters a rare transient state of sustained chaotic motion.\n\nIn a **Playful Sequence**, the tops engage in a prolonged, mesmerizing, pseudo-random dance—hovering between equilibrium and collapse for several minutes before their ultimate fate is decided. Mathematically, this “playfulness” is governed by deeply hidden interactions between magnetic moments, acoustic frequencies, and friction.\n\nCenturies of decay have left the logbooks damaged, with ink blots obscuring many crucial numbers. **RISE** Antiquities has tasked you with computationally reconstructing the physics of these games.\n\n## The Task\nYour objective is to build a predictive computational model capable of analyzing the initial, imperfect physical telemetry of a kinetic sequence and completing two distinct subtasks:\n* **Subtask 1 (Final State):** Predict the ultimate macroscopic fate of the sequence. Will it achieve Equilibrium (1) or end in Collapse (0)?\n* **Subtask 2 (Playfulness):** Predict the nature of the sequence itself. Was it a Playful Sequence (1), or was it a Direct/Rigid Sequence (0) that bypassed the chaotic dance entirely?\n\n### Dataset Structure\nYou are provided with a dataset divided into training and testing sets.\n\n* `train.csv`: 100,000 rows\n * **datapointID** — unique identifier (e.g., query_00001)\n * **subtaskID** — 1 (Final State) or 2 (Playfulness)\n * **Features** — 14 continuous physics variables\n * **Target** — binary label (0 or 1)\n* `test.csv`: 30,000 rows (targets hidden)\n### Submission Format\n```csv\nsubtaskID,datapointID,answer\n1,query_100001,1\n2,query_100002,0\n1,query_100003,0\n2,query_100004,1\n...\n```\n\n## Evaluation Metric & Point Allocation\nYour submission is evaluated using the **Macro F1-score ($F$)**, computed separately for each subtask. \n* **Subtask 1 (Final State)** — 40 points\n* **Subtask 2 (Playfulness)** — 60 points\n\nFor each subtask, the performance score $S(F_t)$ is **rounded to the nearest integer** before applying the subtask weight.\n\n#### **Subtask 1 ($F_1$) — Max Performance at $F_1 \\ge 0.90$**\n\n$$\nS(F_1) = \n\\begin{cases} \n0, & F_1 < 0.78 \\\\ \n\\lfloor 10 \\cdot \\frac{F_1 - 0.78}{0.02} \\rfloor, & 0.78 \\le F_1 < 0.80 \\\\ \n10 + \\lfloor 10 \\cdot \\frac{F_1 - 0.80}{0.02} \\rfloor, & 0.80 \\le F_1 < 0.82 \\\\ \n20 + \\lfloor 10 \\cdot \\frac{F_1 - 0.82}{0.02} \\rfloor, & 0.82 \\le F_1 < 0.84 \\\\ \n30 + \\lfloor 15 \\cdot \\frac{F_1 - 0.84}{0.02} \\rfloor, & 0.84 \\le F_1 < 0.86 \\\\ \n45 + \\lfloor 20 \\cdot \\frac{F_1 - 0.86}{0.02} \\rfloor, & 0.86 \\le F_1 < 0.88 \\\\ \n65 + \\lfloor 35 \\cdot \\frac{F_1 - 0.88}{0.02} \\rfloor, & 0.88 \\le F_1 < 0.90 \\\\ \n100, & F_1 \\ge 0.90 \n\\end{cases}\n$$\n\n#### **Subtask 2 ($F_2$) — Max Performance at $F_2 \\ge 0.735$**\n\n$$\nS(F_2) = \n\\begin{cases} \n0, & F_2 < 0.62 \\\\ \n\\lfloor 10 \\cdot \\frac{F_2 - 0.62}{0.02} \\rfloor, & 0.62 \\le F_2 < 0.64 \\\\ \n10 + \\lfloor 10 \\cdot \\frac{F_2 - 0.64}{0.02} \\rfloor, & 0.64 \\le F_2 < 0.66 \\\\ \n20 + \\lfloor 10 \\cdot \\frac{F_2 - 0.66}{0.02} \\rfloor, & 0.66 \\le F_2 < 0.68 \\\\ \n30 + \\lfloor 15 \\cdot \\frac{F_2 - 0.68}{0.02} \\rfloor, & 0.68 \\le F_2 < 0.70 \\\\ \n45 + \\lfloor 20 \\cdot \\frac{F_2 - 0.70}{0.015} \\rfloor, & 0.70 \\le F_2 < 0.715 \\\\ \n65 + \\lfloor 35 \\cdot \\frac{F_2 - 0.715}{0.02} \\rfloor, & 0.715 \\le F_2 < 0.735 \\\\ \n100, & F_2 \\ge 0.735 \n\\end{cases}\n$$\n\n#### **Final Leaderboard Score**\n$$ \\text{Total Score} = (S(F_1) \\cdot 0.40) + (S(F_2) \\cdot 0.60) $$\n\n### Example Scenario\n* **Subtask 1:** $F_1 = 0.92 \\rightarrow S(F_1) = 100$\n * $\\rightarrow$ Points = $100 \\cdot 0.40 = \\mathbf{40}$\n* **Subtask 2:** $F_2 = 0.71$\n * $S(F_2) = 45 + \\lfloor 20 \\cdot \\frac{0.71 - 0.70}{0.015} \\rfloor = 45 + \\lfloor 20 \\cdot 0.6667 \\rfloor = 45 + 13 = \\mathbf{58}$\n * $\\rightarrow$ Points = $58 \\cdot 0.60 = \\mathbf{34.8}$\n\n**Final Score = 74.8 / 100 => 75 / 100\n\n## Reproducibility Seed\n```python\nimport random\nimport numpy as np\nimport torch\nimport os\n\ndef seed_everything(seed=20260322):\n random.seed(seed)\n os.environ['PYTHONHASHSEED'] = str(seed)\n np.random.seed(seed)\n\n try:\n torch.manual_seed(seed)\n torch.cuda.manual_seed(seed)\n torch.cuda.manual_seed_all(seed)\n torch.backends.cudnn.deterministic = True\n torch.backends.cudnn.benchmark = False\n except NameError:\n pass\n\nseed_everything(20260322)\n```"
@@ -4520,7 +4521,8 @@
    "topics": [],
    "tags": [
     "Time Series",
-    "Tabular Classification"
+    "Tabular Classification",
+    "Checked"
    ],
    "description": "Lot Baraj 2: датасет последовательностей 3D-скелетов (25 суставов × XYZ) с метками действия (5 классов) и камеры (3 класса). Нужно по последовательности кадров для каждого IDSample предсказать совершённое действие и угол съёмки. Это таймсериес-классификация на табличных скелетных признаках, требующая порогов точности 0.965 и 0.8.",
    "full_description": "We are given a dataset containing sequences of human movements, each composed of multiple frames (`FrameNumber`). Each frame includes the 3D positions of the 25 body joints, represented by the coordinates: `J1X`, `J1Y`, `J1Z`, ..., `J25X`, `J25Y`, `J25Z`. Each frame is associated with a sequence identifier (`IDSample`) and two labels (`Action` and `Camera`) indicating the performed action and the camera that recorded the sequence.\n\nTo understand the spatial distribution of the 25 joint points, you can refer to the figure in the PDF version of the problem statement, which is provided in the starter kit.\n\nThe possible actions are:\n- **0**: wear jacket  \n- **1**: take off a hat/cap  \n- **2**: hopping (one foot jumping)  \n- **3**: jump up  \n- **4**: falling  \n\nThe possible cameras are:\n- **1**: 45° angle view (left or right)\n- **2**: front view\n- **3**: side view (left or right)\n\n## Subtask 1: Counting frames per sequence (10 points)\n\nFor each unique `IDSample`, determine how many frames are available in the test dataset (`test_data.csv`). This analysis helps in understanding the temporal-spatial distribution of the data for each action.\n\n## Subtask 2: Sequence-level classification (40 points)\n\nUsing the training data, train a classification model that can recognize the action performed in a sequence of frames. Apply the model to the sequences in the test set and specify, for each sequence (set of frames for a unique `IDSample`), which action is predicted by the model as the most probable.\n\n### Evaluation metric\n\nThe performance of the model will be evaluated using **accuracy**.\n\nThis metric expresses the proportion of test sequences for which the model correctly predicted the label (`Action`) associated with the performed action.\n\nTo receive full points, the obtained accuracy must be at least 0.965.\n\n## Subtask 3: Camera identification (50 points)\n\nUsing the training data, train a model capable of predicting, for a sequence of frames, which camera was used to record that sequence. Apply the model to the sequences in the test set and specify, for each `IDSample`, the estimated camera that is most likely.\n\nThis subtask aims to assess the ability to understand spatial variations in the data, determined by the camera's position.\n\n### Evaluation metric\n\nThe performance of the model will be evaluated using **accuracy**.\n\nThis metric expresses the proportion of test sequences for which the model correctly predicted the label (`Camera`) associated with the camera that recorded the sequence.\n\nTo receive full points, the obtained accuracy must be at least 0.8.\n\n---\n\n## Output format\n\nThe final result must be a CSV file named **`output.csv`**, which should contain **exactly 3 columns**:\n- `subtaskID` - represents the subtask number (1, 2, 3)\n- `datapointID` - refers to the `IDSample` column from `test_data.csv`\n- `answer` - the corresponding answer for that datapoint and subtask\n"
@@ -4586,7 +4588,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/oaia/2/view",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular Classification",
+    "Checked"
    ],
    "description": "Задача с физико-химическими характеристиками почвы для оценки её пригодности под чувствительную культуру. Первые подзадачи требуют вычисления простых индикаторов (Nutrient_Index, категоризация pH, сравнение с медианой), а пятая — обучения классификатора для предсказания Suitability (Favorable/Unfavorable).",
    "full_description": "# Romanian Version\n\n## Context\nO fermă experimentală monitorizează mai multe terenuri agricole. Pentru fiecare teren sunt măsurate caracteristici fizico-chimice ale solului (pH, umiditate, nutrienți etc.), împreună cu informații descriptive (tip de sol, regiune, irigare). Specialiștii au analizat deja o parte dintre terenuri și au etichetat fiecare teren ca fiind: **Favorable** (potrivit) sau **Unfavorable** (nepotrivit) pentru o cultură sensibilă.\n\nScop:\n- să calculați indicatori simpli (Subtask 1-4);\n- să antrenați un model de clasificare care prezice **Suitability** (Subtask 5).\n\n## Fișiere\n- `train_data.csv` - conține datele de antrenare și coloana țintă `Suitability`;\n- `test_data.csv` - conține datele de test (fără `Suitability`).\n\n## Descrierea datelor\nFiecare rând descrie un teren. Coloanele sunt:\n- **ID** - identificator unic pentru fiecare teren.\n- **Soil_Type** - tip de sol: `Sandy`, `Loam`, `Clay`, `Silt`.\n- **Region** - zona geografică: `Plain`, `Hill`, `Mountain`.\n- **Irrigation** - tipul de irigare: `None`, `Sprinkler`, `Drip`.\n- **pH** - aciditatea solului (valoare numerică).\n- **Moisture** - umiditatea solului (%) - poate conține valori lipsă.\n- **Nitrogen** - concentrația de azot (mg/kg).\n- **Phosphorus** - concentrația de fosfor (mg/kg).\n- **Potassium** - concentrația de potasiu (mg/kg).\n- **Organic_Matter** - materie organică (%) - poate conține valori lipsă.\n- **Electrical_Conductivity** - conductivitatea electrică a solului (dS/m).\n- **Bulk_Density** - densitatea aparentă a solului (g/cm³).\n- **Clay_Percent** - procent de argilă (%).\n- **Temperature** - temperatura medie în ultimele 7 zile (°C).\n- **Rainfall_7d** - precipitații totale în ultimele 7 zile (mm).\n- **Sunlight_hours** - ore medii de soare pe zi.\n- **Slope** - panta terenului (grade).\n\n## Subtasks\n\n### Subtask 1 (10p) - Nutrient_Index\nPentru fiecare teren din setul de test `test_data.csv`, calculați:\n\n`Nutrient_Index = 0.4 * Nitrogen + 0.3 * Phosphorus + 0.3 * Potassium`.\n\nRăspunsul este un număr real (păstrați cel puțin 2-3 zecimale).\n\n### Subtask 2 (10p) - Încadrarea pH-ului\nPentru fiecare teren din setul de test `test_data.csv`, clasificați valoarea **pH** într-una dintre următoarele categorii:\n\n- **Acid** dacă `pH < 6.0`\n- **Neutral** dacă `6.0 ≤ pH ≤ 7.5`\n- **Alkaline** dacă `pH > 7.5`\n\nRăspunsul este un șir de caractere exact din mulțimea: `{Acid, Neutral, Alkaline}`.\n\n### Subtask 3 (10p) - Moisture vs mediana din train\nCalculați mediana valorilor `Moisture` din setul de antrenare `train_data.csv`, ignorând valorile lipsă.\nPentru fiecare teren din setul de test `test_data.csv` scrieți:\n- `1` dacă `Moisture > mediana_train`\n- `0` altfel\n\nDacă `Moisture` este lipsă NaN în setul de test `test_data.csv`, considerați `Moisture = mediana_train`.\n\n### Subtask 4 (10p) - Numărări Soil_Type\nPentru fiecare teren din setul de test `test_data.csv`, determinați câte exemple din setul de antrenare `train_data.csv` au același Soil_Type.\n\n### Subtask 5 (60p) - Model supervizat\nConstruiți un model de clasificare care prezice `Suitability` ∈ {`Favorable`, `Unfavorable`} pentru fiecare teren din setul de test `test_data.csv`.\n\n## Output format\nTrimiteți un singur fișier `.csv` cu **3 coloane**:\n- `subtaskID`\n- `datapointID` ID din test\n- `answer`\n\nPentru fiecare `ID` din setul de test `test_data.csv` trebuie să existe răspuns pentru `subtaskID` 1..5.\n\n## Evaluare\n- Subtask 1-4: se verifică corectitudinea răspunsurilor.\n- Subtask 5: metrica este **F1-score pentru clasa Unfavorable** (clasa pozitivă / `pos_label`). De exemplu: `sklearn.metrics.f1_score(true_labels, predicted_labels, pos_label='Unfavorable')`. Punctajul acordat acestui subtask crește cu cât F1-score este mai bun. Punctajul maxim (60p) se acordă dacă F1-score ≥ 0.785.\n\n# English Version\n\n## Context\nAn experimental farm monitors multiple agricultural fields. For each field, physico-chemical soil characteristics are measured (pH, moisture, nutrients etc.), together with descriptive information (soil type, region, irrigation). Specialists have already analyzed some of the fields and labeled each field as: **Favorable** (suitable) or **Unfavorable** (unsuitable) for a sensitive crop.\n\nGoal:\n- to calculate simple indicators (Subtask 1-4);\n- to train a classification model that predicts **Suitability** (Subtask 5).\n\n## Files\n- `train_data.csv` - contains the training data and the target column `Suitability`;\n- `test_data.csv` - contains the test data (without `Suitability`).\n\n## Data description\nEach row describes a field. The columns are:\n- **ID** - unique identifier for each field.\n- **Soil_Type** - soil type: `Sandy`, `Loam`, `Clay`, `Silt`.\n- **Region** - geographical area: `Plain`, `Hill`, `Mountain`.\n- **Irrigation** - irrigation type: `None`, `Sprinkler`, `Drip`.\n- **pH** - soil acidity (numeric value).\n- **Moisture** - soil moisture (%) - may contain missing values.\n- **Nitrogen** - nitrogen concentration (mg/kg).\n- **Phosphorus** - phosphorus concentration (mg/kg).\n- **Potassium** - potassium concentration (mg/kg).\n- **Organic_Matter** - organic matter (%) - may contain missing values.\n- **Electrical_Conductivity** - soil electrical conductivity (dS/m).\n- **Bulk_Density** - soil bulk density (g/cm³).\n- **Clay_Percent** - clay percentage (%).\n- **Temperature** - average temperature in the last 7 days (°C).\n- **Rainfall_7d** - total rainfall in the last 7 days (mm).\n- **Sunlight_hours** - average sunlight hours per day.\n- **Slope** - field slope (degrees).\n\n## Subtasks\n\n### Subtask 1 (10p) - Nutrient_Index\nFor each field in the test set `test_data.csv`, calculate:\n\n`Nutrient_Index = 0.4 * Nitrogen + 0.3 * Phosphorus + 0.3 * Potassium`.\n\nThe answer is a real number (keep at least 2-3 decimals).\n\n### Subtask 2 (10p) - pH classification\nFor each field in the test set `test_data.csv`, classify the **pH** value into one of the following categories:\n\n- **Acid** if `pH < 6.0`\n- **Neutral** if `6.0 ≤ pH ≤ 7.5`\n- **Alkaline** if `pH > 7.5`\n\nThe answer is a string exactly from the set: `{Acid, Neutral, Alkaline}`.\n\n### Subtask 3 (10p) - Moisture vs the median from train\nCalculate the median of `Moisture` values from the training set `train_data.csv`, ignoring missing values.\nFor each field in the test set `test_data.csv` write:\n- `1` if `Moisture > median_train`\n- `0` otherwise\n\nIf Moisture is missing NaN in the test set `test_data.csv`, assume Moisture = median_train.\n\n### Subtask 4 (10p) - Soil_Type counts\nFor each field in the test set `test_data.csv`, determine how many examples in the training set `train_data.csv` have the same Soil_Type.\n\n### Subtask 5 (60p) - Supervised model\nBuild a classification model that predicts `Suitability` ∈ {`Favorable`, `Unfavorable`} for each field in the test set `test_data.csv`.\n\n## Output format\nSubmit a single `.csv` file with **3 columns**:\n- `subtaskID`\n- `datapointID` ID from test\n- `answer`\n\nFor each `ID` in the test set `test_data.csv` there must be an answer for `subtaskID` 1..5.\n\n## Evaluation\n- Subtask 1-4: the correctness of the answers is checked.\n- Subtask 5: the metric is **F1-score for the Unfavorable class** (the positive class / `pos_label`). For example: `sklearn.metrics.f1_score(true_labels, predicted_labels, pos_label='Unfavorable')`. The score awarded for this subtask increases as the F1-score gets better. The maximum score (60p) is awarded if F1-score ≥ 0.785.\n\n# Hungarian Version\n\n## Kontextus\nEgy kísérleti farm több mezőgazdasági területet tart megfigyelés alatt. Minden terület esetében megmérik a talaj fizikai-kémiai jellemzőit (pH, nedvességtartalom, tápanyagok stb.), leíró információkkal együtt (a talaj típusa, tartomány, öntözés). A szakemberek már elemezték a területek egy részét és minden területet felcímkéztek: **Favorable** (megfelelő) vagy **Unfavorable** (nem megfelelő) egy érzékeny növény termesztése szempontjából. \n\nCél:\n- számoljátok ki az egyszerű betanítási mutatókat (Subtask 1-4);\n- fejlesszetek ki egy osztályozó modellt, amely megjósolja a Suitability-t (Subtask 5).\n\n## Állományok\n- `train_data.csv` – tartalmazza a betanítási adatokat és egy oszlopot a Suitability céljával;\n- `test_data.csv` – tartalmazza a tesztadatokat (Suitability nélkül).\n\n## Az adatok leírása\nMinden sor egy-egy területet ír le. Az oszlopok:\n- **ID** - egyedi azonosító minden terület számára.\n- **Soil_Type** - talajtípus: `Sandy`, `Loam`, `Clay`, `Silt`.\n- **Region** - földrajzi terület: `Plain`, `Hill`, `Mountain`.\n- **Irrigation** - az öntözés típusa: `None`, `Sprinkler`, `Drip`.\n- **pH** - a talaj savtartalma (számadat).\n- **Moisture** - a talaj nedvességtartalma (%) – hiányozhatnak értékek.\n- **Nitrogen** - a nitrogénkoncentráció (mg/kg).\n- **Phosphorus** - a foszforkoncentráció (mg/kg).\n- **Potassium** - a káliumkoncentráció (mg/kg).\n- **Organic_Matter** - szerves anyag (%) - hiányozhatnak értékek.\n- **Electrical_Conductivity** - a talaj elektromos vezetőképessége (dS/m).\n- **Bulk_Density** - a látszólagos talajsűrűség (g/cm³).\n- **Clay_Percent** - az agyag százalékos aránya (%).\n- **Temperature** - az átlagos hőmérséklet az utóbbi 7 napon (°C).\n- **Rainfall_7d** - teljes csapadékmennyiség az utóbbi 7 napon (mm).\n- **Sunlight_hours** - átlagos napsütéses órák száma naponta.\n- **Slope** - a terület lejtője (fokok).\n\n## Subtasks\n\n### Subtask 1 (10p) - Nutrient_Index\nA test_data.csv tesztállományban található minden területre számítsátok ki:\n\n`Nutrient_Index = 0.4 * Nitrogen + 0.3 * Phosphorus + 0.3 * Potassium`.\n\nA válasz egy valós szám (őrizzetek meg legalább 2-3 tizedesjegyet).\n\n### Subtask 2 (10p) - A pH osztályozása\nA test_data.csv tesztállományban található minden terület esetében soroljátok be a pH-tartalmat a következő kategóriák közül valamelyikbe:\n\n- **Acid** ha `pH < 6.0`\n- **Neutral** ha `6.0 ≤ pH ≤ 7.5`\n- **Alkaline** ha `pH > 7.5`\n\nA válasz egy pontos karakterlánc a következő halmazból: `{Acid, Neutral, Alkaline}`.\n\n### Subtask 3 (10p) - Moisture vs mediana a train-ben\nSzámítsátok ki a Moisture értékek mediánját a train_data.csv-ben található betanítási adatokra (a hiányzó értékeket figyelmen kívül hagyjátok). A test_data.csv tesztállományban található minden terület esetében írjatok:\n- `1-et`, ha `Moisture > mediana_train`\n- `0-át` különben\n\nHa a Moisture hiányzik (NaN) a test_data.csv tesztállományban, tekintsétek Moisture = mediana_train.\n\n### Subtask 4 (10p) - Soil_Type megszámolása\nA test_data.csv tesztállományban levő minden terület esetében határozzátok meg, hogy a train_data.csv-ben található betanítási adatok között hány példa található ugyanazzal a Soil_Type-pal.\n\n### Subtask 5 (60p) – A felügyelt modell\nHozzatok létre egy osztályozási modellt, amely megjósolja a Suitability-t ∈ {Favorable, Unfavorable} a test_data.csv tesztállományban található minden területre.\n\n## Az Output formátuma\nKüldjetek egyetlen `.csv` állományt **3 oszloppal**:\n- `subtaskID`\n- `datapointID` (ID a tesztből)\n- `answer`\n\nA test_data.csv tesztállományban található minden ID esetében léteznie kell a subtaskID 1..5-re adott válasznak.\n\n## Értékelés\n- Subtask 1-4: a válaszok helyességét ellenőrizzük.\n- Subtask 5: a mutató az Unfavorable (pozitív osztály / pos_label) esetében adott F1-score. Például: `sklearn.metrics.f1_score(true_labels, predicted_labels, pos_label = 'Unfavorable')`. Minél jobb az F1-score, úgy növekszik az erre a subtask-ra adott pontszám. A maximális pontszám (60 pont) akkor jár, ha az F1-score ≥ 0.785.\n"
@@ -4750,138 +4753,11 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-2/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular Classification",
+    "Checked"
    ],
    "description": "Медицинская табличная задача предсказания статуса пациента (Dead/Alive) по демографии, стадии опухоли и лабораторным анализам, с приоритетом точности на класс Dead. Дополнительно требуется простая категоризация GFR и расчёт квартилей Serum Creatinine для риск-страт.",
    "full_description": "Pentru această problemă trebuie să implementați un model de învățare automată pentru a prezice valoarea câmpului `Status` utilizând un set de date disponibil, care conține informații despre pacienți. Setul de date este organizat într-un fișier CSV care include diverse trăsături (features), iar evaluarea modelului se va face pe baza preciziei pentru clasa `Dead`.\n\n## Setul de date conține următoarele câmpuri, fiecare cu semnificația respectivă:\n\n- **Age**: Vârsta pacientului.\n- **Race**: Rasa pacientului (ex: White, Other).\n- **Marital Status**: Starea civilă a pacientului (Married, Single, Divorced etc.).\n- **T Stage**: Stadiul tumorii, conform sistemului de stadializare TNM (exemplu: T1, T2, T3, T4).\n- **N Stage**: Gradul de afectare a ganglionilor limfatici (N0, N1, etc.).\n- **6th Stage**: Stadiul cancerului conform clasificării TNM a celei de-a 6-a ediții.\n- **differentiate**: Gradul de diferențiere tumorală (Well differentiated, Moderately differentiated, Poorly differentiated).\n- **Grade**: Gradul histologic al tumorii (1, 2, 3 etc.).\n- **A Stage**: Clasificarea stadiului bolii (ex: Regional).\n- **Tumor Size**: Dimensiunea tumorii măsurată într-o unitate relevantă (poate conține valori lipsă).\n- **BMI**: Indicele de masă corporală al pacientului.\n- **Heart Rate**: Ritmul cardiac al pacientului.\n- **Serum Creatinine**: Nivelul seric de creatinină.\n- **Uric Acid**: Nivelul acidului uric din sânge.\n- **Hemoglobin**: Concentrația hemoglobinei în sânge.\n- **GFR (Glomerular Filtration Rate)**: Rata de filtrare glomerulară, un indicator al funcției renale.\n- **Serum Sodium**: Concentrația de sodiu seric.\n- **Serum Potassium**: Concentrația de potasiu seric.\n- **Serum Albumin**: Nivelul albuminei serice.\n- **Lactate**: Concentrația lactatului în sânge.\n- **Status**: Starea pacientului, cu valori posibile „Dead” sau „Alive” (Câmpul țintă pentru predicție).\n\n## Tasku-ri\n\nPentru primele task-uri, va trebui să încărcați setul de date și să efectuați o serie de analize statistice pentru a înțelege mai bine dataset-ul cu care urmează să lucrați.\n\n### Subtask 1 (10 puncte)\n\nPentru fiecare pacient din setul de testare clasificați funcția renală în una dintre cele două categorii, pe baza valorii ```GFR``` (Glomerular Filtration Rate):\n\n1. ```Normal``` dacă GFR >= 90\n2. ```Mildly Decreased``` dacă 60 <= GFR < 90\n\n### Subtask 2 (10 puncte)\n\nFolosiți setul de date de antrenare pentru a calcula cuartilele valorilor din coloana ```Serum Creatinine```. \n\nQuartilele sunt praguri statistice care împart distribuția valorilor într-un număr egal de părți:\n\n1. **Q1**: valoarea sub care se încadrează 25% dintre valori\n\n2. **Q2**: valoarea de mijloc (50% sub, 50% peste)\n\n3. **Q3**: valoarea sub care se află 75% dintre observații\n\nPe baza acestor praguri, stabiliți pentru fiecare pacient din setul de testare unul din cele patru niveluri de risc:\n  - ```Very Low``` – dacă ```Serum Creatinine``` <= Q1\n\n  -  ```Low```– dacă Q1 < ```Serum Creatinine``` <= Q2\n\n  -  ```High``` – dacă Q2 < ```Serum Creatinine``` <= Q3\n\n  - ```Very High``` – dacă ```Serum Creatinine``` > Q3\n\n\n### Subtask 3 (10 puncte)\n\nPe baza setului de antrenare, determinați valoarea medie a indicelui ```BMI```. Apoi, pentru fiecare pacient din test, determinați dacă valoarea indicelui ```BMI``` este mai mare strict decât mediana. Pentru pacienții care au valoarea ```BMI``` mai mare decât mediana determinată pentru setul de antrenare vom scrie valoarea 1, iar pentru restul valoarea 0.\n\n### Subtask 4 (10 puncte)\n\nPentru fiecare pacient din setul de testare, determinați numărul de pacienți din setul de antrenare care se află în același stadiu tumoral (pe baza atributului ```T Stage```) ca al acelui pacient.\n\n### Subtask 5 (60 puncte)\n\nScopul principal al acestui task este de a construi un model de învățare automată care să prezică starea pacientului (`Status`) în funcție de trăsăturile oferite. Evaluarea se va face pe baza preciziei modelului în predicția valorii pentru `Dead` (care reprezintă decesul pacientului).\n\n## Note despre setul de date:\n\n- **Câmpul-țintă** este **`Status`**, iar scopul este de a prezice dacă un pacient va fi „Dead” sau „Alive”.\n- Unele câmpuri, cum ar fi `Tumor Size`, `BMI` și `Serum Potassium`, sunt date numerice și pot fi utilizate direct de către algoritmii de învățare automată.\n- Este important de menționat că pentru câmpul `Tumor Size` putem avea valori lipsă (NaN), iar acest lucru trebuie tratat corespunzător.\n- Este posibil ca unele coloane să nu fie relevante pentru clasificare și trebuie identificate. Se recomandă analiza corelației dintre variabile și variabila țintă, precum și eliminarea celor cu aport scăzut sau redundante.\n- Anumite caracteristici pot conține valori extreme care ar putea afecta performanța modelului. Se recomandă utilizarea metodelor statistice (IQR, Z-score) sau vizualizări (boxplot, histogramă) pentru a detecta și trata aceste valori.\n  \n## Criterii de evaluare\nMetrica de evaluare folosită va fi **precizia** pentru clasa `Dead`. Veți evalua performanța modelului în predicția corectă a pacienților care vor deceda.\n\n\n## Notă\n\nDacă veți trimite sample_output, atunci veți primi **5 puncte**."
-  },
-  {
-   "source": "",
-   "name": "House Price Regression with Feature Engineering",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Задача регрессии для предсказания стоимости дома по табличным признакам (площадь, число комнат, год постройки и др.) с метрикой MAE. Включает подзадачи на feature engineering: вычисление суммарной площади, отношений между признаками и индекса стабильности среды. Финальный сабтаск — построение регрессионной модели на табличных данных.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Elite High School Admission Prediction",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Tabular Classification"
-   ],
-   "description": "Бинарная классификация: предсказание поступления кандидата в элитный лицей на основе табличных данных (пол, округ, оценки и средние баллы). Включает подзадачи по вычислению разности оценок и ранжированию кандидатов. Требуется обучить модель и предсказать статус поступления.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Student Exam Score Regression",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Регрессионная задача предсказания экзаменационного балла студента (Exam_Score) на основе табличных признаков (часы учёбы, посещаемость, мотивация, доход семьи и др.) с метрикой MAE. Подзадачи включают статистический анализ датасета и feature engineering. Требуется построить регрессионную модель, обобщающую на новые данные.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Nitro NLP Hackathon Rules",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "LLM"
-   ],
-   "description": "Документ с правилами проведения соревнования Nitro NLP Hackathon: общая информация, регламент команд, призовой фонд и условия участия. Это не ML-задача, а регламент мероприятия — описание правил для участников хакатона по NLP.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Digit vs Letter Anomaly Detection with VAE",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Autoencoder",
-    "Anomaly Detection",
-    "Image Classification"
-   ],
-   "description": "Среди изображений цифр в датасете подмешаны буквы — необходимо определить, какие изображения являются буквами (аномалиями), используя предоставленный вариационный автоэнкодер цифр. Подзадачи включают расчёт доли бинарных изображений, ошибку реконструкции, бинарную классификацию буква/цифра и распознавание самих букв (A–Z). Классическая задача anomaly detection через reconstruction error автоэнкодера.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Slovak LLM-Generated Text Detection",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Text Classification",
-    "LLM",
-    "Old-school NLP"
-   ],
-   "description": "Операция Parrot: анализ словацких текстов для отличия человеческих от сгенерированных LLM (GPT-5.4, Claude, Gemini, Gemma). Подзадачи включают статистический анализ корпуса, бинарную классификацию human vs machine, атрибуцию модели-источника и детекцию перефразированных машинных текстов. Классическая NLP-задача на классификацию текстов.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Dry Bean Variety Tabular Classification",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Tabular Classification"
-   ],
-   "description": "Классификация 7 сортов фасоли по 16 числовым признакам формы и размера зёрен, извлечённых из изображений (площадь, периметр, эксцентриситет, shape factors и др.). Требуется обучить модель классификации, например на основе решающих деревьев, на 9527 образцах. Типичная задача табличной классификации.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Cross-Lingual Code Retrieval Python to C++",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "RAG",
-    "LLM",
-    "Multimodal"
-   ],
-   "description": "Задача information retrieval: по запросу на Python найти соответствующий фрагмент кода на C++. Метрика — Mean Reciprocal Rank@1. Решается через эмбеддинги кода и поиск ближайших соседей (code retrieval / RAG-подобный сценарий).",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Object Detection with Pseudo-Labels",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Object Detection",
-    "Pseudo-labeling"
-   ],
-   "description": "Построение детектора объектов на смешанном датасете: 50 изображений с полноценными bounding box разметками и 200 изображений только с метками классификатора. Метрика — mAP@[.50:.95] по 10 классам. Требует использования псевдо-разметки для увеличения обучающей выборки.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Code Author Clustering by Style Features",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Clustering"
-   ],
-   "description": "Группировка авторов кода по стилю написания на основе 29 признаков (camelCase vs snake_case, табы vs пробелы и т.д.). На тесте — совершенно новые авторы с неизвестным количеством кластеров, метрика — Adjusted Rand Index. Классическая задача unsupervised кластеризации табличных признаков.",
-   "full_description": ""
-  },
-  {
-   "source": "",
-   "name": "Steam Game Price Regression",
-   "url": "",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Предсказание цены игр в Steam по табличным признакам (Metacritic score, жанры, издатели, оценки владельцев, лайки/дизлайки) с метрикой MAE. Подзадачи включают парсинг диапазона Estimated Owners в среднее значение и построение регрессионной модели. Требуется обработка списковых и категориальных признаков.",
-   "full_description": ""
   },
   {
    "source": "ROAI 2025/2026 (Romania)",
@@ -5104,7 +4980,6 @@
   }
  ],
  "sources": [
-  "",
   "AICC",
   "APOAI 2025",
   "Algolymp / PreOJIA / PreONIA",
@@ -5238,5 +5113,5 @@
   "Text Classification",
   "Time Series"
  ],
- "count": 238
+ "count": 227
 }
