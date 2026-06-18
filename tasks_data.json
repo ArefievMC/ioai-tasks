@@ -162,7 +162,8 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "Checked"
    ],
@@ -341,7 +342,8 @@
     "Data Processing"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Clustering",
     "No-Pretrain",
     "Extra",
@@ -368,7 +370,8 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Old-school NLP",
     "No-Pretrain",
     "Extra",
@@ -397,7 +400,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "No-Pretrain",
     "Data Drift",
     "Extra",
@@ -429,7 +433,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "Checked"
    ],
@@ -739,7 +744,8 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Invitation only",
     "Checked"
    ],
@@ -820,7 +826,8 @@
     "Confusion Matrix and ROC Curves"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Бинарная табличная классификация: предсказать высокий/низкий риск сердечного заболевания в течение 5 лет по медико-лайфстайл признакам (возраст, пол, курение, холестерин, стресс, диета и т.п., ~13 переменных, синтетические данные, баланс 60/40). Train.csv + test.csv, всего ~50 000 записей (rowId = `id`, ~1500 на test). Метрика — F1 Score; до 10 сабмитов в день, до 3 финальных; разрешены онлайн-инструменты и AI-чаты.",
@@ -876,7 +883,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Data Drift",
     "Checked"
    ],
@@ -905,7 +913,8 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная регрессия рыночной цены подержанных авто на Кипре (объявления Bazaraki) по характеристикам объявления. Train: ~730 строк, test: 91 строка; фичи — title, location, Year, Doors, Drive, Seats, Colour, Gearbox, Mileage, MOT till, Body type, Fuel type, Engine size, Power, Extras (много пропусков и грязного текста). Метрика — MAPE (баллы по шкале от 0 при ≥0.65 до 100 при ≤0.15). Учебное соревнование без денежных призов.",
@@ -997,8 +1006,9 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Image Classification",
-    "Tabular Classification",
     "Multimodal",
     "Checked"
    ],
@@ -1025,7 +1035,8 @@
     "Confusion Matrix and ROC Curves"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Многоклассовая табличная классификация качества португальских красных «Vinho Verde» по 11 физико-химическим признакам (кислотность, сахар, SO2, плотность, pH, алкоголь и др.) с 6 классами качества (3–8). Train: 1279, val: 320, public test: 160, private test: 160. Метрика — Weighted F1; правила и ограничения — в baseline-ноутбуке организаторов.",
@@ -1147,7 +1158,8 @@
     "Confusion Matrix and ROC Curves"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Invitation only",
     "Checked"
    ],
@@ -1257,8 +1269,9 @@
     "PyTorch Basics"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Time Series",
-    "Tabular Regression",
     "Invitation only",
     "Checked"
    ],
@@ -1290,8 +1303,9 @@
     "Hyperparameter Tuning"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Time Series",
-    "Tabular Classification",
     "Extra",
     "Invitation only",
     "Checked"
@@ -1578,10 +1592,11 @@
     "Data Embeddings (text, image, audio)"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Multimodal",
     "Image Classification",
     "Text Classification",
-    "Tabular Classification",
     "Checked"
    ],
    "description": "Мультимодальная классификация газа Gas по 2 показаниям датчиков MQ8/MQ5, обрезанной PNG-картинке и текстовому Caption (сгенерирован по полной картинке). Train — 640 строк CSV, test — без колонки Gas. Метрика — weighted F1. Playground-версия JOAI 2025.",
@@ -1612,8 +1627,9 @@
     "Data Processing"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Time Series",
-    "Tabular Regression",
     "Extra",
     "Checked"
    ],
@@ -1643,7 +1659,8 @@
     "Confusion Matrix and ROC Curves"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Учебная бинарная табличная классификация: по признакам успеваемости студента предсказать класс Grade (A→1, B→0) с обязательной предобработкой (пропуски, дубликаты, числовые выбросы). Train.csv + test.csv (~1600 строк, rowId=`Student_ID`); сабмит ровно 2 колонки `Student_ID,Grade`. Метрика — Accuracy; внешние датасеты запрещены без разрешения инструктора, нельзя менять формат сабмита.",
@@ -1673,7 +1690,8 @@
     "Confusion Matrix and ROC Curves"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная бинарная классификация: предсказать ценовую категорию мобильника (low=0/high=1) по техническим характеристикам с предобработкой грязных данных. Test ~400 строк, есть пропуски, дубликаты, числовые выбросы и номинальные категориальные колонки; таргет в train задан строками low/high, в submission требуются 0/1. Метрика — Accuracy Score. Внешние датасеты запрещены без согласования инструктора.",
@@ -1702,7 +1720,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная регрессия: предсказать численный RiskScore кредитной заявки по финансовым/демографическим признакам (доход, кредитная история, занятость и т.д.). Train+test ~4000 строк, есть пропуски, дубли, выбросы и категориальные признаки, требующие препроцессинга. Метрика — MAE; задача не классификационная, метки вида low/high запрещены.",
@@ -1731,7 +1750,8 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная регрессия одобренной суммы заявки (approved_amount) на «грязных» данных с реалистичными проблемами: пропуски, дубликаты строк, невалидные числовые значения, выбросы и категориальные признаки, требующие кодирования. Test: 300 строк, нужно сделать предобработку, обучить и провалидировать модель. Метрика — MSE.",
@@ -1894,7 +1914,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная задача NEOAI 2025 с непростой структурой данных, ориентированная на деревья и градиентный бустинг. Размер ~22378 строк; описание данных, тип целевой переменной и специальные ограничения вынесены в baseline-ноутбук от организаторов. Метрика — кастомная (metric_template e4d6d5); правила и формат сабмита нужно смотреть в Code-секции.",
@@ -1981,7 +2002,8 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Бинарная классификация на табличных данных (день 1 NEOAI 2026, формат Kaggleforces); описание задачи и данных в публичном тексте отсутствуют, есть только bilingual baseline. Test — 1900 строк. Метрика — ROC-AUC.",
@@ -2135,7 +2157,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Extra",
     "Checked"
    ],
@@ -2298,7 +2321,8 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Ранжирование участников соревновательного программирования: для каждого тестового контеста (~1000 хендлов) предсказать итоговый порядок мест. Train: parquet-таблицы train/train_results/problems/contest с историческими результатами и метаданными, test: 15018 пар (contestId, handle). Метрика — усреднённая по контестам 0.3·Recall@100 + 0.7·Kendall τ. Запрещены pretrained-модели и любые библиотеки вне стандартной среды Kaggle.",
@@ -2413,7 +2437,8 @@
     "Data Embeddings (text, image, audio)"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Object Detection",
     "Extra",
     "Checked"
@@ -2439,7 +2464,8 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная регрессия: предсказание процента попаданий в баскетболе.",
@@ -2492,8 +2518,9 @@
     "Loss Functions (MSE, MAE, Cross Entropy, etc.)"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Time Series",
-    "Tabular Regression",
     "Extra",
     "Checked"
    ],
@@ -2756,7 +2783,8 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "LLM",
     "Extra",
     "Checked"
@@ -2931,8 +2959,8 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
-    "Tabular Classification",
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Extra",
     "Checked"
    ],
@@ -2987,8 +3015,9 @@
     "Underfitting, Overfitting"
    ],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Object Detection",
-    "Tabular Regression",
     "No-Pretrain",
     "Data Drift",
     "Checked"
@@ -3238,8 +3267,8 @@
     "Model Evaluation Metrics (Accuracy, Precision, Recall, F1-Score, etc.)"
    ],
    "tags": [
-    "Tabular Regression",
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Extra",
     "Checked"
    ],
@@ -3265,7 +3294,8 @@
     "Confusion Matrix and ROC Curves"
    ],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Extra",
     "Checked"
    ],
@@ -3469,7 +3499,8 @@
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-challenge/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Бинарная классификация пациентов по риску перенесённого инфаркта (HadHeartAttack) на табличных медико-демографических данных. Подзадача 1 — посчитать отношение редкого класса к частому в трейне; подзадача 2 — обучить модель и предсказать Yes/No для теста. Метрика — F1 (порог 54% на полный балл), сильный дисбаланс классов.",
@@ -3519,8 +3550,9 @@
    "url": "https://judge.nitro-ai.org/competitions/algolymp/preonia-ix-x-2026/1/view",
    "topics": [],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Sequence-to-Sequence",
-    "Tabular Regression",
     "Extra",
     "Checked"
    ],
@@ -3561,7 +3593,8 @@
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-ix-x/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная задача о задержках пиратских кораблей: предсказать ARRIVAL_DELAY по фичам (день, экипаж, порты, расписание, дистанция). Subtask 1 — процент пропусков в DAY_OF_WEEK теста; Subtask 2 — мода часа отправления по каждому экипажу (формат времени — линейные сотые часа); основная — регрессия задержки прибытия.",
@@ -3574,7 +3607,8 @@
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-ix-x/1/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Clustering",
     "Multimodal",
     "Text Classification",
@@ -3589,8 +3623,8 @@
    "url": "https://judge.nitro-ai.org/competitions/algolymp/algolymp-preojia-xi-xii/2/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "Extra",
     "Checked"
@@ -3618,7 +3652,8 @@
    "url": "https://judge.nitro-ai.org/competitions/ceoai/ceoai-2026-practice-1/3/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Multimodal",
     "No-Pretrain",
     "Image Classification",
@@ -3661,7 +3696,8 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-educational-1/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Учебная табличная классификация is_fit (0/1) по антропометрии, ЧСС, давлению, сну, питанию, активности, курению и полу. Subtask 1 — детерминированный расчёт BMI и порог >25 (all-or-nothing); Subtask 2 — обучение классификатора, метрика F1 (порог 0.76 на полный балл). Есть пропуски в sleep_hours.",
@@ -3674,8 +3710,8 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-educational-1/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная задача по данным пауэрлифтинга (playerId, Sex, Equipment, Age, BodyweightKg, BestSquatKg, BestDeadliftKg, BestBenchKg). Подзадача 1 — посчитать число атлетов с Total/BodyweightKg > 5; подзадача 2 — регрессия для предсказания BestBenchKg. Рекомендуется только удалять NaN, остальное препроцессить.",
@@ -3717,8 +3753,9 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/christmas-special-2025/3/view",
    "topics": [],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Text Classification",
-    "Tabular Classification",
     "Multimodal",
     "Checked"
    ],
@@ -3743,7 +3780,8 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-educational-2/3/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Табличная бинарная классификация поступления абитуриентов (Accepted/Rejected) по признакам Age, Gender, Admission Test Score, High School Percentage, City. Подзадача 1 (100б) — построить классификатор. Метрика — Accuracy: baseline 0.3 = 10 баллов, 0.57 = 100 баллов, между ними линейно.",
@@ -3783,7 +3821,8 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-practice/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "Checked"
    ],
@@ -3824,7 +3863,8 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/cram-school-training-1/3/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Регрессия цены автомобиля по табличным признакам (make, model, year, engine, cylinders, fuel, mileage, transmission, trim, body, doors, drivetrain, цвета). Подзадача 1 — максимум по средней цене, сгруппированной по числу цилиндров на train_data.csv; подзадача 2 — модель регрессии цены для test_data.csv.",
@@ -3905,7 +3945,8 @@
    "url": "https://judge.nitro-ai.org/competitions/nitro/pre-iaio-2026/1/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Old-school NLP",
     "No-Pretrain",
     "Extra",
@@ -3936,9 +3977,10 @@
    "url": "https://judge.nitro-ai.org/competitions/nitro/pre-iaio-2026/2/view",
    "topics": [],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Reinforcement Learning",
     "No-Pretrain",
-    "Tabular Classification",
     "Extra",
     "Checked"
    ],
@@ -3952,7 +3994,8 @@
    "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "No-Pretrain",
     "Extra",
@@ -3967,7 +4010,8 @@
    "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "Clustering",
     "No-Pretrain",
@@ -3984,7 +4028,8 @@
    "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i/3/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Dimensionality Reduction",
     "Extra",
     "Checked"
@@ -4082,7 +4127,8 @@
    "url": "https://judge.nitro-ai.org/competitions/nitro/rise-2026-open-qualifier-2/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Задача RISE Open Qualifier 2: по 14 непрерывным физическим признакам начальной телеметрии кинетической последовательности предсказать два бинарных таргета — финальное состояние (Equilibrium vs Collapse) и характер последовательности (Playful vs Direct). Это классический табличный классификационный сетап на 100 000 строк трейна и 30 000 тестовых строк, с двумя подзадачами и оценкой по macro F1. Допустима GPU-акселерация для обучения и инференса.",
@@ -4109,7 +4155,8 @@
    "url": "https://judge.nitro-ai.org/competitions/rm-olimpiada-ai/simulation-1/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Симуляция олимпиады РМ: по агрегированным признакам платёжных карт и истории транзакций с торговцами нужно предсказать вещественный score лояльности на будущее. Первые подзадачи — простая описательная статистика (подсчёт карт по группам лояльности и т.п.), основная — регрессия таргета. Стандартный табличный регрессионный сетап.",
@@ -4134,7 +4181,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/ojia/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "OJIA 11-12: по табличным признакам пользователя (пол, возраст, рост, вес) и параметрам активности (длительность, пульс, температура тела) предсказать число потраченных калорий. Оценка MAE, есть отдельная подзадача для специфической подгруппы (мужская гандбольная команда). Простая табличная регрессия с предварительной описательной статистикой.",
@@ -4147,7 +4195,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/ojia/1/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "OJIA 11-12: SmartCargo România хочет предсказывать время доставки между городами по признакам — расстояние, время суток, погода, трафик, качество дороги, опыт водителя. Базовая табличная регрессия с категориальными и числовыми фичами, плюс пара аналитических подзадач (фильтрация по городу и погоде).",
@@ -4174,8 +4223,9 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/lot-baraj-2/2/view",
    "topics": [],
    "tags": [
+    "Tabular",
+    "Target Prediction",
     "Time Series",
-    "Tabular Classification",
     "Checked"
    ],
    "description": "Lot Baraj 2: датасет последовательностей 3D-скелетов (25 суставов × XYZ) с метками действия (5 классов) и камеры (3 класса). Нужно по последовательности кадров для каждого IDSample предсказать совершённое действие и угол съёмки. Это таймсериес-классификация на табличных скелетных признаках, требующая порогов точности 0.965 и 0.8.",
@@ -4249,7 +4299,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/oaia/2/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Задача с физико-химическими характеристиками почвы для оценки её пригодности под чувствительную культуру. Первые подзадачи требуют вычисления простых индикаторов (Nutrient_Index, категоризация pH, сравнение с медианой), а пятая — обучения классификатора для предсказания Suitability (Favorable/Unfavorable).",
@@ -4305,7 +4356,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/etapa-judeteana-xi-xii/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Pseudo-labeling",
     "Checked"
    ],
@@ -4372,7 +4424,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Простая табличная задача: по дистанции, весу и уровню трафика предсказать, будет ли пакет доставлен вовремя. Дополнительно требуется вычислить среднее и стандартное отклонение уровня трафика на тестовом наборе.",
@@ -4385,7 +4438,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia/2/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Банковская задача предсказания скоринга клиента (POOR/STANDARD/GOOD) по большому набору табличных финансовых и персональных признаков. Первые подзадачи — простые EDA-метрики, основная — построение мультиклассового классификатора.",
@@ -4423,7 +4477,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-2/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Медицинская табличная задача предсказания статуса пациента (Dead/Alive) по демографии, стадии опухоли и лабораторным анализам, с приоритетом точности на класс Dead. Дополнительно требуется простая категоризация GFR и расчёт квартилей Serum Creatinine для риск-страт.",
@@ -4436,7 +4491,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-2/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Задача регрессии для предсказания стоимости дома по табличным признакам (площадь, число комнат, год постройки и др.) с метрикой MAE. Включает подзадачи на feature engineering: вычисление суммарной площади, отношений между признаками и индекса стабильности среды. Финальный сабтаск — построение регрессионной модели на табличных данных.",
@@ -4449,7 +4505,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-3/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Бинарная классификация: предсказание поступления кандидата в элитный лицей на основе табличных данных (пол, округ, оценки и средние баллы). Включает подзадачи по вычислению разности оценок и ранжированию кандидатов. Требуется обучить модель и предсказать статус поступления.",
@@ -4462,7 +4519,8 @@
    "url": "https://judge.nitro-ai.org/competitions/roai-2025/simulare-ojia-3/2/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Регрессионная задача предсказания экзаменационного балла студента (Exam_Score) на основе табличных признаков (часы учёбы, посещаемость, мотивация, доход семьи и др.) с метрикой MAE. Подзадачи включают статистический анализ датасета и feature engineering. Требуется построить регрессионную модель, обобщающую на новые данные.",
@@ -4514,7 +4572,8 @@
    "url": "https://judge.nitro-ai.org/competitions/slovenska-olympiada/slovak-aoi-2026/1/view",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Классификация 7 сортов фасоли по 16 числовым признакам формы и размера зёрен, извлечённых из изображений (площадь, периметр, эксцентриситет, shape factors и др.). Требуется обучить модель классификации, например на основе решающих деревьев, на 9527 образцах. Типичная задача табличной классификации.",
@@ -4562,7 +4621,8 @@
    "url": "https://judge.nitro-ai.org/competitions/nitro-2025/nitro-warmup-round/1/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Checked"
    ],
    "description": "Предсказание цены игр в Steam по табличным признакам (Metacritic score, жанры, издатели, оценки владельцев, лайки/дизлайки) с метрикой MAE. Подзадачи включают парсинг диапазона Estimated Owners в среднее значение и построение регрессионной модели. Требуется обработка списковых и категориальных признаков.",
@@ -4632,7 +4692,8 @@
    "url": "https://judge.nitro-ai.org/competitions/cram-school/preonia-2026/3/view",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Extra",
     "Checked"
    ],
@@ -4730,8 +4791,10 @@
    "url": "https://github.com/OlimpiadaAI/III-OlimpiadaAI/tree/main/2_etap/drzewa_decyzyjne",
    "topics": [],
    "tags": [
-    "Tabular Classification",
-    "No-Pretrain"
+    "Tabular",
+    "Target Prediction",
+    "Extra",
+    "Checked"
    ],
    "description": "Задача на реализацию и применение деревьев решений для табличных данных. Требуется построить классификатор/регрессор на основе дерева решений с нуля или с использованием стандартных библиотек. Фокус на понимании алгоритма разбиения и критериев качества.",
    "full_description": "# Drzewa decyzyjne\n\n![drzewo_decyzyjne.jpg](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJQAlAAD/4QGQaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz7/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAQAA/YDASIAAhEBAxEB/8QAHQABAQABBQEBAAAAAAAAAAAAAAEHAgMFBggECf/EAGUQAAIBAgMGAQYHBwsODAYDAQABAgMEBRFBBgcSITFRYQgTInGB0RQXMpGTobEVI0JSVZLBFhgzNUNTcnWUsrMkJSc2N0Vic3SChKLS4SYoRFRWV2NkZYOjtDQ4RqTCw0fw8eL/xAAbAQEAAgMBAQAAAAAAAAAAAAAAAQQCAwUGB//EAEQRAAIBAwEDBwkGBQMEAwEBAAABAgMEEQUSITEGE0FRU3GRFBUWUmGBobHRIjIzNMHhI2JykvAkQoIXJTXxB0OissL/2gAMAwEAAhEDEQA/APeoAMiAANAAAASUhQAQAAAdwhkACdwggCgEAKAAAAAQAACQAAB3KCAAAAAIgALoTwC6AAqC6BAAaAAAAIAAAAFBAACkKATuAgANBoENABlyAAAA7kAKAAAAEAAAAAEACkAAA0AAAAABBoAAgBkAUAAAAADoUhQAB0AAJkC9wCZAaDuACAaAApCgEKiFQAAAAAAAAQ8AC6AhQBkANACAAAAAAmRSZFAAWo7gAFIgAAUgAAQAAyKACZAoAIAAAAEAAiIIAqAQAAAAIBkACgDQEAZDuASMgUAEBQCAQpECQAAAggggATIugAJoUaAEADuAAAUEogKACAAAADuAQIAAqRMi5cgAQqAAGgAAAyBQCDIpAAAAAggigEQAAGg0A0AGQ7jQAAAAAAAAALoACkC1AAQ5AAIBFQBNAAAAAAQAqAAQCAHqACAAAACKiIq8AACFXQAgKACaAAAgAQAAABQgggAgAgCkKACdAUaADQDQAAhQAQAAAAAAdx3AAGQCACKRFAHgAAAMuQAIJoVIAEghSAAAAEBcuYAIMi5IABDQLoNABowNGAACAAoGgBAA0AAAABQAAQBdQAAO4BIQQCAGgC6DkAMuQSZQCCFBACgiKgANAASQFABAO5QCdwNOQQA0HrC6AAABADQAAAAAAFIAUAAAncpEABlyAAIijQaZgAaDQaAAAAAAAECHgiroABkO47gDQdwugAAXQdQugAA0AAA0ABCr6xkQAoQAA1AKAQFAIICjIAhRoF0BIIBoANAAARFAAIUBcgAEAAEUgQAKAABoAANANAAAAAAAAQdwAAAO4AC8B3KAQoAAAAAAABCgAEGXIIoBMgUgBSAIEAAAkLoO40GgA7k0LyGgBAUAAaAdMwAAAACk7ghAAAkAAABBAABEKAEEE+QQBSF0IAAAAMikQT5AFAAAIUgIBe5EXuCSdwh3CAAWoXQaAAAaAADQADQDQAAZggBh3ez5ROz+6Xa222fxTAMQxCvXtVdKdvOMYqLk45c9fRMfvy4Nj0uexGMv1V6ZjLy1JZb8MJ/iaH9LUOB3C7gLDfNs5jGJXe0l1hU8PuadBQo0YzU1KLebz9R2KdtQVBVan6nFndXDrypU2Z1w7y293lxcRhiWzWO2NNvLzkVCtl45Jma9iN5+wu8SydxsltBbX04r07dvgrU/XB8zyxtT5EWL2eGTuNkdrqWIXEI5q1vaXmnU8FJcl7TzZCptXu626kozvMEx3Da2Usm4TpyT17p/M0QrShWT5p7zJ3deg/4y3H60ZhGMNw29WnvY3V0cYuFCni1pL4NiFKHJecS5TS7SXMyejlTg4ScX0HVhN"
@@ -4817,8 +4880,10 @@
    "url": "https://github.com/OlimpiadaAI/III-OlimpiadaAI/tree/main/3_etap/ukryte_kategorie",
    "topics": [],
    "tags": [
-    "Multimodal",
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Extra",
+    "Checked"
    ],
    "description": "Многоэтикеточное предсказание набора категорий товара по 256-мерным эмбеддингам из collaborative filtering рекомендательной системы. Train: 12145, val: 2603, test: 2603. Метрика — средний IoU между предсказанным и истинным множеством этикеток (порог 36%→46% для 0→100 баллов). Ограничения: без интернета и GPU.",
    "full_description": "# Ukryte Kategorie\n\n![Grafika do zadania](https://i.imgur.com/7o3Y4WP.png)\n\n_Źródło: Obraz wygenerowany za pomocą ChatGPT._\n\n## Wstęp\n\nKuba właśnie zaczął pracę w firmie obsługującej sklep e-commerce. Jednym z jego zadań jest opisywanie kategorii produktów. Część produktów została opisana przez jego poprzednika i firmie bardzo zależy na spójnym doborze etykiet. Niestety, nie zostawił on żadnych instrukcji. Pomóż Kubie uzupełnić brakujące etykiety.\n\nWspółczesne systemy rekomendacyjne często wykorzystują podejście typu *collaborative filtering*,\nktóre uczy się wyłącznie na podstawie zachowań użytkowników (np. kliknięć czy zakupów)\n-- bez użycia informacji o produktach.\nProdukty, które pojawiają się w podobnym kontekście, otrzymują podobne reprezentacje numeryczne (osadzenia),\nodzwierciedlające ich powiązania.\n\n## Zadanie\n\nTwoim zadaniem jest zaimplementowanie i wytrenowanie modelu,\nktóry na podstawie osadzeń produktów pochodzących z systemu rekomendacyjnego, przewidzi **zestaw kategorii** przypisanych do każdego produktu. Zestaw ten powinien w miarę możliwości zawierać wszystkie oryginalne etykiety (niekoniecznie w oryginalnej kolejności), bez dodatkowych elementów.\n\n## Dane\n\nDane składają się z osadzeń (256-wymiarowych wektorów reprezentujących produkty w przestrzeni ukrytej) i kolekcji etykiet produktów (lista list etykiet). Zostały podzielone na:\n\n- zbiór treningowy (12145 produktów),\n\n- zbiór walidacyjny (2603 produktów),\n\n- tajny zbiór testowy (2603 produktów).\n\nKolejne wiersze w macierzy osadzeń odpowiadają tym samym produktom co kolejne elementy w liście zestawów etykiet.\n\n## Kryterium oceny\n\nTwoje rozwiązanie będzie oceniane przy użyciu **Intersection over Union (IoU)**, liczonego dla każdego produktu:\n\n$$IoU = \\frac{|\\text{predykcja} \\cap \\text{prawda}|}{|\\text{predykcja} \\cup \\text{prawda}|}$$\n\nMetryka będzie liczona bez uwzględnienia struktury i kolejności etykiet.\n\nKońcowy wynik to średnia wartość IoU po wszystkich produktach, przeliczona na punkty:\n\n- jeśli wynik będzie **niższy niż 36\\%**, otrzymasz **0 punktów**,\n\n- jeśli wynik będzie **wyższy niż 46\\%**, otrzymasz **maksymalną liczbę punktów**, czyli **100**.\n\nPunktacja dla wartości pomiędzy tymi progami będzie naliczana proporcjonalnie.\n\n## Ograniczenia\n\n- Do uczenia modelu możesz używać jedynie zbioru treningowego.\n- Twoje rozwiązanie będzie testowane na Platformie Konkursowej bez dostępu do internetu i **bez GPU**.\n- Trening i ewaluacja Twojego finalnego rozwiązania na Platformie Konkursow"
@@ -4924,7 +4989,9 @@
    "url": "https://github.com/hungarian-ai-olympiad/HAIO-Hungarian-AI-Olympiad/blob/main/2025/nyari-online/starter-notebook.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Tabular Classification: предсказать вероятность поступления абитуриента в венгерский университет (0..1) на основе синтетических признаков + GeoJSON венгерских округов (можно посчитать расстояние от дома до универа). Метрика — на Kaggle. Бейзлайн — логистическая регрессия по 'Iskola Presztízse'.",
    "full_description": ""
@@ -4958,7 +5025,10 @@
    "url": "https://github.com/hungarian-ai-olympiad/HAIO-Hungarian-AI-Olympiad/blob/main/2025/nyari-orszagos/feladatok/klasszifikalo-klon.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Extra",
+    "Checked"
    ],
    "description": "Knowledge distillation без NN: дан обученный нейросетевой классификатор + полный X_train/y_train + малый X_train_small/y_train_small. Цель — построить НЕ нейросетевую модель (бустинг, деревья и т.п.), которая на тесте максимально близко повторяет выходы NN-учителя. Шкала баллов от 0.5 accuracy = 20 pts до >0.8 = 100 pts.",
    "full_description": ""
@@ -4981,7 +5051,9 @@
    "url": "https://github.com/hungarian-ai-olympiad/HAIO-Hungarian-AI-Olympiad/blob/main/2026/nyari-online/A/starter-notebook.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Tabular Regression: предсказать количество снеговиков в неделю по погодным/экономическим фичам (температура, ветер, осадки, число морозных дней, цена моркови, акция на шарфы, число вышедших боевиков, расход дров). Метрика — RMSE.",
    "full_description": ""
@@ -4992,8 +5064,10 @@
    "url": "https://github.com/hungarian-ai-olympiad/HAIO-Hungarian-AI-Olympiad/blob/main/2026/nyari-online/B/starter-notebook.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification",
-    "Pseudo-labeling"
+    "Tabular",
+    "Target Prediction",
+    "Pseudo-labeling",
+    "Checked"
    ],
    "description": "Semi-supervised tabular classification: 150 размеченных и 12 850 неразмеченных примеров с производственной линии, цель — предсказать вероятность брака. Поощряется использование неразмеченных данных (псевдо-разметка, self-training и т.п.).",
    "full_description": ""
@@ -5027,7 +5101,10 @@
    "url": "https://github.com/hungarian-ai-olympiad/HAIO-Hungarian-AI-Olympiad/blob/main/2026/nyari-orszagos/feladatok/korrupt-kodex.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Extra",
+    "Checked"
    ],
    "description": "Machine Learning: 'повреждённый кодекс' — восстановление / классификация на табличных или графических признаках. Полная формулировка в Colab-ноутбуке. 100 баллов.",
    "full_description": ""
@@ -5098,7 +5175,10 @@
    "url": "https://github.com/OlimpiadaAI/I-OlimpiadaAI/tree/main/first_stage/pruning",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Extra",
+    "Checked"
    ],
    "description": "Прунинг весов регрессионной сети (БЕЗ изменения архитектуры): максимизировать sparsity при минимизации MSE. Метрика score(s, ε) = (1−ε/1000)^1.5 · s^1.5 при ε<1000 (sparsity и MSE на тесте).",
    "full_description": ""
@@ -5195,8 +5275,10 @@
    "url": "https://github.com/OlimpiadaAI/II-OlimpiadaAI/tree/main/1_etap/5_ukryte_podciagi",
    "topics": [],
    "tags": [
-    "Tabular Regression",
-    "Language Modeling"
+    "Tabular",
+    "Target Prediction",
+    "Extra",
+    "Checked"
    ],
    "description": "Обучить nn.Module, который для бинарной строки S возвращает φ(S) = Σ v_i·𝟙(T_i⊆S) по неизвестному набору взвешенных шаблонов W={(T,v)}. Обучение только на парах (S, φ(S)) без знания W. Вход (batch, n) → выход (batch, 1) или (batch,).",
    "full_description": ""
@@ -5254,83 +5336,6 @@
   },
   {
    "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #2 — IRIS",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/2",
-   "topics": [],
-   "tags": [
-    "Tabular Classification"
-   ],
-   "description": "Hello-world: классификация Iris (setosa/versicolor/virginica) по 4 числовым признакам.",
-   "full_description": "🌸 Iris Type Classification Problem Description The goal is to build a classification model that determines the species of a flower based on its characteristics. Each sample is characterized by 4 numerical attributes : sepal and petal length and width, and the label ( species ) indicates the flower species : setosa versicolor virginica This type of problem belongs to the multi-class classification category. The dataset is derived from the classic Iris collection (UCI ML Repository). 🔹 Features sepal_length sepal_width petal_length petal_width 📘 Input File Structure train.csv Contains all 4 feature columns plus the column: target – represents the flower species ( 0=setosa , 1=versicolor , 2=virginica ) Example: sepal_length_(cm) sepal_width_(cm) petal_length_(cm) petal_width_(cm) target SampleID 8 4.4 2.9 1.4 0.2 0 9 106 4.9 2.5 4.5 1.7 2 107 76 6.8 2.8 4.8 1.4 1 77 9 4.9 3.1 1.5 0.1 0 10 89 5.5 2.5 4.0 1.3 1 90 test.csv Contains the same columns without target , but includes SampleID . Example: sepal_length_(cm) sepal_width_(cm) petal_length_(cm) petal_width_(cm) SampleID 38 4.4 3.0 1.3 0.2 39 127 6.1 3.0 4.9 1.8 128 57 4.9 2.4 3.3 1.0 58 93 5.0 2.3 3.3 1.0 94 42 4.4 3.2 1.3 0.2 43 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID label – predicted species (0, 1 or 2) Example: SampleID label 101 1 102 2 103 0 ⚙️ Evaluation Model evaluation will be performed using the following metric: Macro F1-score This metric is suitable for multi-class classification because it gives equal weight to each class , regardless of the number of examples in each. General formula: where C is the number of classes, and F1_i is the F1 score for class i . The final score is expressed as a percentage (0–100), rounded to two decimal places. 📊 Source The dataset comes from the original collection: UCI Machine Learning Repository – Iris Data Set"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #3 — Classification of Iris flower species",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/3",
-   "topics": [],
-   "tags": [
-    "Tabular Classification"
-   ],
-   "description": "Классификация Iris flower species (тот же датасет, v2).",
-   "full_description": "🌸 Iris Type Classification Problem Description The goal is to build a classification model that determines the species of a flower based on its characteristics. Each sample is characterized by 4 numerical attributes : sepal and petal length and width, and the label ( species ) indicates the flower species : setosa versicolor virginica This type of problem belongs to the multi-class classification category. The dataset is derived from the classic Iris collection (UCI ML Repository). 🔹 Features sepal_length sepal_width petal_length petal_width 📘 Input File Structure train.csv Contains all 4 feature columns plus the column: target – represents the flower species ( 0=setosa , 1=versicolor , 2=virginica ) Example: sepal_length_(cm) sepal_width_(cm) petal_length_(cm) petal_width_(cm) target SampleID 8 4.4 2.9 1.4 0.2 0 9 106 4.9 2.5 4.5 1.7 2 107 76 6.8 2.8 4.8 1.4 1 77 9 4.9 3.1 1.5 0.1 0 10 89 5.5 2.5 4.0 1.3 1 90 test.csv Contains the same columns without target , but includes SampleID . Example: sepal_length_(cm) sepal_width_(cm) petal_length_(cm) petal_width_(cm) SampleID 38 4.4 3.0 1.3 0.2 39 127 6.1 3.0 4.9 1.8 128 57 4.9 2.4 3.3 1.0 58 93 5.0 2.3 3.3 1.0 94 42 4.4 3.2 1.3 0.2 43 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID label – predicted species (0, 1 or 2) Example: SampleID label 101 1 102 2 103 0 ⚙️ Evaluation Model evaluation will be performed using the following metric: Macro F1-score This metric is suitable for multi-class classification because it gives equal weight to each class , regardless of the number of examples in each. General formula: where C is the number of classes, and F1_i is the F1 score for class i . The final score is expressed as a percentage (0–100), rounded to two decimal places. 📊 Source The dataset comes from the original collection: UCI Machine Learning Repository – Iris Data Set"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #5 — Wine Type Classification",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/5",
-   "topics": [],
-   "tags": [
-    "Tabular Classification"
-   ],
-   "description": "Классификация типа вина (white/red).",
-   "full_description": "🧪 Wine Type Classification from the Wine Dataset Problem Description The goal is to build a classification model that determines the type of wine based on its chemical characteristics. Each sample is characterized by 13 numerical attributes that describe chemical and physical properties of the wine, and the label ( target ) indicates the wine variety from which it originates. This type of problem belongs to the multi-class classification category. 🔹 Features alcohol malic_acid ash alcalinity_of_ash magnesium total_phenols flavanoids nonflavanoid_phenols proanthocyanins color_intensity hue od280/od315_of_diluted_wines proline The dataset comes from the original UCI Machine Learning Repository collection: https://archive.ics.uci.edu/ml/datasets/Wine 📘 Input File Structure train.csv Contains all 13 features columns plus the column: target – represents the wine class (variety). Possible values are 1 , 2 and 3 . Example: SampleID alcohol malic_acid ... od280/od315_of_diluted_wines proline target 0 37 13.28 1.64 ... 2.78 880.0 0 1 31 13.73 1.50 ... 2.71 1285.0 0 2 27 13.39 1.77 ... 3.22 1195.0 0 3 13 13.75 1.73 ... 2.90 1320.0 0 4 149 13.32 3.24 ... 1.62 650.0 2 test.csv Contains the same columns without target , but includes SampleID . Example: SampleID alcohol malic_acid ... hue od280/od315_of_diluted_wines proline 0 11 14.10 2.16 ... 1.25 3.17 1510.0 1 135 12.51 1.24 ... 0.75 1.51 650.0 2 29 13.87 1.90 ... 1.25 3.40 915.0 3 122 11.56 2.05 ... 0.93 3.69 465.0 4 63 13.67 1.25 ... 1.23 2.46 630.0 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID label – the label predicted by the model (1, 2 or 3) Example: SampleID label 1 2 2 1 3 3 ⚙️ Evaluation Model evaluation will be performed using the following metric: Macro F1-score This metric is suitable for multi-class classification because it gives equal weight to each class , regardless of the number of examples in each. General formula: where C is the number of classes, and F1_i is the F1 score for class i . The final score is expressed as a percentage (0–100), rounded to two decimal places. 📊 Source The dataset comes from the original collection: UCI Machine Learning Repository – Wine Data Set"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #20 — Daily Average Temperature Prediction",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/20",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Регрессия дневной температуры по метеопризнакам (влажность, ветер, давление).",
-   "full_description": "🌡️ Daily Average Temperature Prediction Problem Description The goal is to build a regression model that predicts the daily average temperature in a certain city, based on meteorological characteristics. Each record is characterized by the following attributes: humidity – relative humidity (%) wind_speed – wind speed (km/h) pressure – atmospheric pressure (hPa) rainfall – precipitation amount (mm) cloud_cover – cloud coverage (%) solar_radiation – solar radiation (W/m²) day_of_year – day of the year (1–365) The label (target column) is: temperature – daily average temperature (°C) This problem belongs to the continuous regression category. 📘 Input File Structure train.csv Contains all feature columns plus the target column temperature . Values are continuous numeric. SampleID humidity wind_speed pressure rainfall cloud_cover solar_radiation day_of_year temperature 1 70.0 15.0 1015.0 2.0 50 500.0 1 22.5 2 65.0 10.0 1018.0 0.0 20 650.0 2 24.0 3 80.0 5.0 1012.0 5.0 80 200.0 3 19.0 test.csv Contains the same columns without temperature , but includes SampleID . SampleID humidity wind_speed pressure rainfall cloud_cover solar_radiation day_of_year 101 75.0 12.0 1016.0 1.0 60 550.0 101 102 60.0 8.0 1019.0 0.0 10 700.0 102 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID temperature – the value predicted by the model (float, °C) SampleID temperature 101 23.5 102 25.1 103 21.8 ⚙️ Evaluation Model evaluation will be done using Root Mean Squared Error (RMSE): where: N is the number of examples in the test set y_i is the actual temperature value ŷ_i is the value predicted by the model RMSE provides a measure of the mean squared deviation between predictions and actual values, expressed in the same unit as the target (°C). A lower RMSE score indicates a more accurate model. 📊 Source The dataset is a synthetic set inspired by real meteorological data."
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #21 — Solar Energy Production Prediction",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/21",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Регрессия дневной выработки солнечной панели (kWh) по погоде.",
-   "full_description": "🌞 Solar Energy Production Prediction Problem Description The goal is to build a regression model that predicts the daily electrical energy production (kWh) of a solar panel, based on meteorological conditions and installation characteristics. Each sample represents a production day and is characterized by several numerical attributes, such as light intensity, air temperature, wind speed, and others. The target label ( energy_output ) represents the total energy generated on that day. This problem belongs to the univariate regression category. 🔹 Features solar_irradiance – average solar radiation (W/m²) temperature – average air temperature (°C) humidity – relative humidity (%) wind_speed – average wind speed (m/s) cloud_cover – average cloud cover (%) panel_angle – panel tilt angle (°) panel_efficiency – panel efficiency (%) 📘 Input File Structure train.csv Contains all feature columns plus the energy_output column, which represents the target value. Example: SampleID solar_irradiance temperature humidity wind_speed cloud_cover panel_angle panel_efficiency energy_output 1 750.5 25.2 40.0 3.5 10 30 18.5 42.3 2 610.0 22.1 55.0 2.0 50 25 17.0 28.7 test.csv Contains the same columns as train.csv , but without energy_output , and includes SampleID . 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID energy_output – the value predicted by the model (float, with 2 decimal places) Example: SampleID energy_output 1 41.75 2 29.10 3 35.80 ⚙️ Evaluation Model evaluation will be performed using Root Mean Squared Error (RMSE) : where N is the number of examples in the test set, y_i is the real value and y^_i is the value predicted by the model. The final score will be scaled between 0 and 100, so that low RMSE leads to high score. 📊 Source The data used for this problem is synthetically generated."
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #22 — Diabetes Diagnosis Based on Blood Tests",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/22",
-   "topics": [],
-   "tags": [
-    "Tabular Classification"
-   ],
-   "description": "Бинарная классификация диабета по 8 анализам крови.",
-   "full_description": "🩺 Diabetes Diagnosis Based on Blood Tests Problem Description The goal is to build a classification model that predicts whether a patient has diabetes based on blood tests and demographic data. Each patient is characterized by 8 numerical attributes obtained from analyses and clinical measurements, and the label ( target ) indicates the presence of diabetes ( 1 for positive, 0 for negative). This type of problem belongs to the binary classification category. 🔹 Features pregnancies – number of pregnancies glucose – blood glucose level blood_pressure – blood pressure skin_thickness – skin fold thickness insulin – insulin level bmi – body mass index diabetes_pedigree_function – genetic risk score age – patient age 📘 Input File Structure train.csv Contains all 8 feature columns plus the column: target – indicates the presence of diabetes ( 0 or 1 ) Example: SampleID pregnancies glucose blood_pressure skin_thickness insulin bmi diabetes_pedigree_function age target 1 6 148 72 35 0 33.6 0.627 50 1 2 1 85 66 29 0 26.6 0.351 31 0 test.csv Contains the same columns without target , but includes SampleID . Example: SampleID pregnancies glucose blood_pressure skin_thickness insulin bmi diabetes_pedigree_function age 1 0 137 40 35 168 43.1 2.288 33 2 5 116 74 0 0 25.6 0.201 30 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID label – the label predicted by the model ( 0 or 1 ) Example: SampleID label 1 1 2 0 3 0 ⚙️ Evaluation Model evaluation will be performed using the following metric: Binary F1-score This metric is suitable for binary classification because it gives equal importance to prediction accuracy for both classes . General formula: where: The final score is expressed as a percentage (0–100), rounded to two decimal places. 📊 Source The dataset comes from the original collection: Pima Indians Diabetes Database – Kaggle"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #23 — Intro Python: Converting temperatures from Celsius to Fah...",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/23",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Intro Python: конвертация температуры C→F.",
-   "full_description": "🌟 Problem: Converting temperatures from Celsius to Fahrenheit Problem description The goal is to build a function that converts temperatures from Celsius to Fahrenheit and returns them in a list. Each temperature is a real number with two decimal places . The conversion formula is: where: C is the temperature in Celsius F is the corresponding temperature in Fahrenheit The function must receive a list of temperatures in Celsius and return a list of temperatures in Fahrenheit, with two decimal places . 📘 Input file structure train.csv Contains three columns: SampleID – numeric identifier for each temperature temperature_c – temperature in Celsius temperature_f – temperature in Fahrenheit Example: SampleID temperature_c temperature_f 1 0.0 32.0 2 25.0 77.0 3 37.5 99.5 4 100.0 212.0 test.csv Has the same structure as train.csv , but without the temperature_f column. 📤 Submission The output file ( submission.csv ) must contain: SampleID – same as in test.csv temperature_f – temperature converted to Fahrenheit, rounded to two decimal places Example: SampleID temperature_f 1 32.00 2 77.00 3 99.50 4 212.00 ⚙️ Evaluation Evaluation will be based on the correctness of predicted values , meaning exact equality between the predicted value and the real value (from the perspective of the first two decimal places): where N is the total number of examples. The final score is expressed as a percentage (0–100). 📊 Note This problem tests: Manipulation of lists and real numbers in Python Reading and writing CSV files Applying mathematical formulas for data transformation"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
    "name": "MLCompete #30 — Text-based Emotion Classification",
    "url": "https://platform.olimpiada-ai.ro/en/problems/30",
    "topics": [],
@@ -5340,17 +5345,6 @@
    ],
    "description": "Multi-class классификация эмоций по тексту (joy/anger/sadness и т.п.).",
    "full_description": "📝 Emotion Classification Based on Text 📘 Problem Description The goal is to build a classification model that predicts the primary emotion associated with a text. Each example is represented by a short text , and the label ( label ) corresponds to the emotion (e.g., joy , anger , sadness , etc.). This problem belongs to the category of multi-class classification . 🔹 Features text – the textual content of the message or article Target label: label – the emotion associated with the text (string) 📘 Input File Structure train.csv Contains the following columns: SampleID text label Example: SampleID text label 1 \"I am so happy today!\" joy 2 \"I feel really angry about this situation.\" anger 3 \"Feeling a bit sad after watching that movie.\" sadness test.csv Contains the same columns without label , but includes SampleID . Example: SampleID text 101 \"What a wonderful surprise!\" 102 \"I can't believe this happened.\" 📤 Submission The output file ( submission.csv ) must contain exactly two columns : SampleID label – the label predicted by the model Example: SampleID label 101 joy 102 surprise ⚙️ Evaluation Models will be evaluated using Macro F1-score : where: = number of classes The final score will be scaled to 0–100 , so a higher F1 results in a higher score. To achieve the maximum score, F1 must be at least 0.9. 📊 Source The dataset comes from Kaggle: Kaggle Emotion Dataset"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #31 — Prediction of academic performance",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/31",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Предсказание академической успеваемости (tabular).",
-   "full_description": "📝 Student Performance Prediction 📘 Problem Description The goal is to build a regression model to predict the final exam score ( Exam_Score ) based on students' academic, social, and personal factors. The model receives a set of features and must estimate a continuous numeric value. 🔹 Features Each instance contains multiple variables, such as: StudyHours Attendance ParentalInvolvement HealthStatus ... (other columns present in the dataset) Target label: Exam_Score — numeric exam score 📘 Input File Structure train.csv Contains all features + target label. Required columns: SampleID various features (categorical + numeric) Exam_Score Example: SampleID StudyHours Attendance ParentalInvolvement ... Exam_Score 1 3.5 High Medium ... 78 2 1.2 Low Low ... 55 3 4.0 High High ... 92 test.csv Has the same structure as train.csv , but without the Exam_Score column , since it must be predicted. Example: SampleID StudyHours Attendance ParentalInvolvement ... 101 3.0 High Medium ... 102 0.7 Low Low ... 📤 Submission The file submission.csv must contain exactly two columns: SampleID Exam_Score — model prediction Example: SampleID Exam_Score 101 81.2 102 49.7 ⚙️ Evaluation Model evaluation uses two metrics: Partial RMSE — using 50% of the data Complete RMSE — using all the data Then RMSE is converted into a 0–100 score using linear interpolation: Low RMSE → high score High RMSE → low score The ideal model (RMSE = 0) achieves the maximum score of 100. 📊 Data Source The dataset is generated based on the public Kaggle dataset: Student Performance Factors Dataset"
   },
   {
    "source": "MLCompete (olimpiada-ai.ro)",
@@ -5401,22 +5395,13 @@
   },
   {
    "source": "MLCompete (olimpiada-ai.ro)",
-   "name": "MLCompete #41 — Royal Diamond Store",
-   "url": "https://platform.olimpiada-ai.ro/en/problems/41",
-   "topics": [],
-   "tags": [
-    "Tabular Regression"
-   ],
-   "description": "Royal Diamond Store — табличная регрессия (цена бриллиантов от характеристик).",
-   "full_description": "💎 Royal Diamond Store ✨ In the heart of the Kingdom lies the Royal Diamond Store , where precious stones of all shapes and sizes are carefully kept. The store's guardian wants to discover how valuable the diamonds are, based on their physical and aesthetic characteristics, but the price scrolls have been lost over time. To help, the royal council created a dataset: train.csv – diamonds already evaluated, with all features and their price test.csv – new diamonds, with features filled in, but no price Your task is to uncover the secrets of diamond value using data analysis and predictive models. 📊 Dataset Each row in train.csv and test.csv represents a diamond described by the following features: SampleID – unique diamond identifier carat – weight of the diamond cut – cut quality ( Fair , Good , Very Good , Premium , Ideal ) (quality in increasing order) color – diamond color ( D … J ), D being the best clarity – clarity grade (from best to worst: FL, IF, VVS1, VVS2, VS1, VS2, SI1, SI2, I1, I2, I3) depth – depth in percentage (height from culet to table / average girdle diameter) table – table width as a percentage of average diameter x, y, z – dimensions in mm (length, width, height) price – only in train.csv , diamond value 📝 Tasks Subtask 1 (10 points) Classify diamonds in test.csv based on weight ( carat ): Light if carat < 0.5 Medium if 0.5 ≤ carat < 1.5 Heavy if carat ≥ 1.5 Subtask 2 (15 points) Calculate the proportion of depth to table for each diamond in test : proportion = depth / table Subtask 3 (15 points) Determine the approximate volume of each diamond using: volume = x * y * z Subtask 4 (60 points) Build a method capable of estimating diamond value ( price ) for each diamond in test.csv. Evaluation is performed using MAE (Mean Absolute Error) : MAE (the lower, the higher the score) 🧮 Evaluation Score for the last task: MAE ≤ 260 → 60 points MAE ≥ 300 → 0 points Intermediate values → proportional scoring Subtask 1 answers are evaluated exactly. For subtasks 2 and 3, answers are evaluated up to 2 decimal places. 📌 Notes Categorical variables ( cut , color , clarity ) can be converted to numeric using any method (e.g., LabelEncoder). Any analysis and prediction technique is allowed. 📄 Submission Format The submission.csv file must contain one line per test row and per subtask: subtaskID datapointID answer subtaskID – 1, 2, 3, or 4 datapointID – SampleID from test answer – calculated or predicted result Example for a diamond with SampleID = 1023 : subtaskID datapointID answer 1 1023 Medium 2 1023 0.619 3 1023 0.34 4 1023 4578"
-  },
-  {
-   "source": "MLCompete (olimpiada-ai.ro)",
    "name": "MLCompete #42 — Automated Loan Evaluation System",
    "url": "https://platform.olimpiada-ai.ro/en/problems/42",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Automated Loan Evaluation — табличная бинарная классификация одобрения кредита.",
    "full_description": "💼 Automated Loan Evaluation System 💰 Modern financial institutions process thousands of loan applications daily. To quickly and accurately decide who is eligible, banks use automated systems based on risk models. You are tasked with building such a system. You have access to a realistic dataset of loan applications along with their approval history. Your objective is to develop a model that can evaluate new applications submitted by clients. You have been given two files: train.csv - historical applications with the final decision ( loan_status ) test.csv - new applications, for which we do not have a decision Main goal: predict a probability to classify each application as approved or rejected (a value between 0 and 1 , where 0 means definitely not approved and 1 means definitely approved). 📊 Dataset Each record represents a loan application with demographic, financial, behavioral, and loan-type information. Key attributes: customer_id - unique identifier age , occupation_status , years_employed annual_income , credit_score , credit_history_years savings_assets , current_debt defaults_on_file , delinquencies_last_2yrs , derogatory_marks product_type , loan_intent , loan_amount , interest_rate debt_to_income_ratio , loan_to_income_ratio , payment_to_income_ratio loan_status - only in train.csv , label to predict The final goal is to predict loan_status for rows in test.csv . 📝 Tasks The first three subtasks check understanding of the dataset structure. The last subtask evaluates the classification model. Subtask 1 (10 points) Classify each applicant in the test set by age: Young if age < 30 Adult if 30 ≤ age < 60 Senior if age ≥ 60 Subtask 2 (15 points) Determine the risk level based on debt_to_income_ratio : LowRisk if DTI < 20 MediumRisk if 20 ≤ DTI < 40 HighRisk if DTI ≥ 40 Subtask 3 (15 points) For each row in test, calculate: total_obligations = current_debt + derogatory_marks + delinquencies_last_2yrs Return an integer value. Subtask 4 (60 points) Build a classification model that predicts loan_status (a probability p in [0,1] ) for each test row. Evaluation is performed using AUC (Area Under the ROC Curve) . 🧮 Evaluation AUC ≥ 0.95 → 60 points AUC ≤ 0.80 → 0 points Intermediate range: proportional scoring Subtasks 1–3 are evaluated exactly (via comparison). 📄 Submission Format The submission.csv file must contain 4 rows for each test row , corresponding to the 4 subtasks. Structure: subtaskID datapointID answer Where: subtaskID - 1, 2, 3, or 4 datapointID - the customer_id answer - possible values depending on the subtask: Subtask 1: Young / Adult / Senior Subtask 2: LowRisk / MediumRisk / HighRisk Subtask 3: integer Subtask 4: probability that loan_status = 1 (real number 0–1) Example for customer_id = 9071 : subtaskID datapointID answer 1 9071 Adult 2 9071 MediumRisk 3 9071 12 4 9071 0.742 Good luck developing the automated loan evaluation system! 📊 Evaluation Metric: ROC AUC 📈 For Subtask 4 , evaluation uses ROC AUC (Area Under the ROC Curve) . This is a single measure summarizing classifier performance across all possible decision thresholds. How to compute ROC AUC Plot the ROC curve , representing: TPR (True Positive Rate) - proportion of approved applications correctly identified FPR (False Positive Rate) - proportion of rejected applications incorrectly approved Area under the curve (AUC) is computed using the trapezoidal rule : The curve is divided into trapezoids using vertical lines at FPR values and horizontal lines at"
@@ -5440,7 +5425,9 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/45",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Регрессия популярности песни.",
    "full_description": "🎧 Song Popularity Prediction 🎹 The digital music industry is evolving rapidly, and streaming platforms compete to estimate how well a song will perform among listeners. Popularity is more than just a number—it influences recommendations, automated playlists, and even artists' contracts. To train a new prediction module, you have received a dataset extracted from Spotify containing audio features and metadata of songs. Your goal is to build a model that predicts a song’s popularity based on its numerical characteristics and several auxiliary features. 📁 Dataset You have two files: train.csv — songs with all columns including popularity test.csv — songs without the popularity column (these must be predicted) Each song has a unique identifier and a set of features: track_id — unique song ID artists album_name track_name popularity (train only) duration_ms explicit danceability energy key loudness mode speechiness acousticness instrumentalness liveness valence tempo time_signature track_genre The main goal is to predict the popularity column for the test set. 🧠 Task (100 points) Build a machine learning model that predicts the popularity of each song in test.csv . Your predictions must be saved in a submission.csv file with the format: track_id,popularity 101,42.7 102,55.1 103,38.0 where: track_id — the song ID from the test set popularity — a real-valued (float) predicted popularity score 📊 Evaluation Evaluation will be performed using MAE (Mean Absolute Error) : The final score is based on the obtained MAE using the following rules: MAE ≤ 5 → 100 points MAE ≥ 20 → 0 points Intermediate values receive proportional scores between 0 and 100."
@@ -5487,7 +5474,9 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/51",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "National Rabbit Exhibition — табличная классификация пород/призёров (ONIA Winter Warmup 2025).",
    "full_description": "The National Rabbit Exhibition In a December month filled with large, quiet snowflakes, when the village still smelled of burnt wood and freshly lifted hay from the barns, the gates of the National Rabbit Exhibition opened in the heart of the country. Inside the heated halls, glowing under warm yellow lights, breeders from all corners of the land brought with hope their most beautiful and best-groomed animals. Specimens from three major rabbit breeds (each with their own well-established appearances and habits) were once again gathered in the same place. Each animal received a tag with an ID , and in a thick leather-bound register, all signs that distinguished it from the others were carefully written down: sex , weight , ear length , whether the ears were lopped or not, the color of the fur, age , type and quality of the fur, body shape , whether it had a dewlap or not, as well as overall health . This was the organizers’ way of keeping a complete record of every furry soul that entered the hall. Subtask 1 (20 points) The organizers want to know how many of the female rabbits brought to the exhibition had lopped ears and wore the noble shade of havana . The result must be determined based on the testing dataset ( test_data.csv ). Nothing complicated — you just need to perform a careful search through the records to provide this answer. Subtask 2 (40 points) On a cold morning, with their breath still fogging in the air, the organizers discovered that an important page had gone missing from the official register. The breed of each rabbit , so carefully recorded in previous years, could no longer be found anywhere. It was certain that specimens from three different breeds had been brought, but the signs that directly identified them had vanished. Those who knew rabbits well were asked to patiently observe all specimens and identify three natural groups , using only the noted traits: similarities, differences, clear boundaries, and areas where the animals seemed close or distant in appearance. The result must be determined based on the testing dataset ( test_data.csv ). Evaluation Metric To assess how well the divisions into breeds match reality, the Adjusted Rand Index (ARI) is used. This metric measures the similarity between two partitions, adjusted for random chance. The ARI coefficient between two partitions is defined as: where: RI is the Rand Index between the two partitions, E[RI] is the expected Rand Index for random partitions. If the resulting number is close to 1 , it means the breed separation was done skillfully and the boundaries between breed characteristics were correctly identified. The exhibition organizers are very strict and award maximum points for this subtask only if the evaluation metric equals 1 . Subtask 3 (40 points) That December, the number of participants was so large that the judges, despite their best efforts, could not score all the animals. Only some of them received a Judging Score , between 0 and 100. The score is a number between 0 and 100 , where: 0 means the specimen was disqualified, 100 means the specimen could be declared a champion. For the remaining rabbits, still unscored, a way had to be found to predict the score they would have received. The goal was to create a system capable of understanding the relationships between the already scored rabbits and those without a score, so that the estimates would be as close as possible to what the judges would have decided. The smaller the differences, t"
@@ -5498,7 +5487,9 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/52",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Регрессия задержки поездов по табличным данным.",
    "full_description": "🚆 Train delay prediction ⏱️ 🇷🇴 Context 🚃 The national railway company 🇷🇴 wants to predict the delay of a train (in minutes, integer) at its final station. For this purpose, you are provided with a dataset containing details of train trips over the past year. For each trip, the following characteristics are known: Name Type Description SampleID int Unique identifier for the sample departure_time string (HH:MM) Train departure time distance_km float Total distance of the route avg_speed_kmh float Actual average speed num_stops int Number of intermediate stops weather category Weather conditions: sunny , rain , snow , fog weekday category Day of the week special_events 0/1 Exceptional events on the route num_cars int Number of train cars ticket_price float Ticket price comfort_class category standard , intermediate , premium delay_minutes int Target variable – train delay in minutes The delay_minutes information is only available in the training set ( train.csv ). 🎯 Problem goal ⏱️ You need to train a model capable of predicting delay_minutes based on the other features. 📝 Submission format You must submit a CSV file ( submission.csv ) with the following format: SampleID,delay_minutes 0,12 1,3 2,15 Where: SampleID must match the values in test.csv delay_minutes is your model's prediction, rounded to the nearest integer 📊 Evaluation The evaluation will be based on MAE (Mean Absolute Error) : The final score is calculated according to the following rules: MAE ≤ 5 → 100 points MAE ≥ 20 → 0 points Intermediate values receive a proportional score between 0 and 100."
@@ -5509,8 +5500,9 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/55",
    "topics": [],
    "tags": [
-    "Tabular Regression",
-    "Time Series"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Gold Price Prediction — табличная регрессия.",
    "full_description": "🏅✍️ Gold Price Prediction 🟡💰 Gold has been considered for centuries a store of value, protecting wealth over the long term—especially during periods of inflation, currency depreciation, or economic instability. Central banks hold significant gold reserves, reflecting its importance in the global financial system. Your role is to develop an automated system capable of predicting the gold closing price ( gold close ) using a complex set of financial, economic and market indicators, including stock indices, commodity prices and foreign exchange rates. 📁 Dataset You have the following CSV file available: gold.csv – contains historical data from 2010 through 2024 about financial markets, commodities and economic indicators. Each row contains the following columns: date – date in YYYY-MM-DD format sp500 open, sp500 high, sp500 low, sp500 close, sp500 volume, sp500 high-low – S&P500 values nasdaq open, nasdaq high, nasdaq low, nasdaq close, nasdaq volume, nasdaq high-low – Nasdaq values us_rates_% – US reference interest rate CPI – Consumer Price Index usd_chf , eur_usd – exchange rates GDP – Gross Domestic Product silver open, silver high, silver low, silver close, silver volume, silver high-low – silver values oil open, oil high, oil low, oil close, oil volume, oil high-low – oil values platinum open, platinum high, platinum low, platinum close, platinum volume, platinum high-low – platinum values palladium open, palladium high, palladium low, palladium close, palladium volume, palladium high-low – palladium values gold open, gold high, gold low, gold close, gold volume – gold values (our target is gold close ) 💡 The data may have mixed granularities (daily, monthly, quarterly). Some values are missing ( NaN ), and the model must handle these correctly. 🧠 Task (100 points) Build a system that can predict the gold closing price ( gold close ) for the rows in test.csv . Save your predictions in a file named submission.csv with the following format: ID,gold close R00001,1820.35 R00002,1815.92 R00003,1822.10 where: ID – the unique identifier of the row from test.csv gold close – the price predicted by your system 📊 Evaluation Predictions will be compared against the real values in ground_truth.csv and evaluated using Root Mean Squared Error (RMSE) : RMSE = sqrt( sum((y_true - y_pred)^2) / n ) Final scoring is based on the RMSE obtained: RMSE ≤ 0.5 → 100 points RMSE ≥ 5 → 0 points For intermediate values, the score is assigned proportionally between 0 and 100."
@@ -5567,8 +5559,9 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/60",
    "topics": [],
    "tags": [
-    "Tabular Classification",
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Checked"
    ],
    "description": "Flight delay prediction — табличная регрессия/классификация.",
    "full_description": "✈️ Flight Delay Prediction 🕒 🇺🇸 Context The Federal Aviation Administration wants to develop a system capable of predicting flight arrival delays (in minutes) based on historical information about airlines, airports, and operational conditions. For this purpose, you are provided with a dataset aggregated at the level of: (year, month, airline, airport) . 📦 Available Features Name Description sample_id Unique sample ID (e.g., 0194048 ) year Reporting year month Reporting month carrier Airline code carrier_name Full airline name airport Airport code (IATA) airport_name Airport name arr_flights Total number of arrived flights arr_del15 Number of arrivals delayed >15 minutes carrier_ct Delays attributed to the carrier weather_ct Delays caused by weather conditions nas_ct Delays caused by the national air system (NAS) security_ct Security-related delays late_aircraft_ct Delays caused by late-arriving aircraft arr_cancelled Cancelled flights arr_diverted Diverted flights delay Target variable — total arrival delay (minutes, available only in train.csv ) Note: In test.csv , the delay column is absent and needs to be predicted. 🎯 Problem Objective Train a model to predict delay (in minutes) using the features listed above. The final result should be submitted as a submission.csv file. 📝 Submission Format The file should be: sample_id,delay 0194048,132 0194049,0 0194050,215 where: sample_id must match the values in test.csv delay represents an integer , the model's predicted delay 📊 Evaluation Evaluation is performed using MAE (Mean Absolute Error) : 🏆 Final Score MAE ≤ 400 → 100 points MAE ≥ 600 → 0 points Intermediate values receive proportional scores between 0 and 100. 🔎 Notes You are free to use any ML technique. Preprocessing, encoding, and feature engineering are allowed. Good luck and smooth flying! ✨"
@@ -5591,7 +5584,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/63",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Alzheimer's diagnosis prediction (tabular).",
    "full_description": "🧠 Alzheimer’s Diagnosis Prediction System 🩺 A medical institute aims to develop an automated system to assist in identifying patients at risk of Alzheimer’s disease , using clinical, demographic, and behavioral data. You are given a dataset of clinically evaluated patients, and your goal is to build a binary classification model that can predict the diagnosis for new patients. The following files are provided: train.csv – historical patient data, including the diagnosis test.csv – new patient data, without diagnosis The main objective: predict the probability that a patient is diagnosed with Alzheimer’s disease (a value between 0 and 1 , where 0 = healthy patient, 1 = patient with Alzheimer’s). 📊 Dataset Each row represents a patient and contains the following attributes: 🔑 Identification PatientID – unique patient identifier 👤 Demographic data Age – patient age Gender – sex ( 0 = female, 1 = male) Ethnicity – patient ethnicity (numerically encoded) EducationLevel – education level (numerically encoded) 🧬 Lifestyle and health BMI – body mass index Smoking – smoker ( 1 ) / non-smoker ( 0 ) AlcoholConsumption – alcohol consumption PhysicalActivity – level of physical activity DietQuality – diet quality SleepQuality – sleep quality 🏥 Medical history FamilyHistoryAlzheimers – family history of Alzheimer’s CardiovascularDisease – cardiovascular disease Diabetes – diabetes Depression – depression HeadInjury – head injury Hypertension – hypertension SystolicBP , DiastolicBP – blood pressure CholesterolTotal , CholesterolLDL , CholesterolHDL , CholesterolTriglycerides 🧠 Cognitive and functional assessments MMSE – Mini-Mental State Examination score FunctionalAssessment – functional assessment ADL – activities of daily living ⚠️ Cognitive and behavioral symptoms MemoryComplaints BehavioralProblems Confusion Disorientation PersonalityChanges DifficultyCompletingTasks Forgetfulness 🎯 Target label Diagnosis – only in train.csv 1 = Alzheimer’s diagnosis 0 = no Alzheimer’s diagnosis The final goal: predict Diagnosis for the rows in test.csv . 📝 Tasks The first two subtasks assess exploratory data analysis. The final subtask evaluates the performance of the classification model. Subtask 1 (10 points) For each patient in test.csv , calculate how many patients in the training set ( train.csv ) have the same age as the patient from the test set. Output a natural number in the submission file (according to the format below). Subtask 2 (15 points) For each patient in test.csv , determine the percentage of smokers ( Smoking = 1 ) in the training set ( train.csv ) who have the same age as the respective patient. Formula for a patient with age v : (number of smokers in train with Age = v) / (total number of patients in train with Age = v) * 100 Output a real number between 0 and 100 , with at most 2 decimal places , for each patient. If there are no patients with that age in the training set, the output value should be 0 . Subtask 3 (75 points) Build a classification model that predicts the probability of an Alzheimer’s diagnosis ( p ∈ [0,1] ) for each patient in test.csv . Evaluation is performed using the ROC Curve and AUC (Area Under the ROC Curve) . 🧮 Evaluation AUC ≥ 0.90 → 75 points AUC ≤ 0.70 → 0 points Values in between receive proportional scores Subtasks 1–2 are evaluated exactly (by direct comparison). 📄 Submission file format The file submission.csv must contain 3 rows for each patient in the test set , corresponding to the 3 subtasks. Structure: "
@@ -5707,7 +5701,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/77",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Equipment State Classification (industrial sensors).",
    "full_description": "设备状态分类 问题描述 你有一个包含工业传感器模拟记录的数据集。每一行对应一个样本，数据包含 四个数值特征 ： Feature1 ：X轴振动测量值。 Feature2 ：Y轴振动测量值。 Feature3 ：温度变化测量值。 Feature4 ：压力变化测量值。 存在 四种不同的设备状态 （标记为0、1、2、3）。目标是 为每个样本分配一个标签（0、1、2或3） ，使来自同一状态的样本被分组在一起。 数字的顺序不重要 ，只要同一类别的样本获得相同的标签即可。 提供的数据 train.csv ：包含用于训练的样本，包括 SampleID 和4个特征。 test.csv ：包含用于测试的样本，包括 SampleID 和4个特征。你需要为这些样本分配标签。 目标 使用训练数据来理解特征之间的模式和关系，然后为测试集中的每个样本分配一个介于 0 和 3 之间的标签。 评估 预测结果将使用**调整兰德指数（ARI）**进行评估，该指数衡量你的分组与设备的真实（隐藏）状态的匹配程度。 ARI = 1.0 表示完美匹配。 ARI ≈ 0 表示随机匹配。 提交文件 在为测试集分配标签后，你需要生成的文件必须是 csv 格式，并且必须 只包含两列 ： SampleID,Label 1,0 2,1 3,0 ..."
@@ -5718,7 +5713,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/78",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Public Transportation — классификация (видимо вид транспорта или поведение пассажира).",
    "full_description": "Public Transport 1 Problem Description You have at your disposal a dataset whose records contain the geographical positions of public transport vehicles from several European cities, over approximately 3 days. The records include the following fields: id = unique identifier of the vehicle to which the record refers timestamp = the moment (in GMT timezone) when the record was obtained vehicle_type = the type of vehicle, in the form of an integer number latitude , longitude = GPS coordinates of the vehicle at the moment given by timestamp Provided Data File dataset.csv : contains the dataset with the fields mentioned above Objective Subtask 1 Determine the number of distinct vehicles and the number of vehicle types present in the dataset. Subtask 2 Perform a grouping by cities of the vehicles whose information is found in the dataset. Subtask 3 Knowing that all vehicles whose type has the value 10 are located in the same city and withdraw to the 3 available depots during the night, determine the approximate coordinates of the depots. Evaluation For subtask 1 : 10 points for correctly determining both values. For subtask 2 : 30 points for correct city assignment. Partial scores will be weighted with the Adjusted Rand Index metric. For subtask 3 : For each depot, the least precise coordinate determined compared to the expected value is considered and 20 points are awarded if the precision is ≤ 0.003 degrees and 0 points if the precision is ≥ 0.005 degrees, between these values the score being linearly weighted. Submission File The output file is in CSV format, with the following header: subtaskID,Value1,Value2 For subtask 1 , a single row, as follows: 1, <number of distinct vehicles>,<number of vehicle types> For subtask 2 , one row for each distinct vehicle, as follows: 2,<id>,<city identifier> Each city will be uniquely identified with an integer number. For subtask 3 , one row for each determined depot, as follows: 3,<latitude>,<longitude> The coordinates will be real numbers, with at least 3 decimal places, ordered from south to north (from smaller latitude to larger latitude)."
@@ -5729,7 +5725,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/79",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Parkinson's Risks and Symptoms — предсказание заболевания по клиническим данным.",
    "full_description": "Parkinson Risk and Symptom Analysis and Classification Context Parkinson's disease is a progressive neurodegenerative condition that affects movement control and cognitive functions. It frequently occurs in people over 60 years old and manifests through a combination of motor symptoms (tremor, rigidity, bradykinesia, postural instability) and non-motor symptoms (sleep disorders, constipation, depression, speech problems). Early diagnosis and monitoring of disease progression are essential for optimizing treatment and improving patients' quality of life. Artificial Intelligence enables complex analysis of clinical data and lifestyle for: identifying risk factors classifying patients estimating disease progression To solve this problem you will have two files at your disposal: train.csv – contains all variables, including Diagnosis , for training models test.csv – contains the same variables, without the Diagnosis column, and the data from this file is used for generating predictions Dataset Description Column DType Description PatientID object Unique patient identifier Age int Patient age in years AgeGroup int Discretized age group (0–3) AlcoholConsumption float Amount of alcohol consumed per week BMI float Body mass index Bradykinesia bool Presence of bradykinesia (movement slowness) CholesterolHDL float HDL (\"good\") cholesterol level CholesterolLDL float LDL (\"bad\") cholesterol level CholesterolTotal float Total cholesterol CholesterolTriglycerides float Triglyceride level Constipation bool Patient suffers from constipation Depression int Depression indicator (0 = absent, 1 = present) Diabetes int Diabetes indicator (0 = absent, 1 = present) DiastolicBP int Diastolic blood pressure DietQuality float Diet quality assessment (numeric score) DoctorInCharge object Name of the doctor monitoring the patient DyslipidemiaIndex float Index derived from lipid profiles EducationLevel int Education level (numerically coded) Ethnicity int Ethnic group (numeric code) EyeColor object Eye color FamilyHistoryParkinsons int Family history of Parkinson's (0/1) FunctionalAssessment float General functional assessment Gender int Gender (0 = female, 1 = male) Hypertension int Arterial hypertension (0/1) MeanBP float Mean arterial pressure, calculated from systolic and diastolic MoCA float MoCA cognitive score PhysicalActivity float Physical activity level (hours/week) PosturalInstability bool Postural instability present Rigidity bool Muscle rigidity present SleepDisorders bool Sleep disorders present SleepQuality float Sleep quality score Smoking int Smoking indicator (0/1) SpeechProblems bool Speech problems present Stroke int History of stroke (0/1) SystolicBP int Systolic blood pressure TraumaticBrainInjury int History of traumatic brain injury (0/1) Tremor bool Presence of tremor UPDRS float Unified Parkinson's Disease Rating Scale score Diagnosis int 0 = healthy, 1 = Parkinson's Requirements For this problem you have to solve 3 tasks. Task 1 – Cardiometabolic Risk Score (20 points) Calculate for each patient in the test set a cardiovascular and metabolic risk score based on existing columns ( Hypertension , Diabetes , BMI ). Formula: CardiometabolicRiskScore = (Hypertension == 1) + (Diabetes == 1) + (BMI > 30) CardiometabolicRiskScore is a simple score that evaluates the patient's cardiovascular and metabolic risk. Each component adds one point to the score: Hypertension : if the patient has high blood pressure, 1 point is added. Diabetes : if the pat"
@@ -5740,7 +5737,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/81",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Famous Paintings — регрессия по атрибутам картин (размер холста, кисть, сложность, плотность цвета).",
    "full_description": "Famous Paintings Context When we refer to famous paintings, we must also consider objective characteristics such as canvas size, the type of brush used for painting, visual complexity, or color density, alongside their artistic quality. Automatic value estimation and painter style identification can help collectors and museums analyze large collections of artworks. To solve this problem, you will have two files at your disposal: train.csv – contains all variables, including target_price , for training models test.csv – contains the same variables, without the target_price column, and the data in this file is used for generating predictions Dataset Description Column DType Description SampleID int Unique identifier of the painting canvas_size object Canvas size (e.g., \"80x50\") is_oil_painting bool Indicator if the painting is an oil painting brush_type object Type of brush used num_colors int Number of colors used colorfulness float Degree of colorfulness complexity float Visual complexity brightness float Brightness of the painting contrast float Contrast of the painting stroke_density float Brush density has_signature bool Whether the painting has a signature is_framed bool Whether the painting is framed uses_gold_leaf bool Whether the painting uses gold leaf is_restored bool Whether the painting has been restored dominant_warm_colors bool Whether warm colors predominate dominant_color object Dominant color art_period_hint object Artistic period hint auction_house object Auction house image_quality object Image quality brightness_log float Logarithmic brightness complexity_x_stroke float Complexity × brush density fake_style_score float Fake style score painter_style_score float Painter style score target_price int Price of the painting (only in train.csv ) Requirements For this problem you have to solve 3 tasks. Task 1 – Artistic Authenticity Score (20 points) Recently, a revolutionary algorithm has been discovered by a group of researchers in artificial intelligence and art. It can evaluate, based on the objective characteristics of the painting, whether a painting is certainly authentic or not. For each painting, the algorithm calculates an Artistic Authenticity Score (AAS) using the following rules: If stroke_density > 0.7 , add 2 points to AAS. If complexity > 0.65 , add 2 points to AAS. If uses_gold_leaf = True , add 1 point to AAS. If has_signature = True , add 1 point to AAS. If num_colors > 65 and colorfulness > 0.7 , add 2 points to AAS. If contrast < 0.4 or brightness < 0.45 or brightness > 0.75 , subtract 1 point from AAS. After calculating the score, the painting receives the label: Autentic : if AAS ≥ 5 Incert : if AAS < 5 Answer in the submission file will be Autentic or Incert for each painting in test.csv . Task 2 – Grouping paintings by painter style (40 points) It is known that the paintings in the dataset were created by 5 famous painters , but the information about the painter is not available. Your task is to assign each painting in test.csv a numeric ID between 0 and 4 , so that paintings created by the same painter receive the same ID. Answer in the submission file will be the numeric ID (0, 1, 2, 3, or 4) for each painting in test.csv . All paintings created by the same painter should have the same ID. Task 3 – Painting price estimation (40 points) For each painting included in train.csv we have a specified price (the target_price column). Based on the information available in train.csv , train an Artificial In"
@@ -5751,7 +5749,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/82",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Educational Performance Evaluation — табличная регрессия успеваемости школ.",
    "full_description": "Problem Description 📖 Predicting Relative Performance Score of Schools You have been hired by the City of Austin, Texas to calculate the Relative Performance Score of educational institutions in the city. You have two files available that contain the following columns: 📋 Column Description Column Description SampleID Unique identifier for each observation County The county where the campus/district is located School Type School classification by level (Elementary, Middle School, etc.) Alternative Education Accountability Modified standards for schools with at-risk students Charter Public school administered by an independent board, not by a district (Yes/No) Number of Students Total number of enrolled students % Economically Disadvantaged Percentage of students eligible for free or reduced-price meals % EB/EL Students Emergent bilingual students / students learning English as a second language Overall Rating Final weighted score (70% best of Domain 1 or 2 + 30% Domain 3) Student Achievement Rating Performance on STAAR tests, graduation rates, and CCMR scores School Progress Rating Student progress or relative performance compared to peers Academic Growth Rating Individual student improvement on STAAR tests Closing the Gaps Rating Performance of student subgroups compared to established targets Relative Performance Rating School performance compared to schools with similar poverty levels (target column) Note: The Relative Performance Rating column is available only in the training data ( train.csv ). 🧩 Subtasks Subtask 1 (5 points) Calculate how many elementary schools exist in Anderson County in the test data ( test.csv ). The result must be an integer . Subtask 2 (5 points) What is the most frequent rating in the Academic Growth Rating column in the test data ( test.csv )? The result must be a string : \"A\" , \"B\" , \"C\" , \"D\" or \"F\" . Subtask 3 (90 points) Build a prediction model capable of estimating Relative Performance Rating for all educational institutions in the test data. 📊 Evaluation Evaluation is done using accuracy : accuracy = number_of_correct_predictions / total_number_of_predictions Scoring for Subtask 3: accuracy ≥ 0.9 → 90 points accuracy < 0.75 → 0 points Intermediate values are scored proportionally between 0 and 90 📄 Submission File Format The submission file must be in CSV format , with the following columns: subtaskID – subtask index datapointID – unique identifier from the dataset answer – your answer or prediction Example: subtaskID,datapointID,answer 1,1,0 2,2,F 3,100,C 3,101,A 3,102,B ... Note: For Subtask 1 and Subtask 2 , the datapointID value must be 1 and 2 , respectively. 📊 Data Source City of Austin – data.austintexas.gov Emergency Medical Services Department"
@@ -5773,7 +5772,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/84",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Petronel the cyclist — табличная задача (скорее всего регрессия).",
    "full_description": "Petronel the Cyclist Problem Description In order to maintain his health, Petronel has decided to be more athletic. To this end, he has started cycling regularly, both to work and for recreational purposes. He uses a dedicated application to monitor the rides he takes and is interested in obtaining statistics about his rides and observing how he manages to combine the useful with the pleasant, categorizing rides according to their purpose. After obtaining a dataset that describes all the rides he has taken since he started cycling, Petronel wants to find out what is the average speed at which he travels, according to the calendar month. Additionally, Petronel has started labeling rides, dividing them into: rides where he traveled between home and work, without making any detour; rides where he traveled between home and work, also making a detour for recreational purposes; and purely recreational rides. Because labeling is cumbersome, he needs a program that automatically performs the labeling of the remaining rides (and future ones) with reasonable accuracy. Training Dataset The file dataset_train.csv presents the following columns in the header: Activity ID : unique ID of the ride Activity Date : date and time of the ride's start in GMT timezone, in the format Aug 23, 2025, 4:55:36 PM Distance : distance traveled, expressed in kilometers, Elapsed Time : total duration of the ride, including rest time, expressed in seconds Moving Time : actual duration of cycling, expressed in seconds Starting Latitude , Starting Longitude : geographical coordinates of the starting point Finish Latitude , Finish Longitude : geographical coordinates of the stopping point Label : label applied to the ride, with the following meanings: COMMUTE : commute ride without detour; LEISURELY_COMMUTE : commute ride with detour; PURE_LEISURE : purely recreational ride. Evaluation Dataset The file dataset_eval.csv presents the same fields as the training data file, except for the Label field, which needs to be determined. Requirements Requirement 1 Determine the average travel speed for each month of the year, expressed in km/h , according to the data available in the training dataset. Requirement 2 Perform labeling of the rides present in the file dataset_eval.csv , starting from the labels of the records in the file dataset_train.csv . Evaluation For requirement 1 : 2.5 points for each correctly calculated average speed for each of the 12 months of the calendar year - in total, 30 points. For requirement 2 : 0.82 points for each 1% of the dataset labeled correctly, up to a maximum threshold of 70 points. In other words, ~15% incorrect labeling is tolerated. Submission File The output file is in CSV format, with the following header: subtaskID,Answer1,Answer2 For requirement 1 , exactly 12 rows, one for each month of the year, as follows: 1,<month>,<average speed> The month will be expressed through the three-letter abbreviation ( Jan , Feb etc.) and the average speed will be expressed as a real number with exactly 5 decimal places after the comma, rounded down. For requirement 2 , one row for each record present in the evaluation file, as follows: 2,<ride id>,<label> The ride ID is taken directly from the evaluation file, and the label has one of the values described above. Starting kit Find at this link a zip archive containing the training and evaluation files, as well as an example of a valid submission file , which scores 1 point."
@@ -5784,7 +5784,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/85",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Time Series"
    ],
    "description": "BAC under scrutiny — анализ результатов БАК (выпускной экзамен Румынии) на множестве лет: EDA + предсказание (time series FE).",
@@ -5796,7 +5797,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/86",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Fairplay — предсказать хаотичность футбольных матчей по статистике команд.",
    "full_description": "FairPlay and High-Risk Matches Context In a parallel universe, FairPlay is the department responsible for monitoring teams and players during matches. Over the years, FairPlay has observed that certain matches tend to become chaotic more often when the following occur: fouls, many cards, controversial decisions and scandals. To avoid scandals as much as possible, FairPlay asks you to build a model that classifies matches according to their chaos potential. You have historical data about matches available and need to build a classification model that can predict whether a match will become chaotic. Dataset Two files have been made available to you: train.csv - past matches, with chaos_label test.csv - new matches, without label Each row represents a match and contains the following columns: MatchID - unique match identifier Season - competitive season MatchWeek - round HomeTeam - home team AwayTeam - away team Goals - total number of goals Shots - total number of shots Corners - total number of corners YellowCards - number of yellow cards RedCards - number of red cards TeamStyles - list of playing styles associated with the match (e.g., [\"AggressiveTackler\", \"HighPressure\"]) chaos_label - only in train.csv, 1 = chaotic match / with scandal 0 = controlled match Final goal: Predict whether a match from test.csv is chaotic (binary values - 0 or 1). Tasks The first two subtasks verify understanding and data preprocessing. The last subtask evaluates the performance of the classification model. Subtask 1 (10 points) Calculate the number of matches played by the \"Chelsea\" team, both away and at home. Display a single integer number. Subtask 2 (15 points) Starting from the TeamStyles column, calculate a numeric score called StyleAggressionScore, defined as: StyleAggressionScore = (number of aggressive styles) / (total number of styles) The styles considered aggressive are: AggressiveTackler RiskTaker HighPressure ChaosInducer The result must be a real number between 0 and 1 . Subtask 3 (75 points) Build a classification model that predicts whether a match is chaotic ( chaos_label = 1 ) or controlled ( chaos_label = 0 ). For each row in test.csv , the model must return a binary prediction: 0 → controlled match 1 → chaotic match The model can use any feature available in the dataset, including artificial features built during previous subtasks. Evaluation For Subtask 3, evaluation is done using the macro F1 score. The macro F1 score is calculated as follows: F1-score is calculated separately for each class (0 and 1) the arithmetic mean of the two values is computed This metric treats both classes equally and penalizes models that correctly predict only the majority class. Evaluation thresholds: F1 macro ≥ 0.95 → 75 points F1 macro ≤ 0.80 → 0 points Intermediate values receive proportional scoring. Submission file format The submission.csv file must contain one line for the first subtask, and 2 lines for each row in test, corresponding to the other 2 subtasks. Structure: subtaskID,datapointID,answer where: subtaskID - 1 , 2 or 3 datapointID - the id value (or 1 for the first subtask) answer - depends on task: Subtask 1 : number of matches (integer) Subtask 2 : the described score (rounded to 2 decimal places) Subtask 3 : binary prediction (0/1) Example for id = 25758: subtaskID datapointID answer 1 1 2000 2 25758 0 3 25758 0 Dataset source: https://www.kaggle.com/datasets/ajaxianazarenka/premier-league?select=PremierLeague.csv"
@@ -5807,7 +5809,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/92",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Museums in Romania (9-10) — табличная классификация музеев.",
    "full_description": "Context An essential step in the digitization process of cultural heritage is the collection, structuring, and publication of data. Without real, coherent, and accessible data, any analysis or digital application would remain at a purely theoretical level. The National Heritage Institute directly contributes to this process by publishing open datasets on the government platform data.gov.ro , providing public access to official information about cultural institutions in Romania. Among these is the dataset regarding museums in Romania, which contains information such as museum names, administrative location, year of establishment, geographical coordinates, and descriptive data. In this problem, you will perform an exploratory analysis for this dataset. Dataset structure The dataset is provided in CSV (Comma-Separated Values) format and contains information about museums in Romania, resulting from the conversion of a JSON format published on the data.gov.ro platform. Each row in the CSV file corresponds to a museum, and each column describes a certain attribute of it. Relevant fields The dataset contains, among others, the following columns: _id – internal identifier of the record județul – the county where the museum is located denumirea (română) – the name of the museum in Romanian localitatea – the locality where the museum is located anul înființării – the year the museum was established categoria (română) – the category of the museum latitudine – geographical latitude coordinate longitudine – geographical longitude coordinate descrierea (română) – textual description of the museum URL – the museum's website (if available) Missing values are marked by empty fields. Requirements Task 1 - Total number of records (5 points) Determine the total number of museums in the dataset. Task 2 - Number of museums in București (10 points) Determine the number of museums for which we find the value București in the județul column. Task 3 - Number of columns with missing values (15 points) Determine the number of columns that contain at least one missing value ( NaN ). Task 4 - Year with the most museums (10 points) Determine the year when the most museums were established, based on the information we have specified in the anul înființării column. Task 5 - Distribution of museums by counties (20 points) Determine for each county that appears in this dataset how many museums exist in that county. Task 6 - Percentage of completed values (20 points) For each museum, calculate the percentage of completed columns (non-NaN) out of the total columns. The calculation of this score is performed using the following formula: Task 7 - Average completeness score (10 points) Determine the average completeness score for the entire dataset. For this, we will add the scores obtained in requirement 6 and divide the total by the number of museums. Task 8 - Museums with maximum completeness (10 points) Determine the percentage of museums that have the maximum completeness score. We define the maximum completeness score as the maximum value among those determined in task 6. Submission file format For automatic evaluation, you must upload a file in csv format with the following structure: id – row identifier (corresponding to the one in test.csv ) for task 1, you will use the value 1 for id for task 2, you will use the value 2 for id for task 3, you will use the value 3 for id for task 4, you will use the value 4 for id for task 5, you will use the name of each county (wri"
@@ -5818,7 +5821,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/93",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Museums of Romania (11-12) — версия для классов 11-12.",
    "full_description": "Context An essential step in the digitization process of cultural heritage is the collection, structuring, and publication of data. Without real, coherent, and accessible data, any analysis or digital application would remain at a purely theoretical level. The National Heritage Institute directly contributes to this process by publishing open datasets on the governmental platform data.gov.ro , providing public access to official information about cultural institutions in Romania. Among these is the dataset regarding museums in Romania, which contains information such as museum names, administrative location, founding year, geographical coordinates, and descriptive data. In this problem, you will perform an exploratory analysis for this dataset. Dataset Structure The dataset is provided in CSV (Comma-Separated Values) format and contains information about museums in Romania, resulting from the conversion of a JSON format published on the data.gov.ro platform. Each row in the CSV file corresponds to a museum, and each column describes a specific attribute of it. Relevant Fields The dataset contains, among others, the following columns: _id – internal identifier of the record județul – the county where the museum is located denumirea (română) – the name of the museum in Romanian localitatea – the locality where the museum is located anul înființării – the year the museum was founded categoria (română) – the category of the museum latitudine – the geographical coordinate of latitude longitudine – the geographical coordinate of longitude descrierea (română) – textual description of the museum URL – the museum's website (if available) Missing values are marked by empty fields. Requirements Task 1 - Total number of records (5 points) Determine the total number of museums in the dataset. Task 2 - Number of museums in Bucharest (10 points) Determine the number of museums for which we find the value București in the județul column. Task 3 - Number of columns with missing values (15 points) Determine the number of columns that contain at least one missing value ( NaN ). Task 4 - Year with the most museums (10 points) Determine the year in which the most museums were founded, based on the information specified in the anul înființării column. Task 5 - Distribution of museums by counties (20 points) Determine for each county that appears in this dataset how many museums exist in that county. Task 6 - Percentage of completed values (20 points) For each museum, calculate the percentage of completed columns (non-NaN) out of the total columns. The calculation of this score is performed using the following formula: Task 7 - Average completeness score (10 points) Determine the average completeness score for the entire dataset. For this, we will add the scores obtained in requirement 6 and divide the total by the number of museums. Task 8 - Museums with maximum completeness (10 points) Determine the percentage of museums that have the maximum completeness score. We define the maximum completeness score as the maximum value among those determined in task 6. Submission File Format For automatic evaluation, you must upload a file in csv format with the following structure: id – row identifier (corresponding to the one in test.csv ) for task 1, you will use the value 1 for id for task 2, you will use the value 2 for id for task 3, you will use the value 3 for id for task 4, you will use the value 4 for id for task 5, you will use the name of each county (writte"
@@ -5829,7 +5833,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/94",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Telecom Churn Analysis (9/10) — предсказание оттока клиентов телекома. (Также: версия 11-12 классов — MLCompete #95, https://platform.olimpiada-ai.ro/en/problems/95)",
    "full_description": "Customer Churn Analysis and Classification in Telecommunications Services Context Customer churn represents the voluntary abandonment of services by customers of a telecommunications operator. Understanding the factors that influence churn is essential for developing retention strategies and optimizing offers and services. Artificial Intelligence enables complex analysis of customer data to: identify customers at high risk of churning segment customers based on behavior and consumption estimate the impact of different offers and characteristics on churn decisions To solve this problem, you will have two files available: train.csv – contains all variables, including Churn , for training models test.csv – contains the same variables, without the Churn column, and the data in this file is used for generating predictions Dataset Description Column DType Description SampleID int Unique customer identifier Age int Customer age Avg Monthly GB Download int Monthly average of downloaded data (GB) Avg Monthly Long Distance Charges float Average monthly cost for long distance calls City object Customer's city CLTV int Estimated Customer Lifetime Value Contract object Contract type (monthly, annual, etc.) Country object Customer's country Customer ID object Internal unique customer identifier Dependents int Number of dependents Device Protection Plan int 1 if exists, 0 if not Gender object Customer gender Internet Service int Internet service indicator Internet Type object Internet connection type Lat Long object Latitude and longitude coordinates Latitude float Latitude Longitude float Longitude Married int 1 if customer is married, 0 otherwise Monthly Charge float Monthly cost of services Multiple Lines int 1 if multiple lines exist, 0 otherwise Number of Dependents int Total number of dependents Number of Referrals int Number of referrals made to other customers Offer object Type of offer received (if any) Online Backup int 1 if exists, 0 otherwise Online Security int 1 if exists, 0 otherwise Paperless Billing int 1 if electronic billing exists Partner int 1 if customer has partner, 0 otherwise Payment Method object Bill payment method Phone Service int 1 if phone service exists, 0 otherwise Population int City population Premium Tech Support int 1 if premium support exists, 0 otherwise Quarter object Quarter in which data is recorded Referred a Friend int 1 if customer referred a friend Satisfaction Score int Customer satisfaction score Senior Citizen int 1 if customer is senior, 0 otherwise State object Customer's state/province Streaming Movies int 1 if movie streaming service exists Streaming Music int 1 if music streaming service exists Streaming TV int 1 if TV streaming service exists Tenure in Months int Number of months since contract start Total Charges float Total amount paid by customer Total Extra Data Charges int Additional costs for data Total Long Distance Charges float Total amount paid for long distance calls Total Refunds float Total amount refunded to customer Total Revenue float Total revenue generated by customer Under 30 int 1 if customer is under 30 years old Unlimited Data int 1 if plan has unlimited data Zip Code int Customer's zip code Ping Score float Network performance score Avg Speed float Average internet connection speed TV Type object TV receiver type Link Quality Index float Link quality index Total Short Distance Charges float Costs for local calls Churn int 1 if customer churned, 0 otherwise Requirements For t"
@@ -5852,7 +5857,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/182",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Voltline Dealership — табличная задача (вероятно классификация/регрессия).",
    "full_description": "Voltline Dealership Context The year is 2077, and at the Voltline dealership, the old \"Price-Sync\" hardware has finally broken down. Without it, the dealership has no way to set car prices. Your mission? Build a machine learning model that can predict car prices using historical sales data. You have two files at your disposal: train.csv – complete information about the cars test.csv – the same information, but without the price column This is a regression problem: your model will predict a continuous number - the price of a car. Dataset Column Type Description CarID int Unique identifier for each car CarName object Model name symboling float Insurance risk rating fueltype object Fuel type (e.g., gas, diesel) aspiration object Engine aspiration type (e.g., standard, turbo) doornumber object Number of doors (e.g., two, four) carbody object Body style (e.g., sedan, hatchback, convertible) drivewheel object Drive type (e.g., fwd, rwd, 4wd) enginelocation object Engine location (e.g., front, rear) wheelbase float Distance between axles carlength float Total length of the car carwidth float Total width of the car carheight float Total height of the car curbweight float Weight of the car without passengers or cargo enginetype object Engine type (e.g., ohc, dohc, rotor) cylindernumber object Number of cylinders (e.g., four, six) enginesize int Engine displacement fuelsystem object Fuel system (e.g., mpfi, 2bbl) boreratio float Cylinder bore diameter stroke float Piston stroke length compressionratio float Compression ratio horsepower int Engine power in horsepower peakrpm int Maximum engine speed citympg float Fuel efficiency in the city highwaympg float Fuel efficiency on the highway price float Car price (target variable) Requirements For this problem, you must solve 3 tasks. Task 1 – Most Frequent Engine Type (10 points) Find the enginetype value that appears most frequently in the training set. Task 2 – Average Price of Gas Cars (20 points) Calculate the average of the price column for all cars that use gas as fuel in the training set. The result must be rounded to 2 decimal places . Task 3 – Price Prediction (70 points) Build a regression model that predicts price based on the information available in train.csv . Generate predictions for each car in test.csv . Evaluation Task 1 and Task 2 are evaluated by exact matching . Task 3 is evaluated using the R² Score : R² ≥ 0.95 → 70 points R² ≤ 0.80 → 0 points Intermediate values receive proportional points Submission Format The submission.csv file must contain the following columns: subtaskID,datapointID,answer 1,1,ohc 2,1,12728.06 3,436,19811.0 3,441,16306.0 where: subtaskID - 1 , 2 , or 3 datapointID - 1 for Task 1 and Task 2; the CarID value from the test set for Task 3 answer - depends on the task: Task 1: engine type (string) Task 2: average price rounded to 2 decimal places Task 3: predicted price Dataset source: https://www.kaggle.com/datasets/imgowthamg/car-price/data"
@@ -5863,7 +5869,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/184",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "GalacticWars winner prediction — предсказать исход боёв (оружие, броня, сила, мораль).",
    "full_description": "GalacticWars winner prediction Context In the distant Galactic Wars universe, two equally powerful armies are in constant conflict: the Jedai and the Imperials (Calmtroopers). One of the most powerful Jedai, Anaklyn Groundwalker, is caught in a mission with numerous battles from which, this time, he is not sure he will escape. Palme, his girlfriend, asks for your help and wants to predict if Anaklyn will be victorious based on various battle factors, such as weapons, armor, force, but also moral state (self-confidence). Luckily for you, a Calmtrooper (from the Imperial camp) dropped a set with his equipment, and you can build a model that can predict Anaklyn's victory. You have found two files: train.csv - data about previous battles, containing the winner test.csv - data about future battles, without knowing the winner Dataset Name Type Description FightID int Unique ID of the fight weapon_jedai object Jedai Weapon armour_jedai object Jedai armor protection (%) weapon_calmtrooper object Calmtrooper Weapon armour_calmtrooper object Calmtrooper armor protection (%) injuries object Injured fighter number_of_fights float Number of fights fought force_level float Opponent's force level accuracy_calmtrooper float Calmtrooper's shooting accuracy fight_planet object Planet where the fight takes place weather_conditions object Weather conditions surprise_attack bool Surprise attacks moral_jedai float Jedai morale moral_calmtrooper float Calmtrooper morale winner int Winner of the fight Requirements Palme, known for being demanding (and because she noticed you are skilled), asks you to solve 4 tasks. Subtasks 1 and 2 involve data analysis and processing. Subtasks 3 and 4 evaluate the performance of the label assignment model and the classification model, respectively. Subtask 1 - Proper Equipment for Nabira (5 points) To equip himself well for battle, Anaklyn needs to know how to dress. Calculate how many fights in test.csv take place on planets of type \"Nabira\" and where the weather conditions ( weather_conditions ) are of type Snow . Subtask 2 - Replacing Trap Weapons (5 points) You discovered that the Calmtroopers set a trap for you and that they actually no longer use the weapons Anaklyn knew: Replace all occurrences of the weapon Experimental Weapon with Double Blaster in the train.csv dataset and display how many values you had to replace. (For the following subtasks, this replacement has already been performed in test.csv ) Subtask 3 - Categorizing Fighting Styles (20 points) Analyzing previous fights, Anaklyn noticed that they can be categorized into 3 fighting styles (0, 1, 2), using the skills of the Jedai and the opponent (force, morale, armor, experience, etc.). For each fight in test.csv , determine the corresponding fighting style. Evaluation Metric The Adjusted Rand Index (ARI) is used to evaluate the fight categorization, which measures the similarity between the two partitions, adjusting for random matching. The ARI coefficient for two partitions is defined as: ARI = (RI - E[RI]) / (max(RI) - E[RI]) where: RI represents the Rand index between the two partitions; E[RI] is the expected value of the Rand index for random partitions. If the obtained number is close to 1, it means the division into fight types was done skillfully and the boundaries between fight characteristics were correctly identified. Anaklyn's life depends on knowing these types of battles, so the maximum score for this subtask is offered only if the evaluation m"
@@ -5874,7 +5881,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/186",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Clustering"
    ],
    "description": "Adult Income — Annual Income Prediction (классика >50k).",
@@ -5886,7 +5894,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/188",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection"
    ],
    "description": "Fire Distinguisher (9/10) — анализ данных автомобильных сенсоров: статистика, аномалии, классификация угроз.",
@@ -5898,7 +5907,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/190",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Clustering"
    ],
    "description": "Battlefield Recon — обнаружение тяжёлых юнитов и группировка формирований.",
@@ -5910,7 +5920,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/198",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Robots in the Maze (9/10) — анализ данных автономных роботов: статистика среды + классификация.",
    "full_description": "Context In a research center for autonomous systems, several types of robots are being tested. For these experiments, various types of arenas were used, and each robot follows a specific exploration strategy . During each experiment, the robot is equipped with a set of sensors and monitoring systems that collect information about its activity. The recorded data describes different aspects of the robot's behavior and the environment in which it operates. These can include numerical values (e.g., average speed, distance traveled, number of collisions, or items collected), but also categorical or descriptive information (such as arena type or environmental conditions). By analyzing this data, patterns can be observed in how robots move, explore space, collect items, or react to obstacles. Analyzing this data is important for: identifying the strategy followed by a robot based on observed behavior; understanding the features that differentiate strategies from each other; building models capable of automatically recognizing exploration patterns. To solve this problem, you will have two files at your disposal: train.csv – contains labeled examples used for analysis and model training; test.csv – contains the same variables, without the strategy_label column, and is used for generating predictions. Robot Strategies Four types of strategies are used in the experiments: explorer – a robot that tries to visit as many different areas as possible; collector – a robot that focuses on collecting items; guardian – a robot that patrols and frequently returns to the same regions; sprinter – a robot that moves quickly, emphasizing speed and coverage in a short time. Dataset Description Each row in the train.csv and test.csv files corresponds to an experiment. The dataset contains columns describing different aspects of the robot's behavior. Examples of such features are: Column Type Description robot_id string Unique identifier of the experiment arena_type string Type of arena where the experiment took place weather string Environmental conditions during the experiment difficulty int Arena difficulty level laps int Number of laps completed avg_speed_mps float Average speed of the robot (m/s) distance_m float Total distance traveled battery_used_pct float Percentage of battery consumed collisions int Number of collisions with obstacles unique_cells float Number of distinct areas explored items_collected int Number of items collected pause_count int Number of pauses or stops turn_rate float Frequency of direction changes scan_accuracy float Accuracy of scans performed return_time_s float Time required to return to the starting point efficiency_score float Aggregate score of robot efficiency coverage_ratio float Proportion of the arena explored scan_turn_sync float Synchronization between scans and direction changes pickup_efficiency float Efficiency of item collection detour_index float Index of route deviations safety_margin float Safety margin from obstacles patrol_consistency float Consistency of patrolling an area speed_burst float Intensity of rapid accelerations risk_index float Movement risk index strategy_label string Robot strategy (only in train.csv ) Requirements Task 1 - Number of Arena Types (15 points) Using the data from the train.csv file, determine how many distinct values appear in the arena_type column. Task 2 - Maximum Observed Speed (15 points) Using the data from the train.csv file, determine the maximum value in the avg_speed_mps col"
@@ -5921,7 +5932,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/200",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Sparks — табличная задача (вероятно классификация по описанию).",
    "full_description": "Problem Description At a nighttime drone show, a formation of drones performs synchronized movement in the same plane. While moving simultaneously in the same direction, these drones occasionally throw colored sparks in all directions around them, these sparks providing the only visual clue regarding the position of the drones at a given moment. For the purpose of proactive detection of unwanted accidents of the drone installation during the show, an automated system regularly takes photographs of the ongoing show and records the positions of the observed sparks. Based on the positions of sparks detected at different moments, the goal is to detect the drones, respectively their number, and predict their position at a given moment in the future. Dataset The dataset.csv file presents the following columns in the header: Name : the name of the photograph Timestamp : the moment in time when the photograph containing the described spark was taken, in the format Jan 26, 2026, 12:00:00 AM X : the horizontal position of a spark, expressed in feet from the edge of the show area, as a real number Y : the vertical position of a spark, expressed in feet from the ground, as a real number Requirements Requirement 1 Determine the number of distinct photographs in the dataset and the number of drones in the formation. Requirement 2 Determine the position of the drones at all moments for which there are photographs of emitted sparks. Requirement 3 Determine the positions of the drones at the moment Jan 26, 2026, 12:03:20 AM, assuming they continue their movement unabated. Evaluation 10 points are awarded by default , according to MEC regulations. For requirement 1 : 20 points for correctly determining the number of photographs and 20 points for correctly determining the number of drones in the formation. For requirement 2 : the percentage of correct answers multiplied by 40 points. A deviation of up to 0.7 feet from the expected value is accepted for either of the two coordinates. For requirement 3 : 10 points for the correct answer. A deviation of up to 0.7 feet from the expected value is accepted for either of the two coordinates. For requirements 2 and 3 , the order of drones represented in the file does not matter. For scoring, the evaluated values and expected values will be extracted, sorted in ascending order by X value, and compared 1 to 1. Submission File The submission file has the following header: subtaskID,Answer1,Answer2,Answer3 For requirement 1 , exactly one row, as follows: 1,<distinct photographs>,<number of drones in formation>,<ignored value> Attention! For requirement 1, the last value in the row is ignored during scoring, but must be present to not corrupt the CSV file format. For requirement 2 , ideally exactly (but no more than) <number of photographs> multiplied by <number of drones> rows, each of the form: 2,<timestamp>,<x-position>,<y-position> representing the moment in time to which the record refers, followed by the horizontal and vertical position of one of the drones. A deviation of up to 0.7 feet from the expected value is accepted. For requirement 3 , one row for each drone, as follows: 3,\"Jan 26, 2026, 12:03:20 AM\",<x-position>,<y-position> representing the moment in time given in the requirement, followed by the horizontal and vertical positions of each drone. A deviation of up to 0.7 feet from the expected value is accepted."
@@ -5932,7 +5944,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/202",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Juditis Mission (11/12) — IHMA: классификация comic-book вселенных.",
    "full_description": "Context Following a cosmic phenomenon called the Chaos Convergence , characters from multiple comic book universes have been reunited into a single reality. The Interdimensional Hero Monitoring Agency (IHMA) has centralized data about these heroes to quickly analyze their profiles and make automated decisions. The recorded data describes both general character traits and associated abilities and numerical statistics. Analyzing this data is important for: quickly extracting descriptive statistics about the dataset; reconstructing missing information for new characters; classifying abilities based on other available traits. To solve the problem, you will have two files at your disposal: train.csv – contains labeled examples used for analysis and model training; test.csv – contains the same variables but does not include the powerstats__combat and Super Strength columns, which must be predicted in Task 3 and Task 4. Hero Universes The dataset includes characters from several editorial universes, for example: Marvel Comics DC Comics Dark Horse Comics Image Comics Shueisha George Lucas Microsoft J. K. Rowling In this problem, the notion of \"universe\" corresponds to the value in the Publisher column. Dataset Description Each row in the train.csv and test.csv files corresponds to a character. The dataset contains: a unique identifier: id ; descriptive variables about the character; binary variables indicating the presence or absence of certain abilities; continuous numerical variables of type powerstats__... ; additional columns with information about heroes. Example columns: Column DType Description id int Unique identifier of the character name object Character name Publisher object Publisher / editorial universe Gender object Character gender Race object Species / race Eye color object Eye color Hair color object Hair color Height float Character height Weight float Character weight Alignment object Alignment: good , bad , neutral or - powerstats__intelligence float Intelligence level powerstats__strength float Strength level powerstats__speed float Speed level powerstats__durability float Durability level powerstats__power float General power level powerstats__combat float Combat level (only in train.csv ) Super Strength int Binary ability: super-strength (only in train.csv ) Agility int Binary ability: agility Flight int Binary ability: flight Requirements Task 1 - Number of Distinct Universes (10 points) Using the data from the train.csv file, determine how many distinct values appear in the Publisher column. Task 2 - Publisher with the Most Positive Heroes (10 points) Using the data from the train.csv file, consider only characters where Alignment = good . Determine which publisher contains the most positive heroes . In case of a tie, choose the publisher that comes first alphabetically. Task 3 - Prediction of powerstats__combat (40 points) Based on the data from the train.csv file, train a model capable of predicting the values of the powerstats__combat attribute for each character in test.csv . Task 4 - Prediction of the Super Strength Ability (40 points) Based on the data from the train.csv file, train a model capable of predicting the values of the Super Strength attribute for each character in test.csv . Allowed values are (predictions must be final binary labels, not probabilities ): 0.0 1.0 Submission File Format The submission file must be in csv format and contain the following columns: Column Description id Identifier of the e"
@@ -5955,7 +5968,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/206",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Clustering"
    ],
    "description": "Bank Marketing — табличная задача о телемаркетинге банка (классификация депозит).",
@@ -5979,7 +5993,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/220",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection"
    ],
    "description": "Credit Card Fraud Detection (классика).",
@@ -6003,7 +6018,8 @@
    "url": "https://platform.olimpiada-ai.ro/en/problems/240",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection",
     "Time Series"
    ],
@@ -6195,7 +6211,8 @@
    "url": "https://www.bohrium.com/competitions/5135119121",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "По датасету координат (x,y) бросков предсказать попал или нет — 3-слойный MLP с dropout, 5 эпох.",
    "full_description": "",
@@ -6232,7 +6249,8 @@
    "url": "https://www.bohrium.com/competitions/1723157880",
    "topics": [],
    "tags": [
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Time Series"
    ],
    "description": "Маятник: измерения θ(t) с пропусками + сила, приложенная в неизвестный момент. Найти параметры дифф. уравнения движения (α, β1, β2) — Physics-Informed NN с регрессией по формуле.",
@@ -6258,7 +6276,8 @@
    "url": "https://github.com/stefanasandei/roai-solved/blob/main/international-contests/ioai/2024/at-home/IOAI%202024_%20ML%20Problem.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Бинарная классификация виджетов на Ruby/Sapphire с feature engineering. Часть меток от 'триксер-спрайта' искажена. Tabular ML.",
    "full_description": "",
@@ -6324,7 +6343,8 @@
    "url": "https://github.com/stefanasandei/roai-solved/blob/main/international-contests/ioai/2025/mock-contest/01-dark-matter.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Image Classification"
    ],
    "description": "Mock-задача IOAI 2025: классификация наблюдений (вероятно тёмная материя vs обычная) по астрономическим признакам. LB 0.699/0.623.",
@@ -6337,8 +6357,8 @@
    "url": "https://github.com/stefanasandei/roai-solved/blob/main/international-contests/ioai/2025/mock-contest/02-chem-simulation.ipynb",
    "topics": [],
    "tags": [
-    "Tabular Classification",
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Chemical Simulation — табличная задача (нормализация, outliers, FE, model). LB 0.969/0.933.",
    "full_description": "",
@@ -6363,7 +6383,8 @@
    "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Использовать вероятности предсказаний модели как confidence; сравнить с y_target и отфильтровать только high-confidence строки. Theory of ML / confidence calibration.",
    "full_description": "",
@@ -6375,8 +6396,9 @@
    "url": "https://judge.nitro-ai.org/competitions/gaia/ai-league-i",
    "topics": [],
    "tags": [
-    "Dimensionality Reduction",
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Dimensionality Reduction"
    ],
    "description": "Снижение размерности с помощью Lasso feature selection.",
    "full_description": "",
@@ -6426,7 +6448,8 @@
    "url": "https://contest.yandex.ru/contest/69765/problems/A/",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Тест на 30 учеников: средний балл 75, медиана 78, std=5. Добавили 2 учеников по 90 баллов. Найти новые средние / std. Также: Дархан с 78 хочет получить похвалу при превышении медианы на новый std. Сколько ему нужно добавить?",
    "full_description": "",
@@ -6438,8 +6461,9 @@
    "url": "https://contest.yandex.ru/contest/69765/problems/B/",
    "topics": [],
    "tags": [
-    "Anomaly Detection",
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction",
+    "Anomaly Detection"
    ],
    "description": "Метеоролог Адилхан подозревает, что интерн Дархан подделал данные о чистоте льда: вместо поездок на станцию иногда брал лёд из холодильника. Удалить выбросы из 12-месячного датасета (IQR и Z-score методы).",
    "full_description": "",
@@ -6451,7 +6475,8 @@
    "url": "https://contest.yandex.ru/contest/69765/problems/C/",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Дано n экспериментальных пар (t, m(t)). Найти период полураспада T_0 по m(t) = m_0·(1/2)^(t/T_0). Trick: логарифмированием получить линейную регрессию.",
    "full_description": "",
@@ -6488,7 +6513,8 @@
    "url": "https://contest.yandex.ru/contest/69765/problems/F/",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "Реализовать линейный SVM на 2D плоскости: n точек класса ±1, найти оптимальную разделяющую прямую ax+by+c=0, максимизирующую сумму расстояний до двух ближайших опорных точек разных классов.",
    "full_description": "",
@@ -6500,8 +6526,8 @@
    "url": "https://contest.yandex.ru/contest/71291/problems/",
    "topics": [],
    "tags": [
-    "Tabular Classification",
-    "Tabular Regression",
+    "Tabular",
+    "Target Prediction",
     "Anomaly Detection"
    ],
    "description": "10 отборочных задач (A-J) по математике/программированию: комбинаторика, вероятности, парабола, Markov chain, матричное умножение, геометрия, expected value, outlier detection по 3D-координатам, разделяющая прямая. Tabular/CS-уровень.",
@@ -6527,8 +6553,9 @@
    "url": "https://github.com/BeksultanSagyndyk/faio-tasks/blob/main/faio-2025/qualification/task5_Can_You_Become_AI_Yoga_Instructor.md",
    "topics": [],
    "tags": [
-    "Time Series",
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Time Series"
    ],
    "description": "Бинарная классификация правильности йога-позы по IMU-сенсорам (X_train/y_train/X_test). Метка 0=incorrect, 1=correct. Time series classification.",
    "full_description": "",
@@ -6566,7 +6593,8 @@
    "url": "https://github.com/BeksultanSagyndyk/faio-tasks/blob/main/faio-2025/day1/qaz_letters.md",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Image Classification"
    ],
    "description": "Tabular classification 42 казахских кириллических букв. Не raw image, а handcrafted features: статистика (mean/std/skewness/histogram), shape (centroid, bbox, Hu moments, contours, Fourier descriptors, symmetry), projection profiles. Classical ML + feature engineering.",
@@ -6593,7 +6621,8 @@
    "url": "https://github.com/BeksultanSagyndyk/faio-tasks/blob/main/faio-2025/day2/HearMe_Personalized_Music_Recommender.md",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Sequence-to-Sequence",
     "Clustering"
    ],
@@ -6621,7 +6650,8 @@
    "url": "https://ioai-official.org/bulgaria-2024",
    "topics": [],
    "tags": [
-    "Tabular Regression"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "IOAI 2024 (Burgas) On-Site Round, ML challenge: регрессия в высокоразмерном (hyperspace) пространстве признаков. Стандартная on-site задача индивидуального тура.",
    "full_description": "",
@@ -6633,7 +6663,8 @@
    "url": "https://ioai-official.org/china-2025",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Pseudo-labeling",
     "Clustering"
    ],
@@ -6671,8 +6702,9 @@
    "url": "https://github.com/NicolasGegenava/AI-Olympiad/tree/main/Malaysia%20OAI/2025/Letter%20Footprint",
    "topics": [],
    "tags": [
-    "Image Classification",
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction",
+    "Image Classification"
    ],
    "description": "Letter Footprint: задача малайзийской OAI 2025 — распознавание букв по 'отпечатку' (вероятно tabular handcrafted features или image cls по штриху).",
    "full_description": "",
@@ -6697,7 +6729,8 @@
    "url": "https://sprawdzai.org",
    "topics": [],
    "tags": [
-    "Tabular Classification",
+    "Tabular",
+    "Target Prediction",
     "Clustering"
    ],
    "description": "Heavy KNN — задача Poland MIKO связанная с алгоритмом k-ближайших соседей (точные детали в notebook).",
@@ -6749,11 +6782,84 @@
    "url": "https://github.com/NicolasGegenava/AI-Olympiad/tree/main/Singapore%20OAI/2025/Mental%20Health",
    "topics": [],
    "tags": [
-    "Tabular Classification"
+    "Tabular",
+    "Target Prediction"
    ],
    "description": "По данным mental-health survey предсказать наличие депрессии (Depression target). Метрика — accuracy. Output: submission.csv с id, Depression (0/1). Tabular ML.",
    "full_description": "",
    "solutions_url": "https://github.com/NicolasGegenava/AI-Olympiad/tree/main/Singapore%20OAI/2025/Mental%20Health"
+  },
+  {
+   "source": "MLCompete (olimpiada-ai.ro)",
+   "name": "MLCompete #20 — Daily Average Temperature Prediction",
+   "url": "https://platform.olimpiada-ai.ro/en/problems/20",
+   "topics": [],
+   "tags": [
+    "Tabular",
+    "Target Prediction"
+   ],
+   "description": "Регрессия дневной температуры по метеопризнакам (влажность, ветер, давление).",
+   "full_description": ""
+  },
+  {
+   "source": "MLCompete (olimpiada-ai.ro)",
+   "name": "MLCompete #21 — Solar Energy Production Prediction",
+   "url": "https://platform.olimpiada-ai.ro/en/problems/21",
+   "topics": [],
+   "tags": [
+    "Tabular",
+    "Target Prediction"
+   ],
+   "description": "Регрессия дневной выработки солнечной панели (kWh) по погоде.",
+   "full_description": ""
+  },
+  {
+   "source": "MLCompete (olimpiada-ai.ro)",
+   "name": "MLCompete #22 — Diabetes Diagnosis Based on Blood Tests",
+   "url": "https://platform.olimpiada-ai.ro/en/problems/22",
+   "topics": [],
+   "tags": [
+    "Tabular",
+    "Target Prediction"
+   ],
+   "description": "Бинарная классификация диабета по 8 анализам крови.",
+   "full_description": ""
+  },
+  {
+   "source": "MLCompete (olimpiada-ai.ro)",
+   "name": "MLCompete #23 — Intro Python: Converting temperatures from Celsius to Fah...",
+   "url": "https://platform.olimpiada-ai.ro/en/problems/23",
+   "topics": [],
+   "tags": [
+    "Tabular",
+    "Target Prediction"
+   ],
+   "description": "Intro Python: конвертация температуры C→F.",
+   "full_description": ""
+  },
+  {
+   "source": "MLCompete (olimpiada-ai.ro)",
+   "name": "MLCompete #31 — Prediction of academic performance",
+   "url": "https://platform.olimpiada-ai.ro/en/problems/31",
+   "topics": [],
+   "tags": [
+    "Tabular",
+    "Target Prediction"
+   ],
+   "description": "Предсказание академической успеваемости (tabular).",
+   "full_description": ""
+  },
+  {
+   "source": "MLCompete (olimpiada-ai.ro)",
+   "name": "MLCompete #41 — Royal Diamond Store",
+   "url": "https://platform.olimpiada-ai.ro/en/problems/41",
+   "topics": [],
+   "tags": [
+    "Tabular",
+    "Target Prediction"
+   ],
+   "description": "Royal Diamond Store — табличная регрессия (цена бриллиантов от характеристик).",
+   "full_description": ""
   }
  ],
  "sources": [
@@ -6902,10 +7008,10 @@
   "Self-Supervised Vision",
   "Sequence-to-Sequence",
   "Speech",
-  "Tabular Classification",
-  "Tabular Regression",
+  "Tabular",
+  "Target Prediction",
   "Text Classification",
   "Time Series"
  ],
- "count": 385
+ "count": 382
 }
